@@ -1,3 +1,44 @@
+.hero {
+  height: 320rpx;
+  margin: 20rpx 24rpx 0;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-emoji {
+  font-size: 140rpx;
+  filter: drop-shadow(0 8rpx 16rpx rgba(60, 40, 20, 0.18));
+}
+
+.hero-photo {
+  width: calc(100% - 48rpx);
+  height: 360rpx;
+  margin: 20rpx 24rpx 0;
+  border-radius: 24rpx;
+}
+
+.cover-breakfast {
+  background: linear-gradient(135deg, #ffe9c7, #ffd18d);
+}
+
+.cover-meat {
+  background: linear-gradient(135deg, #ffdccb, #ffb497);
+}
+
+.cover-veg {
+  background: linear-gradient(135deg, #dcf0de, #abddb5);
+}
+
+.cover-soup {
+  background: linear-gradient(135deg, #d9edf6, #abd8ea);
+}
+
+.cover-staple {
+  background: linear-gradient(135deg, #f3ecda, #e5d5ae);
+}
+
 .r-name {
   font-size: 40rpx;
   font-weight: 700;

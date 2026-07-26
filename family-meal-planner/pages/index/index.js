@@ -1,6 +1,7 @@
 const planner = require('../../utils/planner');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
+const covers = require('../../data/covers');
 
 const MEAL_LABELS = { breakfast: '早餐', lunch: '午餐', dinner: '晚餐' };
 
@@ -72,6 +73,9 @@ Page({
           return {
             id: d.id,
             name: d.name,
+            type: d.type,
+            emoji: covers.emojiFor(d),
+            image: d.image || '',
             tags: d.tags,
             time: d.time,
             nutrition: d.nutrition,

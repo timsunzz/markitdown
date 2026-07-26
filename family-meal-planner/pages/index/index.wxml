@@ -30,6 +30,14 @@
       data-id="{{dish.id}}"
       bindtap="onOpenRecipe"
     >
+      <image
+        wx:if="{{dish.image}}"
+        class="dish-photo"
+        src="{{dish.image}}"
+        mode="aspectFill"
+        lazy-load="{{true}}"
+      ></image>
+      <view wx:else class="dish-avatar cover-{{dish.type}}">{{dish.emoji}}</view>
       <view class="dish-main">
         <view class="dish-name">{{dish.name}}</view>
         <view class="dish-meta">

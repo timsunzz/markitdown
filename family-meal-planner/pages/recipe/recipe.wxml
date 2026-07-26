@@ -1,4 +1,13 @@
 <view class="page" wx:if="{{recipe}}">
+  <image
+    wx:if="{{recipe.image}}"
+    class="hero-photo"
+    src="{{recipe.image}}"
+    mode="aspectFill"
+  ></image>
+  <view wx:else class="hero cover-{{recipe.type}}">
+    <text class="hero-emoji">{{emoji}}</text>
+  </view>
   <view class="card">
     <view class="r-name">{{recipe.name}}</view>
     <view class="r-meta">

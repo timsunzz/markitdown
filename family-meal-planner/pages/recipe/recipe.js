@@ -1,6 +1,7 @@
 const { byId } = require('../../data/recipes');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
+const covers = require('../../data/covers');
 
 function roundAmount(amount, unit) {
   if (unit === 'g' || unit === 'ml') {
@@ -33,6 +34,7 @@ Page({
 
     this.setData({
       recipe,
+      emoji: covers.emojiFor(recipe),
       factor: Math.round(factor * 10) / 10,
       memberCount: members.length,
       ingredientViews: recipe.ingredients.map((ing) => {
