@@ -1493,7 +1493,7 @@ const RECIPES = [
     nutrition: { kcal: 265, protein: 5, fat: 0.6, carbs: 60, calcium: 15, iron: 0.8 },
     tip: '红薯替掉一部分白米，膳食纤维和胡萝卜素都上来了，孩子还爱吃这口甜。'
   }
-];
+].concat(require('./recipes-extra').RECIPES);
 
 function byId(id) {
   return RECIPES.find((r) => r.id === id);
