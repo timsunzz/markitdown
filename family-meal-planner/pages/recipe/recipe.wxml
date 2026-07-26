@@ -1,0 +1,48 @@
+<view class="page" wx:if="{{recipe}}">
+  <view class="card">
+    <view class="r-name">{{recipe.name}}</view>
+    <view class="r-meta">
+      <text class="tag" wx:for="{{recipe.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
+    </view>
+    <view class="muted r-info">⏱ 约 {{recipe.time}} 分钟 · 难度：{{recipe.difficulty}}</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text>食材（已按全家 {{memberCount}} 口人 · {{factor}} 份换算）</text>
+    </view>
+    <view class="divider"></view>
+    <view class="ing" wx:for="{{ingredientViews}}" wx:key="name" wx:for-item="ing">
+      <view class="ing-name">
+        {{ing.name}}
+        <text class="muted" wx:if="{{ing.note}}">（{{ing.note}}）</text>
+        <text class="pantry-tag" wx:if="{{ing.pantry}}">家中常备</text>
+      </view>
+      <view class="ing-amount">{{ing.amountText}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">做法</view>
+    <view class="divider"></view>
+    <view class="step" wx:for="{{recipe.steps}}" wx:key="*this" wx:for-item="s" wx:for-index="i">
+      <view class="step-no">{{i + 1}}</view>
+      <view class="step-text">{{s}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">营养（全家合计）</view>
+    <view class="divider"></view>
+    <view class="nut-grid">
+      <view class="nut-item"><view class="nut-num">{{familyNutrition.kcal}}</view><view class="muted">能量 kcal</view></view>
+      <view class="nut-item"><view class="nut-num">{{familyNutrition.protein}}g</view><view class="muted">蛋白质</view></view>
+      <view class="nut-item"><view class="nut-num">{{familyNutrition.calcium}}mg</view><view class="muted">钙</view></view>
+      <view class="nut-item"><view class="nut-num">{{familyNutrition.iron}}mg</view><view class="muted">铁</view></view>
+    </view>
+    <view class="divider"></view>
+    <view class="tip">💡 营养师小贴士：{{recipe.tip}}</view>
+  </view>
+
+  <view style="height: 40rpx"></view>
+</view>

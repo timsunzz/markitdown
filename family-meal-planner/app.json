@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shopping/shopping",
+    "pages/family/family",
+    "pages/recipe/recipe"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2e7d5b",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "全家营养餐",
+    "backgroundColor": "#f6f7f4"
+  },
+  "tabBar": {
+    "color": "#8a8f87",
+    "selectedColor": "#2e7d5b",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日菜单"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "购物清单"
+      },
+      {
+        "pagePath": "pages/family/family",
+        "text": "我的家庭"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

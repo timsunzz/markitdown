@@ -1,0 +1,79 @@
+<view class="page">
+  <!-- 顶部：日期 + 家庭概况 -->
+  <view class="header">
+    <view class="date">{{dateLabel}}</view>
+    <view class="family-chip" bindtap="onGoFamily">
+      👨‍👩‍👧 {{summary.count}} 口人 · 每日约 {{summary.kcal}} kcal
+    </view>
+  </view>
+
+  <view class="card notice" wx:if="{{isDefaultFamily}}" bindtap="onGoFamily">
+    ✍️ 当前按"2 位成人"的默认家庭生成菜单，点这里设置真实的家庭成员（含孩子年龄），份量和营养会自动调整。
+  </view>
+
+  <view class="card notice" wx:if="{{toddlerTip}}">
+    👶 家有 3 岁以下幼儿：给宝宝的部分请单独少盐、食材切小块，整虾整颗坚果等谨防呛噎。
+  </view>
+
+  <!-- 三餐卡片 -->
+  <view class="card" wx:for="{{mealList}}" wx:key="key" wx:for-item="meal">
+    <view class="card-title">
+      <text>{{meal.label}}</text>
+      <view class="shuffle" data-meal="{{meal.key}}" catchtap="onShuffleMeal">🔄 换一换</view>
+    </view>
+    <view class="divider"></view>
+    <view
+      class="dish"
+      wx:for="{{meal.dishes}}"
+      wx:key="id"
+      wx:for-item="dish"
+      data-id="{{dish.id}}"
+      bindtap="onOpenRecipe"
+    >
+      <view class="dish-main">
+        <view class="dish-name">{{dish.name}}</view>
+        <view class="dish-meta">
+          <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
+        </view>
+      </view>
+      <view class="dish-right">
+        <view class="dish-kcal">{{dish.nutrition.kcal}} kcal/份</view>
+        <view class="muted">⏱ {{dish.time}} 分钟 ›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 营养分析 -->
+  <view class="card" wx:if="{{totals}}">
+    <view class="card-title">今日全家营养分析</view>
+    <view class="divider"></view>
+    <view class="nutrient">
+      <view class="n-label">能量</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.kcal}}%"></view></view>
+      <view class="n-val">{{totals.kcal}}/{{summary.kcal}} kcal</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">蛋白质</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.protein}}%"></view></view>
+      <view class="n-val">{{totals.protein}}/{{summary.protein}} g</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">钙</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.calcium}}%"></view></view>
+      <view class="n-val">{{totals.calcium}}/{{summary.calcium}} mg</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">铁</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.iron}}%"></view></view>
+      <view class="n-val">{{totals.iron}}/{{summary.iron}} mg</view>
+    </view>
+    <view class="muted nut-note">
+      * 按《中国居民膳食营养素参考摄入量》估算，加餐的水果、奶类不在此列，缺口可用它们补足。
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+  <view class="bottom-bar">
+    <button class="btn-primary buy-btn" bindtap="onGoShopping">🛒 生成今日购物清单</button>
+  </view>
+</view>

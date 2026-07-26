@@ -1,0 +1,100 @@
+.empty {
+  text-align: center;
+  padding: 80rpx 28rpx;
+  color: #6b7066;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-btn {
+  margin-top: 30rpx;
+  width: 70%;
+}
+
+.head-note {
+  margin-top: 10rpx;
+  line-height: 1.5;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.item + .item {
+  border-top: 2rpx solid #f6f7f4;
+}
+
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 3rpx solid #c9cfc5;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  line-height: 36rpx;
+  color: #fff;
+  font-size: 26rpx;
+  flex-shrink: 0;
+}
+
+.item.checked .checkbox {
+  background: #2e7d5b;
+  border-color: #2e7d5b;
+}
+
+.item.checked .item-name,
+.item.checked .item-amount {
+  text-decoration: line-through;
+  color: #b0b5ac;
+}
+
+.item.pantry .item-name,
+.item.pantry .item-amount {
+  color: #9aa096;
+}
+
+.item-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.item-amount {
+  font-size: 26rpx;
+  color: #2e7d5b;
+  font-weight: 600;
+}
+
+.how {
+  line-height: 1.7;
+  font-size: 24rpx;
+}
+
+.bottom-space {
+  height: 150rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 14rpx;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(246, 247, 244, 0.95);
+}
+
+.bar-btn {
+  flex: 1;
+  font-size: 27rpx;
+  padding: 0 10rpx;
+}
+
+.hema {
+  background: #1f7ae0;
+}

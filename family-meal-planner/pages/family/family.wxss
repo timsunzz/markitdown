@@ -1,0 +1,89 @@
+.summary-line {
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
+
+.summary-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.s-item {
+  text-align: center;
+  flex: 1;
+}
+
+.s-num {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2e7d5b;
+  margin-bottom: 4rpx;
+}
+
+.factor-note {
+  margin-top: 20rpx;
+  line-height: 1.5;
+}
+
+.add-link {
+  font-size: 26rpx;
+  color: #2e7d5b;
+  font-weight: 400;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 0;
+}
+
+.member + .member {
+  border-top: 2rpx solid #f6f7f4;
+}
+
+.member-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.remove {
+  color: #c0574f;
+  font-size: 25rpx;
+  padding: 10rpx 0 10rpx 24rpx;
+  flex-shrink: 0;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.form-label {
+  width: 160rpx;
+  font-size: 28rpx;
+}
+
+.picker-value {
+  color: #2e7d5b;
+  font-size: 28rpx;
+}
+
+.age-input {
+  border: 2rpx solid #e2e5df;
+  border-radius: 10rpx;
+  padding: 8rpx 16rpx;
+  width: 200rpx;
+  font-size: 28rpx;
+}
+
+.form-btn {
+  margin-top: 16rpx;
+}
+
+.about {
+  line-height: 1.7;
+  font-size: 24rpx;
+}

@@ -1,0 +1,95 @@
+.r-name {
+  font-size: 40rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.r-meta {
+  margin-bottom: 12rpx;
+}
+
+.r-info {
+  font-size: 25rpx;
+}
+
+.ing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14rpx 0;
+}
+
+.ing + .ing {
+  border-top: 2rpx solid #f6f7f4;
+}
+
+.ing-name {
+  font-size: 28rpx;
+}
+
+.pantry-tag {
+  font-size: 20rpx;
+  color: #8a8f87;
+  background: #f0f1ee;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  margin-left: 8rpx;
+}
+
+.ing-amount {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2e7d5b;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.step {
+  display: flex;
+  margin: 20rpx 0;
+}
+
+.step-no {
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #e8f3ee;
+  color: #2e7d5b;
+  font-size: 24rpx;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-right: 16rpx;
+}
+
+.step-text {
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.nut-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nut-item {
+  flex: 1;
+  text-align: center;
+}
+
+.nut-num {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #e08a00;
+  margin-bottom: 4rpx;
+}
+
+.tip {
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #5a6156;
+  background: #f4f8f2;
+  border-radius: 12rpx;
+  padding: 18rpx;
+}
