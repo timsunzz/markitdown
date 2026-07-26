@@ -43,31 +43,97 @@ function seededShuffle(arr, random) {
 }
 
 /**
+ * 允许一天内重复出现的基础食材（鸡蛋、葱姜蒜、米、奶等），
+ * 其余主料一天内尽量不重复，保证菜单看起来的多样性。
+ */
+const ALLOW_REPEAT = [
+  '鸡蛋', '姜', '蒜', '小葱', '大米', '糙米', '小米', '黑米',
+  '纯牛奶', '豆浆（或黄豆现打）', '虾皮', '面粉'
+];
+
+/** 一道菜的"主料"列表（排除调味品与允许重复的基础食材） */
+function mainIngredients(recipe) {
+  const names = [];
+  (recipe.ingredients || []).forEach((ing) => {
+    if (ing.pantry) return;
+    if (ALLOW_REPEAT.indexOf(ing.name) >= 0) return;
+    names.push(ing.name);
+  });
+  return names;
+}
+
+/**
+ * 从（已洗好序的）候选池中选一道菜：
+ * 跳过当天已选过的菜；优先选主料与当天已用主料零重叠的；
+ * 全部有重叠时选重叠最少的，避免死锁。
+ */
+function pickDiverse(pool, usedIngredients, chosenIds) {
+  let best = null;
+  let bestOverlap = Infinity;
+  for (let i = 0; i < pool.length; i++) {
+    const r = pool[i];
+    if (chosenIds[r.id]) continue;
+    let overlap = 0;
+    const mains = mainIngredients(r);
+    for (let j = 0; j < mains.length; j++) {
+      if (usedIngredients[mains[j]]) overlap++;
+    }
+    if (overlap === 0) return r;
+    if (overlap < bestOverlap) {
+      bestOverlap = overlap;
+      best = r;
+    }
+  }
+  return best;
+}
+
+/**
  * 生成某一天的菜单
  * @param {string} dateStr  如 '2026-07-26'
- * @param {number} shuffle  "换一换"次数，0 为默认菜单
+ * @param {number|object} shuffle "换一换"次数：数字为整天统一；
+ *   传 {breakfast, lunch, dinner} 可按餐独立换（换前面的餐可能连带影响后面的餐，
+ *   因为后面的餐要避开前面已用的食材）
  * @param {boolean} noSpicy 是否排除辛辣菜
  * @returns {{breakfast: object[], lunch: object[], dinner: object[]}}
  */
 function planDay(dateStr, shuffle, noSpicy) {
-  const random = rng(hash(dateStr) + (shuffle || 0) * 7919);
+  const shuffles =
+    typeof shuffle === 'object' && shuffle
+      ? shuffle
+      : { breakfast: shuffle || 0, lunch: shuffle || 0, dinner: shuffle || 0 };
 
-  const pool = (type) => {
+  const base = hash(dateStr);
+  const pool = (type, mealShuffle) => {
     let list = byType(type);
     if (noSpicy) list = list.filter((r) => !r.spicy);
-    return seededShuffle(list, random);
+    return seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
   };
 
-  const breakfasts = pool('breakfast');
-  const meats = pool('meat');
-  const vegs = pool('veg');
-  const soups = pool('soup');
-  const staples = pool('staple');
+  const usedIngredients = {};
+  const chosenIds = {};
+  const take = (type, mealShuffle) => {
+    const r = pickDiverse(pool(type, mealShuffle), usedIngredients, chosenIds);
+    if (!r) return null;
+    chosenIds[r.id] = true;
+    mainIngredients(r).forEach((n) => {
+      usedIngredients[n] = true;
+    });
+    return r;
+  };
+
+  const breakfast = [take('breakfast', shuffles.breakfast)];
+  const lunch = [take('meat', shuffles.lunch), take('veg', shuffles.lunch), take('staple', shuffles.lunch)];
+  const dinner = [
+    take('meat', shuffles.dinner),
+    take('veg', shuffles.dinner),
+    take('soup', shuffles.dinner),
+    take('staple', shuffles.dinner)
+  ];
 
   return {
-    breakfast: [breakfasts[0]],
-    lunch: [meats[0], vegs[0], staples[0]],
-    dinner: [meats[1 % meats.length], vegs[1 % vegs.length], soups[0], staples[1 % staples.length]]
+    breakfast: breakfast.filter(Boolean),
+    lunch: lunch.filter(Boolean),
+    dinner: dinner.filter(Boolean)
   };
 }
 

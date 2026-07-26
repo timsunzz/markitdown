@@ -102,19 +102,9 @@ Page({
     });
   },
 
-  /** 按三餐各自的换一换次数组装菜单，并避免同一道菜一天出现两次 */
+  /** 按三餐各自的换一换次数组装菜单（引擎会保证整天菜品与主料不重复） */
   buildMenu(date, shuffles, noSpicy) {
-    const breakfast = planner.planDay(date, shuffles.breakfast, noSpicy).breakfast;
-    const lunch = planner.planDay(date, shuffles.lunch, noSpicy).lunch;
-
-    let dinner = null;
-    const lunchIds = lunch.map((r) => r.id);
-    for (let i = 0; i < 6; i++) {
-      dinner = planner.planDay(date, shuffles.dinner + i * 101, noSpicy).dinner;
-      const clash = dinner.some((r) => r.type !== 'staple' && lunchIds.indexOf(r.id) >= 0);
-      if (!clash) break;
-    }
-    return { breakfast, lunch, dinner };
+    return planner.planDay(date, shuffles, noSpicy);
   },
 
   onShuffleMeal(e) {

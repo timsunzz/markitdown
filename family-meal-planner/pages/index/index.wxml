@@ -45,7 +45,7 @@
         </view>
       </view>
       <view class="dish-right">
-        <view class="dish-kcal">{{dish.nutrition.kcal}} kcal/份<text wx:if="{{dish.costText}}"> · {{dish.costText}}</text></view>
+        <view class="dish-kcal">人均 {{dish.nutrition.kcal}} kcal<text wx:if="{{dish.costText}}"> · 全家{{dish.costText}}</text></view>
         <view class="muted">⏱ {{dish.time}} 分钟 ›</view>
       </view>
     </view>
