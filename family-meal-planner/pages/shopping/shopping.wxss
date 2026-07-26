@@ -14,9 +14,33 @@
   width: 70%;
 }
 
+.total-cost {
+  font-size: 30rpx;
+  color: #e08a00;
+  font-weight: 700;
+}
+
 .head-note {
   margin-top: 10rpx;
   line-height: 1.5;
+}
+
+.copy-all {
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  color: #2e7d5b;
+}
+
+.howto {
+  background: #eef7f2;
+  color: #3c5f4e;
+  font-size: 25rpx;
+  line-height: 1.7;
+}
+
+.hl {
+  color: #2e7d5b;
+  font-weight: 700;
 }
 
 .item {
@@ -48,30 +72,52 @@
 }
 
 .item.checked .item-name,
-.item.checked .item-amount {
+.item.checked .item-sub {
   text-decoration: line-through;
   color: #b0b5ac;
 }
 
 .item.pantry .item-name,
-.item.pantry .item-amount {
+.item.pantry .item-sub {
   color: #9aa096;
 }
 
-.item-name {
+.item-main {
   flex: 1;
+  min-width: 0;
+}
+
+.item-name {
   font-size: 28rpx;
 }
 
-.item-amount {
-  font-size: 26rpx;
+.copied-tag {
+  font-size: 20rpx;
   color: #2e7d5b;
-  font-weight: 600;
+  background: #e8f3ee;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  margin-left: 8rpx;
 }
 
-.how {
-  line-height: 1.7;
+.item-sub {
+  font-size: 23rpx;
+  color: #8a8f87;
+  margin-top: 4rpx;
+}
+
+.item-price {
+  color: #e08a00;
+}
+
+.copy-btn {
+  flex-shrink: 0;
   font-size: 24rpx;
+  color: #2e7d5b;
+  border: 2rpx solid #2e7d5b;
+  border-radius: 10rpx;
+  padding: 8rpx 22rpx;
+  margin-left: 16rpx;
 }
 
 .bottom-space {
@@ -84,17 +130,34 @@
   right: 0;
   bottom: 0;
   display: flex;
-  gap: 14rpx;
+  gap: 12rpx;
   padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
   background: rgba(246, 247, 244, 0.95);
 }
 
 .bar-btn {
-  flex: 1;
-  font-size: 27rpx;
-  padding: 0 10rpx;
+  font-size: 26rpx;
+  padding: 0 12rpx;
 }
 
-.hema {
+.next-btn {
+  flex: 2.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small {
+  flex: 0.9;
+}
+
+.btn-hema {
   background: #1f7ae0;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 14rpx;
+}
+
+.btn-hema::after {
+  border: none;
 }

@@ -9,7 +9,11 @@ const shopping = require('../../utils/shopping');
  * 获取其 AppID 填到下方 ALDI_APPID，并在 mp.weixin.qq.com 的
  * 「设置-第三方设置-跳转小程序管理」中添加该 AppID。
  *
- * 盒马目前没有微信小程序（属阿里生态），采用"复制清单 → 打开盒马 App 搜索下单"的方式。
+ * 盒马目前没有微信小程序（属阿里生态），采用"逐样复制 → 盒马 App 搜索下单"的方式。
+ *
+ * 采购交互说明：盒马/奥乐齐的搜索框一次只能搜一样商品，所以不提供
+ * "整单粘贴"，而是"下一样"逐个复制干净的搜索词（去掉括号备注），
+ * 用户在两个 App 间往返粘贴加购，进度自动记录。
  */
 const ALDI_APPID = ''; // TODO: 上架前填入奥乐齐官方小程序 AppID
 
@@ -24,7 +28,10 @@ Page({
     dateLabel: '',
     memberCount: 0,
     groups: [],
-    buyableCount: 0
+    buyableCount: 0,
+    copiedCount: 0,
+    totalCost: 0,
+    nextName: ''
   },
 
   onShow() {
@@ -35,84 +42,150 @@ Page({
     }
     const menu = menuFromIds(current.ids);
     const groups = shopping.buildList(menu, current.factor || 1);
+    // 恢复本次会话中已复制/已勾选的状态（按食材名，跨菜单日期不保留）
+    const saved = wx.getStorageSync(`shoppingState:${current.date}`) || {};
+    groups.forEach((g) =>
+      g.items.forEach((it) => {
+        const s = saved[it.name] || {};
+        it.checked = !!s.checked;
+        it.copied = !!s.copied;
+      })
+    );
+    this.currentDate = current.date;
     this.setData({
       hasMenu: true,
       dateLabel: dateLabel(current.date),
       memberCount: current.memberCount || 0,
-      groups,
-      buyableCount: this.countBuyable(groups)
+      groups
     });
-    this.currentMeta = current;
+    this.recount();
   },
 
-  countBuyable(groups) {
-    let n = 0;
-    groups.forEach((g) => g.items.forEach((it) => {
-      if (!it.pantry && !it.checked) n += 1;
-    }));
-    return n;
+  saveState() {
+    const saved = {};
+    this.data.groups.forEach((g) =>
+      g.items.forEach((it) => {
+        if (it.checked || it.copied) saved[it.name] = { checked: it.checked, copied: it.copied };
+      })
+    );
+    wx.setStorageSync(`shoppingState:${this.currentDate}`, saved);
   },
 
-  /** 点击条目打勾（家里已有，不需要买） */
+  /** 待购列表（非常备、未勾掉） */
+  buyables() {
+    const list = [];
+    this.data.groups.forEach((g) =>
+      g.items.forEach((it) => {
+        if (!it.pantry && !it.checked) list.push(it);
+      })
+    );
+    return list;
+  },
+
+  recount() {
+    const buyable = this.buyables();
+    const next = buyable.find((it) => !it.copied);
+    this.setData({
+      buyableCount: buyable.length,
+      copiedCount: buyable.filter((it) => it.copied).length,
+      totalCost: shopping.totalCost(this.data.groups),
+      nextName: next ? next.searchName : ''
+    });
+    this.saveState();
+  },
+
+  /** 点击条目打勾（家里已有 / 已经买了） */
   onToggleItem(e) {
     const { gi, ii } = e.currentTarget.dataset;
-    const key = `groups[${gi}].items[${ii}].checked`;
     const checked = !this.data.groups[gi].items[ii].checked;
-    this.setData({ [key]: checked }, () => {
-      this.setData({ buyableCount: this.countBuyable(this.data.groups) });
+    this.setData({ [`groups[${gi}].items[${ii}].checked`]: checked }, () => this.recount());
+  },
+
+  /** 单个食材的复制按钮：只复制干净的搜索词 */
+  onCopyItem(e) {
+    const { gi, ii } = e.currentTarget.dataset;
+    const item = this.data.groups[gi].items[ii];
+    wx.setClipboardData({
+      data: item.searchName,
+      success: () => {
+        this.setData({ [`groups[${gi}].items[${ii}].copied`]: true }, () => this.recount());
+        wx.showToast({ title: `已复制「${item.searchName}」`, icon: 'none' });
+      }
     });
   },
 
-  buildText() {
-    return shopping.listToText(this.data.groups, this.data.dateLabel, this.data.memberCount);
+  /** 逐样采购：复制下一个还没复制过的待购食材 */
+  onCopyNext() {
+    const buyable = this.buyables();
+    const next = buyable.find((it) => !it.copied);
+    if (!next) {
+      wx.showToast({ title: '全部复制过啦，买完记得打勾', icon: 'none' });
+      return;
+    }
+    wx.setClipboardData({
+      data: next.searchName,
+      success: () => {
+        // 找到它在 groups 中的位置标记 copied
+        this.data.groups.forEach((g, gi) =>
+          g.items.forEach((it, ii) => {
+            if (it.name === next.name) {
+              this.setData({ [`groups[${gi}].items[${ii}].copied`]: true });
+            }
+          })
+        );
+        this.recount();
+        wx.showToast({
+          title: `已复制「${next.searchName}」，去盒马/奥乐齐粘贴搜索`,
+          icon: 'none',
+          duration: 2000
+        });
+      }
+    });
   },
 
+  /** 复制全文清单（备忘/分享用，不用于搜索框粘贴） */
   onCopyList() {
     wx.setClipboardData({
-      data: this.buildText(),
-      success: () => {
-        wx.showToast({ title: '清单已复制', icon: 'success' });
+      data: shopping.listToText(this.data.groups, this.data.dateLabel, this.data.memberCount),
+      success: () => wx.showToast({ title: '备忘清单已复制', icon: 'success' })
+    });
+  },
+
+  /** 去奥乐齐：跳转官方小程序，逐样粘贴 */
+  onBuyAldi() {
+    const tip =
+      '奥乐齐搜索框一次搜一样：回到本页点「下一样」复制食材名，到奥乐齐粘贴搜索、加购，往返几次即可买齐。';
+    if (!ALDI_APPID) {
+      wx.showModal({
+        title: '逐样采购',
+        content: `请在微信搜索「奥乐齐ALDI」小程序。${tip}`,
+        showCancel: false,
+        confirmText: '知道了'
+      });
+      return;
+    }
+    wx.navigateToMiniProgram({
+      appId: ALDI_APPID,
+      fail: () => {
+        wx.showModal({
+          title: '逐样采购',
+          content: `未能直接打开奥乐齐小程序，请在微信搜索「奥乐齐ALDI」。${tip}`,
+          showCancel: false
+        });
       }
     });
   },
 
-  /** 一键去奥乐齐：复制清单并跳转官方小程序 */
-  onBuyAldi() {
-    const jump = () => {
-      if (!ALDI_APPID) {
-        wx.showModal({
-          title: '清单已复制',
-          content: '请在微信搜索「奥乐齐ALDI」小程序，粘贴清单中的食材名称即可下单买齐。',
-          showCancel: false,
-          confirmText: '知道了'
-        });
-        return;
-      }
-      wx.navigateToMiniProgram({
-        appId: ALDI_APPID,
-        fail: () => {
-          wx.showModal({
-            title: '清单已复制',
-            content: '未能直接打开奥乐齐小程序，请在微信搜索「奥乐齐ALDI」，粘贴食材名称下单。',
-            showCancel: false
-          });
-        }
-      });
-    };
-    wx.setClipboardData({ data: this.buildText(), success: jump, fail: jump });
-  },
-
-  /** 一键去盒马：复制清单并指引打开盒马 App */
+  /** 去盒马：指引逐样粘贴 */
   onBuyHema() {
-    wx.setClipboardData({
-      data: this.buildText(),
-      success: () => {
-        wx.showModal({
-          title: '清单已复制 ✅',
-          content: '打开「盒马」App，在搜索框长按粘贴食材名称，即可一键加购买齐（30 分钟送达区域内）。',
-          showCancel: false,
-          confirmText: '去打开盒马'
-        });
+    wx.showModal({
+      title: '盒马逐样采购',
+      content:
+        '盒马搜索框一次只能搜一样商品：点本页「下一样」复制食材名 → 切到盒马 App 粘贴搜索、加购 → 切回来点「下一样」，往返几次即可买齐（进度会自动记录）。',
+      showCancel: false,
+      confirmText: '开始，复制第一样',
+      success: (res) => {
+        if (res.confirm) this.onCopyNext();
       }
     });
   },

@@ -18,7 +18,7 @@
   <!-- 三餐卡片 -->
   <view class="card" wx:for="{{mealList}}" wx:key="key" wx:for-item="meal">
     <view class="card-title">
-      <text>{{meal.label}}</text>
+      <text>{{meal.label}} <text class="meal-cost">{{meal.costText}}</text></text>
       <view class="shuffle" data-meal="{{meal.key}}" catchtap="onShuffleMeal">🔄 换一换</view>
     </view>
     <view class="divider"></view>
@@ -37,7 +37,7 @@
         </view>
       </view>
       <view class="dish-right">
-        <view class="dish-kcal">{{dish.nutrition.kcal}} kcal/份</view>
+        <view class="dish-kcal">{{dish.nutrition.kcal}} kcal/份<text wx:if="{{dish.costText}}"> · {{dish.costText}}</text></view>
         <view class="muted">⏱ {{dish.time}} 分钟 ›</view>
       </view>
     </view>
@@ -67,8 +67,13 @@
       <view class="bar"><view class="bar-fill" style="width: {{percents.iron}}%"></view></view>
       <view class="n-val">{{totals.iron}}/{{summary.iron}} mg</view>
     </view>
+    <view class="divider"></view>
+    <view class="cost-line">
+      <text>💰 今日预估买菜花费</text>
+      <text class="cost-num">约 ¥{{dayCost}}</text>
+    </view>
     <view class="muted nut-note">
-      * 按《中国居民膳食营养素参考摄入量》估算，加餐的水果、奶类不在此列，缺口可用它们补足。
+      * 营养按《中国居民膳食营养素参考摄入量》估算，加餐的水果、奶类不在此列，缺口可用它们补足。价格为盒马/奥乐齐参考价，以门店为准。
     </view>
   </view>
 

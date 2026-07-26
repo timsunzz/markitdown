@@ -7,10 +7,18 @@
 
   <block wx:if="{{hasMenu}}">
     <view class="card head">
-      <view class="card-title">{{dateLabel}} 购物清单</view>
-      <view class="muted head-note">
-        按 {{memberCount}} 口人份量换算 · 还需购买 {{buyableCount}} 样 · 点击条目可标记"家里已有"
+      <view class="card-title">
+        <text>{{dateLabel}} 购物清单</text>
+        <text class="total-cost">预估 ¥{{totalCost}}</text>
       </view>
+      <view class="muted head-note">
+        按 {{memberCount}} 口人份量换算 · 还需购买 {{buyableCount}} 样（已复制 {{copiedCount}}）· 点击条目打勾表示"已有/已买"
+      </view>
+      <view class="copy-all" bindtap="onCopyList">📋 复制全文清单备忘</view>
+    </view>
+
+    <view class="card howto">
+      🛒 盒马/奥乐齐搜索框一次只能搜一样商品，请用<text class="hl">逐样采购</text>：点下方「下一样」复制食材名 → 切到盒马/奥乐齐粘贴搜索加购 → 切回来继续，进度自动记录。
     </view>
 
     <view class="card" wx:for="{{groups}}" wx:key="category" wx:for-item="g" wx:for-index="gi">
@@ -27,20 +35,33 @@
         bindtap="onToggleItem"
       >
         <view class="checkbox">{{it.checked ? '✓' : ''}}</view>
-        <view class="item-name">{{it.name}}</view>
-        <view class="item-amount">{{it.amountText}}</view>
+        <view class="item-main">
+          <view class="item-name">
+            {{it.name}}
+            <text class="copied-tag" wx:if="{{it.copied && !it.checked}}">已复制</text>
+          </view>
+          <view class="item-sub">
+            <text>{{it.amountText}}</text>
+            <text wx:if="{{it.priceText}}" class="item-price"> · {{it.priceText}}</text>
+          </view>
+        </view>
+        <view
+          wx:if="{{!it.pantry}}"
+          class="copy-btn"
+          data-gi="{{gi}}"
+          data-ii="{{ii}}"
+          catchtap="onCopyItem"
+        >复制</view>
       </view>
-    </view>
-
-    <view class="card muted how">
-      💡 一键购买说明：点击下方按钮后清单会自动复制，在奥乐齐小程序 / 盒马 App 的搜索框粘贴食材名称即可快速加购。生鲜按最接近的规格购买即可，略有富余不影响营养搭配。
     </view>
 
     <view class="bottom-space"></view>
     <view class="bottom-bar">
-      <button class="btn-ghost bar-btn" bindtap="onCopyList">📋 复制清单</button>
-      <button class="btn-primary bar-btn" bindtap="onBuyAldi">奥乐齐下单</button>
-      <button class="btn-primary bar-btn hema" bindtap="onBuyHema">盒马下单</button>
+      <button class="btn-primary bar-btn next-btn" bindtap="onCopyNext">
+        {{nextName ? '下一样：' + nextName + '（' + copiedCount + '/' + buyableCount + '）' : '✅ 全部复制完成'}}
+      </button>
+      <button class="btn-ghost bar-btn small" bindtap="onBuyAldi">奥乐齐</button>
+      <button class="btn-hema bar-btn small" bindtap="onBuyHema">盒马</button>
     </view>
   </block>
 </view>

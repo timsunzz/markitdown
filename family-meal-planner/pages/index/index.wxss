@@ -25,6 +25,26 @@
   line-height: 1.6;
 }
 
+.meal-cost {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #e08a00;
+  margin-left: 8rpx;
+}
+
+.cost-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.cost-num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #e08a00;
+}
+
 .shuffle {
   font-size: 25rpx;
   color: #2e7d5b;

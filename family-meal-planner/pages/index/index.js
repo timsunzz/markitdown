@@ -1,5 +1,6 @@
 const planner = require('../../utils/planner');
 const nutrition = require('../../utils/nutrition');
+const prices = require('../../data/prices');
 
 const MEAL_LABELS = { breakfast: '早餐', lunch: '午餐', dinner: '晚餐' };
 
@@ -24,6 +25,7 @@ Page({
     mealList: [],
     totals: null,
     percents: null,
+    dayCost: 0,
     toddlerTip: false,
     isDefaultFamily: false
   },
@@ -62,11 +64,28 @@ Page({
       members,
       summary,
       menu,
-      mealList: ['breakfast', 'lunch', 'dinner'].map((k) => ({
-        key: k,
-        label: MEAL_LABELS[k],
-        dishes: menu[k]
-      })),
+      mealList: ['breakfast', 'lunch', 'dinner'].map((k) => {
+        let mealCost = 0;
+        const dishes = menu[k].map((d) => {
+          const cost = prices.dishCost(d, summary.factor);
+          mealCost += cost;
+          return {
+            id: d.id,
+            name: d.name,
+            tags: d.tags,
+            time: d.time,
+            nutrition: d.nutrition,
+            costText: cost ? `¥${cost}` : ''
+          };
+        });
+        return {
+          key: k,
+          label: MEAL_LABELS[k],
+          dishes,
+          costText: `约 ¥${Math.round(mealCost)}`
+        };
+      }),
+      dayCost: prices.dayCost(menu, summary.factor),
       totals,
       percents: {
         kcal: pct(totals.kcal, summary.kcal),
