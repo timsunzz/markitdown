@@ -18,7 +18,7 @@
     </view>
 
     <view class="card howto">
-      🛒 盒马/奥乐齐搜索框一次只能搜一样商品，请用<text class="hl">逐样采购</text>：点下方「下一样」复制食材名 → 切到盒马/奥乐齐粘贴搜索加购 → 切回来继续，进度自动记录。
+      🛒 买菜平台的搜索框一次只认一样商品：想逐样搜就点每行的<text class="hl">「复制」</text>；想整单带走就点底部<text class="hl">「复制所选清单」</text>，粘贴到备忘录或发给家人都行。
     </view>
 
     <view class="card" wx:for="{{groups}}" wx:key="category" wx:for-item="g" wx:for-index="gi">
@@ -57,11 +57,9 @@
 
     <view class="bottom-space"></view>
     <view class="bottom-bar">
-      <button class="btn-primary bar-btn next-btn" bindtap="onCopyNext">
-        {{nextName ? '下一样：' + nextName + '（' + copiedCount + '/' + buyableCount + '）' : '✅ 全部复制完成'}}
+      <button class="btn-primary bar-btn" bindtap="onCopySelected">
+        📋 复制所选清单（{{buyableCount}} 样 · 预估 ¥{{totalCost}}）
       </button>
-      <button class="btn-ghost bar-btn small" bindtap="onBuyAldi">奥乐齐</button>
-      <button class="btn-hema bar-btn small" bindtap="onBuyHema">盒马</button>
     </view>
   </block>
 </view>
