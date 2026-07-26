@@ -36,12 +36,40 @@
   margin-left: 8rpx;
 }
 
+.ing-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
 .ing-amount {
   font-size: 28rpx;
   font-weight: 600;
   color: #2e7d5b;
-  flex-shrink: 0;
-  margin-left: 16rpx;
+}
+
+.ing-price {
+  font-size: 22rpx;
+  color: #e08a00;
+  margin-top: 2rpx;
+}
+
+.dish-cost-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.dish-cost-num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #e08a00;
+}
+
+.cost-note {
+  margin-top: 10rpx;
+  line-height: 1.5;
 }
 
 .step {

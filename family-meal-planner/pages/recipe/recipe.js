@@ -1,5 +1,6 @@
 const { byId } = require('../../data/recipes');
 const nutrition = require('../../utils/nutrition');
+const prices = require('../../data/prices');
 
 function roundAmount(amount, unit) {
   if (unit === 'g' || unit === 'ml') {
@@ -14,7 +15,8 @@ Page({
     factor: 1,
     memberCount: 0,
     ingredientViews: [],
-    familyNutrition: null
+    familyNutrition: null,
+    dishCost: 0
   },
 
   onLoad(options) {
@@ -33,13 +35,20 @@ Page({
       recipe,
       factor: Math.round(factor * 10) / 10,
       memberCount: members.length,
-      ingredientViews: recipe.ingredients.map((ing) => ({
-        name: ing.name,
-        note: ing.note || '',
-        pantry: !!ing.pantry,
-        amountText:
-          ing.unit === '适量' ? '适量' : `${roundAmount(ing.amount * factor, ing.unit)}${ing.unit}`
-      })),
+      ingredientViews: recipe.ingredients.map((ing) => {
+        const price = ing.pantry
+          ? 0
+          : Math.round(prices.priceFor(ing.name, ing.amount * factor) * 10) / 10;
+        return {
+          name: ing.name,
+          note: ing.note || '',
+          pantry: !!ing.pantry,
+          priceText: price ? `约¥${price}` : '',
+          amountText:
+            ing.unit === '适量' ? '适量' : `${roundAmount(ing.amount * factor, ing.unit)}${ing.unit}`
+        };
+      }),
+      dishCost: prices.dishCost(recipe, factor),
       familyNutrition: {
         kcal: Math.round(recipe.nutrition.kcal * factor),
         protein: Math.round(recipe.nutrition.protein * factor),

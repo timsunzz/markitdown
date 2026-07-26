@@ -18,8 +18,17 @@
         <text class="muted" wx:if="{{ing.note}}">（{{ing.note}}）</text>
         <text class="pantry-tag" wx:if="{{ing.pantry}}">家中常备</text>
       </view>
-      <view class="ing-amount">{{ing.amountText}}</view>
+      <view class="ing-right">
+        <view class="ing-amount">{{ing.amountText}}</view>
+        <view class="ing-price" wx:if="{{ing.priceText}}">{{ing.priceText}}</view>
+      </view>
     </view>
+    <view class="divider"></view>
+    <view class="dish-cost-line">
+      <text>💰 本菜食材预估花费</text>
+      <text class="dish-cost-num">约 ¥{{dishCost}}</text>
+    </view>
+    <view class="muted cost-note">* 盒马/奥乐齐参考价，不含家中常备调味品，以门店实际价格为准。</view>
   </view>
 
   <view class="card">
