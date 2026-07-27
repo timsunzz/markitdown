@@ -7,8 +7,22 @@
     </view>
   </view>
 
+  <!-- 没有家庭成员时的引导 -->
+  <view class="card empty-family" wx:if="{{noMembers}}">
+    <view class="ef-icon">👨‍👩‍👧</view>
+    <view>还没有家庭成员，无法生成菜单</view>
+    <view class="muted ef-note">按你家实际情况添加成员（一位老人、两位老人、有孩子……都可以），菜单份量和营养目标会完全按真实成员计算。</view>
+    <button class="btn-primary ef-btn" bindtap="onGoFamily">去设置家庭成员</button>
+  </view>
+
+  <block wx:if="{{!noMembers}}">
+
   <view class="card notice" wx:if="{{isDefaultFamily}}" bindtap="onGoFamily">
-    ✍️ 当前按"2 位成人"的默认家庭生成菜单，点这里设置真实的家庭成员（含孩子年龄），份量和营养会自动调整。
+    ✍️ 当前按"2 位成人"的默认家庭生成菜单，点这里设置真实的家庭成员（老人、孩子都可自由组合），份量和营养会自动调整。
+  </view>
+
+  <view class="card notice" wx:if="{{noSpicyAll}}">
+    🌶️🚫 已开启全家免辣：今天的菜单不含任何辣菜（可在"我的家庭"关闭）。
   </view>
 
   <view class="card notice" wx:if="{{toddlerTip}}">
@@ -89,4 +103,6 @@
   <view class="bottom-bar">
     <button class="btn-primary buy-btn" bindtap="onGoShopping">🛒 生成今日购物清单</button>
   </view>
+
+  </block>
 </view>

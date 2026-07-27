@@ -7,6 +7,7 @@ Page({
     summary: null,
     roles: nutrition.ROLES,
     roleLabels: nutrition.ROLES.map((r) => r.label),
+    noSpicy: false,
     // 新增成员表单
     showForm: false,
     roleIndex: 0,
@@ -29,7 +30,19 @@ Page({
           desc: `每日约 ${t.kcal} kcal · 蛋白质 ${t.protein}g · 钙 ${t.calcium}mg · 铁 ${t.iron}mg`
         };
       }),
-      summary: nutrition.familySummary(members)
+      summary: members.length ? nutrition.familySummary(members) : null,
+      noSpicy: !!wx.getStorageSync('noSpicyAll'),
+      // 没有成员时自动展开表单，引导添加
+      showForm: this.data.showForm || !members.length
+    });
+  },
+
+  onToggleNoSpicy(e) {
+    wx.setStorageSync('noSpicyAll', !!e.detail.value);
+    this.setData({ noSpicy: !!e.detail.value });
+    wx.showToast({
+      title: e.detail.value ? '已开启全家免辣' : '已关闭免辣（家有 10 岁以下孩子仍自动避辣）',
+      icon: 'none'
     });
   },
 
@@ -67,12 +80,12 @@ Page({
   onRemoveMember(e) {
     const id = e.currentTarget.dataset.id;
     const members = (wx.getStorageSync('familyMembers') || []).filter((m) => m.id !== id);
-    if (!members.length) {
-      wx.showToast({ title: '至少保留 1 位成员', icon: 'none' });
-      return;
-    }
     wx.setStorageSync('familyMembers', members);
     wx.removeStorageSync('familyIsDefault');
+    if (!members.length) {
+      wx.removeStorageSync('currentMenu');
+      wx.showToast({ title: '已清空，请添加真实的家庭成员', icon: 'none' });
+    }
     this.load();
   }
 });

@@ -20,6 +20,8 @@ function dateLabel(dateStr) {
 Page({
   data: {
     dateLabel: '',
+    noMembers: false,
+    noSpicyAll: false,
     members: [],
     summary: null,
     menu: null,
@@ -37,8 +39,14 @@ Page({
 
   refresh() {
     const members = wx.getStorageSync('familyMembers') || [];
+    if (!members.length) {
+      wx.removeStorageSync('currentMenu');
+      this.setData({ noMembers: true, dateLabel: dateLabel(todayStr()) });
+      return;
+    }
     const summary = nutrition.familySummary(members);
-    const noSpicy = nutrition.hasYoungChild(members);
+    const noSpicyAll = !!wx.getStorageSync('noSpicyAll');
+    const noSpicy = noSpicyAll || nutrition.hasYoungChild(members);
     const date = todayStr();
 
     // 读取/初始化当日"换一换"计数
@@ -61,6 +69,8 @@ Page({
     const pct = (v, t) => Math.min(100, Math.round((v / t) * 100));
 
     this.setData({
+      noMembers: false,
+      noSpicyAll,
       dateLabel: dateLabel(date),
       members,
       summary,

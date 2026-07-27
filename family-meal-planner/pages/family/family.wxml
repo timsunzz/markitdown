@@ -15,11 +15,27 @@
   </view>
 
   <view class="card">
+    <view class="card-title">口味偏好</view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">全家免辣 🌶️🚫</view>
+        <view class="muted">开启后菜单不再出现任何辣菜；关闭时家有 10 岁以下孩子仍会自动避辣</view>
+      </view>
+      <switch checked="{{noSpicy}}" color="#2e7d5b" bindchange="onToggleNoSpicy" />
+    </view>
+  </view>
+
+  <view class="card">
     <view class="card-title">
       <text>家庭成员</text>
       <view class="add-link" bindtap="onToggleForm">{{showForm ? '收起' : '＋ 添加成员'}}</view>
     </view>
     <view class="divider"></view>
+
+    <view class="muted empty-hint" wx:if="{{!members.length}}">
+      还没有家庭成员。请按你家的实际情况添加（比如一位或两位老人的家庭，只添加"老人"即可），份量和营养目标会完全按真实成员计算。
+    </view>
 
     <view class="member" wx:for="{{memberViews}}" wx:key="id" wx:for-item="m">
       <view class="member-main">
@@ -30,7 +46,7 @@
     </view>
 
     <view class="form" wx:if="{{showForm}}">
-      <view class="divider"></view>
+      <view class="divider" wx:if="{{members.length}}"></view>
       <view class="form-row">
         <text class="form-label">成员类型</text>
         <picker range="{{roleLabels}}" value="{{roleIndex}}" bindchange="onRoleChange">

@@ -25,6 +25,24 @@
   line-height: 1.5;
 }
 
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.pref-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.empty-hint {
+  line-height: 1.7;
+  padding: 10rpx 0 16rpx;
+}
+
 .add-link {
   font-size: 26rpx;
   color: #2e7d5b;
