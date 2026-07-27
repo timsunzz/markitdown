@@ -18,6 +18,17 @@ function dateLabel(dateStr) {
 }
 
 Page({
+  onShareAppMessage() {
+    return {
+      title: '每天吃什么不用愁：营养菜单自动配好，买菜清单一键复制',
+      path: '/pages/index/index'
+    };
+  },
+
+  onShareTimeline() {
+    return { title: '全家营养餐：按家里人口自动配每日营养菜单' };
+  },
+
   data: {
     dateLabel: '',
     noMembers: false,

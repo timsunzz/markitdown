@@ -11,6 +11,20 @@ function roundAmount(amount, unit) {
 }
 
 Page({
+  onShareAppMessage() {
+    const rec = this.data.recipe;
+    if (!rec) return { title: '全家营养餐', path: '/pages/index/index' };
+    return {
+      title: rec.name + '的做法（食材已按人口换算）',
+      path: '/pages/recipe/recipe?id=' + rec.id
+    };
+  },
+
+  onShareTimeline() {
+    const rec = this.data.recipe;
+    return { title: rec ? rec.name + ' · 家常做法与营养' : '全家营养餐' };
+  },
+
   data: {
     recipe: null,
     factor: 1,
