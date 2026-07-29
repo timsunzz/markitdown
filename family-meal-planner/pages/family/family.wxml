@@ -1,5 +1,5 @@
 <view class="page">
-  <view class="card" wx:if="{{summary}}">
+  <view class="card summary-card" wx:if="{{summary}}">
     <view class="card-title">我的家庭（{{summary.count}} 口人）</view>
     <view class="divider"></view>
     <view class="summary-line">全家每日营养目标：</view>

@@ -1,11 +1,14 @@
 <view class="page">
-  <!-- 顶部：日期 + 家庭概况 -->
-  <view class="header">
-    <view class="date">{{dateLabel}}</view>
-    <view class="family-chip" bindtap="onGoFamily">
-      👨‍👩‍👧 {{summary.count}} 口人 · 每日约 {{summary.kcal}} kcal
+  <!-- 顶部品牌横幅：日期 + 问候 + 家庭徽章 -->
+  <view class="hero-band">
+    <view class="band-date">{{dateLabel}}</view>
+    <view class="band-sub" wx:if="{{!noMembers}}">今天的营养搭配已经备好 ✨</view>
+    <view class="band-chip" wx:if="{{!noMembers}}" bindtap="onGoFamily">
+      👨‍👩‍👧 {{summary.count}} 口人 · 每日约 {{summary.kcal}} kcal ›
     </view>
   </view>
+
+  <view class="overlap">
 
   <!-- 没有家庭成员时的引导 -->
   <view class="card empty-family" wx:if="{{noMembers}}">
@@ -36,7 +39,7 @@
   <!-- 三餐卡片 -->
   <view class="card" wx:for="{{mealList}}" wx:key="key" wx:for-item="meal">
     <view class="card-title">
-      <text>{{meal.label}} <text class="meal-cost">{{meal.costText}}</text></text>
+      <text>{{meal.emoji}} {{meal.label}} <text class="meal-cost">{{meal.costText}}</text></text>
       <view class="shuffle" data-meal="{{meal.key}}" catchtap="onShuffleMeal">🔄 换一换</view>
     </view>
     <view class="divider"></view>
@@ -110,4 +113,6 @@
   </view>
 
   </block>
+
+  </view>
 </view>

@@ -4,6 +4,7 @@ const prices = require('../../data/prices');
 const covers = require('../../data/covers');
 
 const MEAL_LABELS = { breakfast: '早餐', lunch: '午餐', dinner: '晚餐' };
+const MEAL_EMOJIS = { breakfast: '☀️', lunch: '🍱', dinner: '🌙' };
 
 function todayStr() {
   const d = new Date();
@@ -112,6 +113,7 @@ Page({
         return {
           key: k,
           label: MEAL_LABELS[k],
+          emoji: MEAL_EMOJIS[k],
           dishes,
           costText: `约 ¥${Math.round(mealCost)}`
         };

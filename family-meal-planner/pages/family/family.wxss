@@ -1,3 +1,21 @@
+.summary-card {
+  background: linear-gradient(155deg, #2e7d5b 0%, #256a4b 60%, #1d573e 100%);
+  color: #ffffff;
+  box-shadow: 0 10rpx 30rpx rgba(38, 84, 60, 0.25);
+}
+
+.summary-card .divider {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.summary-card .muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.summary-card .s-num {
+  color: #ffd591;
+}
+
 .summary-line {
   font-size: 26rpx;
   margin-bottom: 16rpx;

@@ -1,21 +1,34 @@
-.header {
-  padding: 30rpx 24rpx 6rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.hero-band {
+  background: linear-gradient(165deg, #2e7d5b 0%, #276b4e 55%, #1e5940 100%);
+  padding: 34rpx 30rpx 120rpx;
+  color: #ffffff;
 }
 
-.date {
-  font-size: 38rpx;
-  font-weight: 700;
+.band-date {
+  font-size: 42rpx;
+  font-weight: 750;
+  letter-spacing: 1rpx;
 }
 
-.family-chip {
+.band-sub {
+  font-size: 25rpx;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 8rpx;
+}
+
+.band-chip {
+  display: inline-block;
   font-size: 24rpx;
-  color: #2e7d5b;
-  background: #e8f3ee;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1rpx solid rgba(255, 255, 255, 0.22);
   border-radius: 999rpx;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 24rpx;
+  margin-top: 22rpx;
+}
+
+.overlap {
+  margin-top: -80rpx;
 }
 
 .empty-family {
@@ -48,10 +61,15 @@
 }
 
 .meal-cost {
-  font-size: 24rpx;
-  font-weight: 500;
-  color: #e08a00;
-  margin-left: 8rpx;
+  display: inline-block;
+  font-size: 22rpx;
+  font-weight: 600;
+  color: #b96f00;
+  background: #fdf1de;
+  border-radius: 999rpx;
+  padding: 4rpx 16rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
 }
 
 .cost-line {
