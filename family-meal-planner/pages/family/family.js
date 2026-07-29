@@ -45,6 +45,7 @@ Page({
       summary: members.length ? nutrition.familySummary(members) : null,
       noSpicy: !!wx.getStorageSync('noSpicyAll'),
       noPork: !!wx.getStorageSync('noPorkAll'),
+      favCount: (wx.getStorageSync('favorites') || []).length,
       // 没有成员时自动展开表单，引导添加
       showForm: this.data.showForm || !members.length
     });
@@ -57,6 +58,10 @@ Page({
       title: e.detail.value ? '已开启全家免辣' : '已关闭免辣（家有 10 岁以下孩子仍自动避辣）',
       icon: 'none'
     });
+  },
+
+  onGoFavorites() {
+    wx.navigateTo({ url: '/pages/favorites/favorites' });
   },
 
   onToggleNoPork(e) {

@@ -39,10 +39,34 @@
   background: linear-gradient(135deg, #f3ecda, #e5d5ae);
 }
 
+.r-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
 .r-name {
   font-size: 40rpx;
   font-weight: 700;
-  margin-bottom: 16rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.fav-chip {
+  flex-shrink: 0;
+  font-size: 25rpx;
+  color: #c0574f;
+  border: 2rpx solid rgba(192, 87, 79, 0.45);
+  border-radius: 999rpx;
+  padding: 8rpx 22rpx;
+  margin-top: 4rpx;
+}
+
+.fav-chip.on {
+  background: #fdecea;
+  border-color: #f3b6b0;
 }
 
 .r-meta {

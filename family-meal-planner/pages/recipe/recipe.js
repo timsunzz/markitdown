@@ -31,7 +31,19 @@ Page({
     memberCount: 0,
     ingredientViews: [],
     familyNutrition: null,
-    dishCost: 0
+    dishCost: 0,
+    isFav: false
+  },
+
+  /** 收藏 / 取消收藏（存本地，无需登录） */
+  onToggleFav() {
+    const id = this.data.recipe.id;
+    let ids = wx.getStorageSync('favorites') || [];
+    const has = ids.indexOf(id) >= 0;
+    ids = has ? ids.filter((x) => x !== id) : ids.concat(id);
+    wx.setStorageSync('favorites', ids);
+    this.setData({ isFav: !has });
+    wx.showToast({ title: has ? '已取消收藏' : '已收藏，可在"我的家庭"里查看', icon: 'none' });
   },
 
   onLoad(options) {
@@ -49,6 +61,7 @@ Page({
     this.setData({
       recipe,
       emoji: covers.emojiFor(recipe),
+      isFav: (wx.getStorageSync('favorites') || []).indexOf(recipe.id) >= 0,
       factor: Math.round(factor * 10) / 10,
       memberCount: members.length,
       ingredientViews: recipe.ingredients.map((ing) => {

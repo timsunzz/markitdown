@@ -1,0 +1,82 @@
+.empty {
+  text-align: center;
+  padding: 90rpx 32rpx;
+  color: #6b7066;
+  font-size: 30rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.empty-note {
+  margin-top: 14rpx;
+  line-height: 1.7;
+}
+
+.empty-btn {
+  margin-top: 32rpx;
+  width: 76%;
+}
+
+.head-note {
+  margin-top: 8rpx;
+}
+
+.dish {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+}
+
+.dish + .dish {
+  border-top: 2rpx solid #f6f7f4;
+}
+
+.dish-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.cover-breakfast { background: linear-gradient(135deg, #ffe9c7, #ffd18d); }
+.cover-meat { background: linear-gradient(135deg, #ffdccb, #ffb497); }
+.cover-veg { background: linear-gradient(135deg, #dcf0de, #abddb5); }
+.cover-soup { background: linear-gradient(135deg, #d9edf6, #abd8ea); }
+.cover-staple { background: linear-gradient(135deg, #f3ecda, #e5d5ae); }
+
+.dish-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.dish-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.dish-kcal {
+  font-size: 24rpx;
+  color: #e08a00;
+  margin-bottom: 6rpx;
+}
+
+.fav-remove {
+  font-size: 40rpx;
+  padding: 10rpx 0 10rpx 20rpx;
+  flex-shrink: 0;
+}

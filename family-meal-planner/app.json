@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/shopping/shopping",
     "pages/family/family",
-    "pages/recipe/recipe"
+    "pages/recipe/recipe",
+    "pages/favorites/favorites"
   ],
   "window": {
     "navigationBarBackgroundColor": "#2e7d5b",

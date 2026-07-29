@@ -9,7 +9,12 @@
     <text class="hero-emoji">{{emoji}}</text>
   </view>
   <view class="card">
-    <view class="r-name">{{recipe.name}}</view>
+    <view class="r-head">
+      <view class="r-name">{{recipe.name}}</view>
+      <view class="fav-chip {{isFav ? 'on' : ''}}" bindtap="onToggleFav">
+        {{isFav ? '❤️ 已收藏' : '🤍 收藏'}}
+      </view>
+    </view>
     <view class="r-meta">
       <text class="tag" wx:for="{{recipe.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
     </view>
