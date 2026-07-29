@@ -116,10 +116,10 @@ function mealPlanFor(factor) {
   if (factor < 1.6) {
     return {
       tier: 'S',
-      boost: 1.4,
+      boost: 1.25,
       lunch: ['meat', 'staple'],
-      dinner: ['veg', 'soup', 'staple'],
-      label: '一口人精简模式：每餐一两道菜，每道菜份量已加大'
+      dinner: ['meat', 'veg', 'staple'],
+      label: '一口人精简模式：午晚餐都有荤菜保证蛋白质，每道菜份量已加大'
     };
   }
   if (factor < 2.4) {
