@@ -33,6 +33,7 @@ Page({
     dateLabel: '',
     noMembers: false,
     noSpicyAll: false,
+    noPorkAll: false,
     members: [],
     summary: null,
     menu: null,
@@ -57,7 +58,11 @@ Page({
     }
     const summary = nutrition.familySummary(members);
     const noSpicyAll = !!wx.getStorageSync('noSpicyAll');
-    const noSpicy = noSpicyAll || nutrition.hasYoungChild(members);
+    const noPorkAll = !!wx.getStorageSync('noPorkAll');
+    const prefs = {
+      noSpicy: noSpicyAll || nutrition.hasYoungChild(members),
+      noPork: noPorkAll
+    };
     const date = todayStr();
 
     // 读取/初始化当日"换一换"计数
@@ -68,7 +73,7 @@ Page({
       wx.setStorageSync(key, shuffles);
     }
 
-    const menu = this.buildMenu(date, shuffles, noSpicy);
+    const menu = this.buildMenu(date, shuffles, prefs);
     wx.setStorageSync('currentMenu', {
       date,
       ids: planner.menuToIds(menu),
@@ -82,6 +87,7 @@ Page({
     this.setData({
       noMembers: false,
       noSpicyAll,
+      noPorkAll,
       dateLabel: dateLabel(date),
       members,
       summary,
@@ -124,8 +130,8 @@ Page({
   },
 
   /** 按三餐各自的换一换次数组装菜单（引擎会保证整天菜品与主料不重复） */
-  buildMenu(date, shuffles, noSpicy) {
-    return planner.planDay(date, shuffles, noSpicy);
+  buildMenu(date, shuffles, prefs) {
+    return planner.planDay(date, shuffles, prefs);
   },
 
   onShuffleMeal(e) {

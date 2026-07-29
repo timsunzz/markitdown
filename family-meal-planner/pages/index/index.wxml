@@ -25,6 +25,10 @@
     🌶️🚫 已开启全家免辣：今天的菜单不含任何辣菜（可在"我的家庭"关闭）。
   </view>
 
+  <view class="card notice" wx:if="{{noPorkAll}}">
+    🐷🚫 已开启不吃猪肉：今天的菜单不含任何猪肉及含酒精食材的菜（可在"我的家庭"关闭）。
+  </view>
+
   <view class="card notice" wx:if="{{toddlerTip}}">
     👶 家有 3 岁以下幼儿：给宝宝的部分请单独少盐、食材切小块，整虾整颗坚果等谨防呛噎。
   </view>

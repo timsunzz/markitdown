@@ -19,6 +19,7 @@ Page({
     roles: nutrition.ROLES,
     roleLabels: nutrition.ROLES.map((r) => r.label),
     noSpicy: false,
+    noPork: false,
     // 新增成员表单
     showForm: false,
     roleIndex: 0,
@@ -43,6 +44,7 @@ Page({
       }),
       summary: members.length ? nutrition.familySummary(members) : null,
       noSpicy: !!wx.getStorageSync('noSpicyAll'),
+      noPork: !!wx.getStorageSync('noPorkAll'),
       // 没有成员时自动展开表单，引导添加
       showForm: this.data.showForm || !members.length
     });
@@ -53,6 +55,15 @@ Page({
     this.setData({ noSpicy: !!e.detail.value });
     wx.showToast({
       title: e.detail.value ? '已开启全家免辣' : '已关闭免辣（家有 10 岁以下孩子仍自动避辣）',
+      icon: 'none'
+    });
+  },
+
+  onToggleNoPork(e) {
+    wx.setStorageSync('noPorkAll', !!e.detail.value);
+    this.setData({ noPork: !!e.detail.value });
+    wx.showToast({
+      title: e.detail.value ? '已开启，菜单不再出现含猪肉的菜' : '已关闭不吃猪肉',
       icon: 'none'
     });
   },

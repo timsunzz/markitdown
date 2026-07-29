@@ -51,6 +51,26 @@ const ALLOW_REPEAT = [
   '纯牛奶', '豆浆（或黄豆现打）', '虾皮', '面粉'
 ];
 
+/**
+ * 含猪肉的食材（含鲜肉包、馄饨、肉松等隐性猪肉制品）与含酒精食材。
+ * 开启"不吃猪肉"模式后，含这些食材的菜一律不出现在菜单中。
+ */
+const PORK_INGREDIENTS = [
+  '猪里脊肉', '猪肉末', '猪肋排', '猪筒骨', '五花肉', '猪肝',
+  '腊肠', '午餐肉', '肉松', '速冻鲜肉包', '速冻猪肉煎饺', '速冻荠菜猪肉馄饨'
+];
+const ALCOHOL_INGREDIENTS = ['啤酒', '酒酿'];
+
+/** 这道菜是否含猪肉或酒精类食材 */
+function containsPork(recipe) {
+  return (recipe.ingredients || []).some(
+    (ing) =>
+      PORK_INGREDIENTS.indexOf(ing.name) >= 0 ||
+      ALCOHOL_INGREDIENTS.indexOf(ing.name) >= 0 ||
+      ing.name.indexOf('猪') >= 0
+  );
+}
+
 /** 一道菜的"主料"列表（排除调味品与允许重复的基础食材） */
 function mainIngredients(recipe) {
   const names = [];
@@ -93,10 +113,12 @@ function pickDiverse(pool, usedIngredients, chosenIds) {
  * @param {number|object} shuffle "换一换"次数：数字为整天统一；
  *   传 {breakfast, lunch, dinner} 可按餐独立换（换前面的餐可能连带影响后面的餐，
  *   因为后面的餐要避开前面已用的食材）
- * @param {boolean} noSpicy 是否排除辛辣菜
+ * @param {boolean|object} prefs 口味偏好：布尔值兼容旧用法（= noSpicy），
+ *   或对象 { noSpicy, noPork }
  * @returns {{breakfast: object[], lunch: object[], dinner: object[]}}
  */
-function planDay(dateStr, shuffle, noSpicy) {
+function planDay(dateStr, shuffle, prefs) {
+  const opts = typeof prefs === 'object' && prefs ? prefs : { noSpicy: !!prefs, noPork: false };
   const shuffles =
     typeof shuffle === 'object' && shuffle
       ? shuffle
@@ -105,7 +127,8 @@ function planDay(dateStr, shuffle, noSpicy) {
   const base = hash(dateStr);
   const pool = (type, mealShuffle) => {
     let list = byType(type);
-    if (noSpicy) list = list.filter((r) => !r.spicy);
+    if (opts.noSpicy) list = list.filter((r) => !r.spicy);
+    if (opts.noPork) list = list.filter((r) => !containsPork(r));
     return seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
   };
 
@@ -166,4 +189,4 @@ function menuFromIds(ids) {
   return { breakfast: restore(ids.breakfast), lunch: restore(ids.lunch), dinner: restore(ids.dinner) };
 }
 
-module.exports = { planDay, dayNutrition, menuToIds, menuFromIds };
+module.exports = { planDay, dayNutrition, menuToIds, menuFromIds, containsPork };
