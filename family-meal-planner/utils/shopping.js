@@ -26,13 +26,15 @@ function roundAmount(amount, unit) {
 }
 
 /**
- * 聚合一天菜单的食材
+ * 聚合一天菜单的食材（午晚餐按份量加大倍率放大）
  * @returns {Array<{category, icon, items: Array<{name, amountText, pantry, checked}>}>}
  */
-function buildList(menu, familyFactor) {
+function buildList(menu, familyFactor, portionBoost) {
+  const boost = portionBoost || 1;
   const map = {}; // name -> { name, amount, unit, category, pantry }
 
   ['breakfast', 'lunch', 'dinner'].forEach((meal) => {
+    const mealFactor = meal === 'breakfast' ? familyFactor : familyFactor * boost;
     (menu[meal] || []).forEach((recipe) => {
       (recipe.ingredients || []).forEach((ing) => {
         const key = ing.name;
@@ -45,7 +47,7 @@ function buildList(menu, familyFactor) {
             pantry: !!ing.pantry
           };
         }
-        map[key].amount += (ing.amount || 0) * familyFactor;
+        map[key].amount += (ing.amount || 0) * mealFactor;
       });
     });
   });

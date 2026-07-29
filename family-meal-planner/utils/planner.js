@@ -108,17 +108,51 @@ function pickDiverse(pool, usedIngredients, chosenIds) {
 }
 
 /**
+ * 按家庭份量系数决定三餐结构：人少 → 菜少、但每道菜份量加大（portionBoost），
+ * 避免"一位老人一天做七道菜"的不合理菜单，同时保证营养总量不缩水。
+ * @param {number} factor 全家份数系数（约等于折算后的人数）
+ */
+function mealPlanFor(factor) {
+  if (factor < 1.6) {
+    return {
+      tier: 'S',
+      boost: 1.4,
+      lunch: ['meat', 'staple'],
+      dinner: ['veg', 'soup', 'staple'],
+      label: '一口人精简模式：每餐一两道菜，每道菜份量已加大'
+    };
+  }
+  if (factor < 2.4) {
+    return {
+      tier: 'M',
+      boost: 1.1,
+      lunch: ['meat', 'veg', 'staple'],
+      dinner: ['meat', 'soup', 'staple'],
+      label: '两口人模式：全天两荤一素一汤，份量略有加大'
+    };
+  }
+  return {
+    tier: 'L',
+    boost: 1,
+    lunch: ['meat', 'veg', 'staple'],
+    dinner: ['meat', 'veg', 'soup', 'staple'],
+    label: ''
+  };
+}
+
+/**
  * 生成某一天的菜单
  * @param {string} dateStr  如 '2026-07-26'
  * @param {number|object} shuffle "换一换"次数：数字为整天统一；
  *   传 {breakfast, lunch, dinner} 可按餐独立换（换前面的餐可能连带影响后面的餐，
  *   因为后面的餐要避开前面已用的食材）
  * @param {boolean|object} prefs 口味偏好：布尔值兼容旧用法（= noSpicy），
- *   或对象 { noSpicy, noPork }
+ *   或对象 { noSpicy, noPork, factor }（factor 决定三餐结构，缺省按大家庭）
  * @returns {{breakfast: object[], lunch: object[], dinner: object[]}}
  */
 function planDay(dateStr, shuffle, prefs) {
   const opts = typeof prefs === 'object' && prefs ? prefs : { noSpicy: !!prefs, noPork: false };
+  const structure = mealPlanFor(typeof opts.factor === 'number' ? opts.factor : 3);
   const shuffles =
     typeof shuffle === 'object' && shuffle
       ? shuffle
@@ -145,13 +179,8 @@ function planDay(dateStr, shuffle, prefs) {
   };
 
   const breakfast = [take('breakfast', shuffles.breakfast)];
-  const lunch = [take('meat', shuffles.lunch), take('veg', shuffles.lunch), take('staple', shuffles.lunch)];
-  const dinner = [
-    take('meat', shuffles.dinner),
-    take('veg', shuffles.dinner),
-    take('soup', shuffles.dinner),
-    take('staple', shuffles.dinner)
-  ];
+  const lunch = structure.lunch.map((t) => take(t, shuffles.lunch));
+  const dinner = structure.dinner.map((t) => take(t, shuffles.dinner));
 
   return {
     breakfast: breakfast.filter(Boolean),
@@ -160,19 +189,24 @@ function planDay(dateStr, shuffle, prefs) {
   };
 }
 
-/** 汇总一天菜单的营养（每标准份），再乘以全家份数系数 */
-function dayNutrition(menu, familyFactor) {
+/**
+ * 汇总一天菜单的营养：早餐按份数系数，午晚餐额外乘以份量加大倍率
+ * （小家庭菜少时每道做大，营养总量才不缩水）
+ */
+function dayNutrition(menu, familyFactor, portionBoost) {
+  const boost = portionBoost || 1;
   const total = { kcal: 0, protein: 0, fat: 0, carbs: 0, calcium: 0, iron: 0 };
   ['breakfast', 'lunch', 'dinner'].forEach((meal) => {
+    const mealFactor = meal === 'breakfast' ? familyFactor : familyFactor * boost;
     (menu[meal] || []).forEach((r) => {
       if (!r || !r.nutrition) return;
       Object.keys(total).forEach((k) => {
-        total[k] += r.nutrition[k] || 0;
+        total[k] += (r.nutrition[k] || 0) * mealFactor;
       });
     });
   });
   Object.keys(total).forEach((k) => {
-    total[k] = Math.round(total[k] * familyFactor);
+    total[k] = Math.round(total[k]);
   });
   return total;
 }
@@ -189,4 +223,4 @@ function menuFromIds(ids) {
   return { breakfast: restore(ids.breakfast), lunch: restore(ids.lunch), dinner: restore(ids.dinner) };
 }
 
-module.exports = { planDay, dayNutrition, menuToIds, menuFromIds, containsPork };
+module.exports = { planDay, dayNutrition, menuToIds, menuFromIds, containsPork, mealPlanFor };

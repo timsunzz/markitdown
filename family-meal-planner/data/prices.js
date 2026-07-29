@@ -183,12 +183,14 @@ function dishCost(recipe, factor) {
   return Math.round(sum * 10) / 10;
 }
 
-/** 一天菜单的总预估花费（元） */
-function dayCost(menu, factor) {
+/** 一天菜单的总预估花费（元）；午晚餐按份量加大倍率计价 */
+function dayCost(menu, factor, portionBoost) {
+  const boost = portionBoost || 1;
   let sum = 0;
   ['breakfast', 'lunch', 'dinner'].forEach((meal) => {
+    const f = meal === 'breakfast' ? factor : factor * boost;
     (menu[meal] || []).forEach((r) => {
-      sum += dishCost(r, factor);
+      sum += dishCost(r, f);
     });
   });
   return Math.round(sum);

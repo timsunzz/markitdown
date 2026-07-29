@@ -60,9 +60,11 @@ Page({
     const summary = nutrition.familySummary(members);
     const noSpicyAll = !!wx.getStorageSync('noSpicyAll');
     const noPorkAll = !!wx.getStorageSync('noPorkAll');
+    const structure = planner.mealPlanFor(summary.factor);
     const prefs = {
       noSpicy: noSpicyAll || nutrition.hasYoungChild(members),
-      noPork: noPorkAll
+      noPork: noPorkAll,
+      factor: summary.factor
     };
     const date = todayStr();
 
@@ -79,10 +81,11 @@ Page({
       date,
       ids: planner.menuToIds(menu),
       factor: summary.factor,
+      boost: structure.boost,
       memberCount: members.length
     });
 
-    const totals = planner.dayNutrition(menu, summary.factor);
+    const totals = planner.dayNutrition(menu, summary.factor, structure.boost);
     const pct = (v, t) => Math.min(100, Math.round((v / t) * 100));
 
     this.setData({
@@ -93,10 +96,12 @@ Page({
       members,
       summary,
       menu,
+      structureLabel: structure.label,
       mealList: ['breakfast', 'lunch', 'dinner'].map((k) => {
+        const mealFactor = k === 'breakfast' ? summary.factor : summary.factor * structure.boost;
         let mealCost = 0;
         const dishes = menu[k].map((d) => {
-          const cost = prices.dishCost(d, summary.factor);
+          const cost = prices.dishCost(d, mealFactor);
           mealCost += cost;
           return {
             id: d.id,
@@ -118,7 +123,7 @@ Page({
           costText: `约 ¥${Math.round(mealCost)}`
         };
       }),
-      dayCost: prices.dayCost(menu, summary.factor),
+      dayCost: prices.dayCost(menu, summary.factor, structure.boost),
       totals,
       percents: {
         kcal: pct(totals.kcal, summary.kcal),

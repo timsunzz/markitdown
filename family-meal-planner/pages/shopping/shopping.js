@@ -45,7 +45,7 @@ Page({
       return;
     }
     const menu = menuFromIds(current.ids);
-    const groups = shopping.buildList(menu, current.factor || 1);
+    const groups = shopping.buildList(menu, current.factor || 1, current.boost || 1);
     // 恢复当日已勾选/已复制状态
     const saved = wx.getStorageSync(`shoppingState:${current.date}`) || {};
     groups.forEach((g) =>

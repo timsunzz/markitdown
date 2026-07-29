@@ -56,7 +56,10 @@ Page({
 
     const members = wx.getStorageSync('familyMembers') || [];
     const summary = nutrition.familySummary(members);
-    const factor = summary.factor || 1;
+    // 小家庭模式下午晚餐每道菜份量加大（与今日菜单/购物清单保持一致）
+    const current = wx.getStorageSync('currentMenu') || {};
+    const boost = recipe.type === 'breakfast' ? 1 : current.boost || 1;
+    const factor = (summary.factor || 1) * boost;
 
     this.setData({
       recipe,
