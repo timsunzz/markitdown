@@ -9958,6 +9958,3046 @@ const RECIPES = [
       "iron": 0.8
     },
     "tip": "娃娃菜甜嫩易消化，粉丝吸味，一碗汤兼顾了蔬菜和一点主食。"
+  },
+  {
+    "id": "m78",
+    "name": "黄焖鸡",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "下饭",
+      "家常",
+      "砂锅"
+    ],
+    "time": 35,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸡腿肉",
+        "amount": 120,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "土豆",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "干香菇",
+        "amount": 8,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "青椒（菜椒不辣）",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "老抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "白糖",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "干香菇提前温水泡发，泡香菇的水留用；鸡腿肉切块，土豆切滚刀块，青椒切片。",
+      "热锅倒油，下姜片和鸡块中火煸炒至表面微黄，淋料酒去腥。",
+      "加生抽、老抽、白糖翻炒上色，放入香菇和土豆，倒入泡香菇水没过食材。",
+      "盖盖小火焖20分钟至土豆软糯，收浓汤汁后放青椒片翻炒1分钟即可。"
+    ],
+    "nutrition": {
+      "kcal": 310,
+      "protein": 24,
+      "fat": 18,
+      "carbs": 16,
+      "calcium": 30,
+      "iron": 1.6
+    },
+    "tip": "泡香菇的水是天然提鲜剂，别倒掉；用砂锅焖香味更浓。"
+  },
+  {
+    "id": "m79",
+    "name": "芹菜炒牛肉丝",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "快手",
+      "高蛋白",
+      "下饭"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "牛里脊",
+        "amount": 100,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "芹菜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "蚝油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "牛里脊逆纹切丝，加生抽、玉米淀粉和少许油抓匀腌10分钟。",
+      "芹菜撕去老筋切段，热水快焯20秒捞出沥干。",
+      "热锅热油下牛肉丝大火滑炒至变色盛出。",
+      "锅内余油爆香姜蒜，下芹菜翻炒，倒回牛肉丝，加蚝油和盐大火炒匀出锅。"
+    ],
+    "nutrition": {
+      "kcal": 220,
+      "protein": 22,
+      "fat": 11,
+      "carbs": 7,
+      "calcium": 55,
+      "iron": 3
+    },
+    "tip": "牛肉一定要逆着纹路切，滑炒时间不超过1分钟才嫩。"
+  },
+  {
+    "id": "m80",
+    "name": "番茄炖牛腩",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "炖菜",
+      "开胃",
+      "汤汁拌饭"
+    ],
+    "time": 90,
+    "difficulty": "中等",
+    "ingredients": [
+      {
+        "name": "牛腩",
+        "amount": 120,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "番茄",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "八角",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "番茄酱",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "牛腩切块冷水下锅，加姜片、料酒焯水后洗净浮沫。",
+      "番茄划十字烫去皮，一半切块一半切碎。",
+      "热锅少油炒碎番茄和番茄酱出红油，下牛腩、姜片、八角翻炒，加热水没过。",
+      "小火炖1小时后放入番茄块和盐，再炖15分钟至汤浓肉烂，撒葱花。"
+    ],
+    "nutrition": {
+      "kcal": 320,
+      "protein": 23,
+      "fat": 22,
+      "carbs": 9,
+      "calcium": 25,
+      "iron": 3.2
+    },
+    "tip": "番茄分两次放：先炒碎的出味，后放块的保口感；用高压锅可缩短到30分钟。"
+  },
+  {
+    "id": "m81",
+    "name": "孜然羊肉",
+    "type": "meat",
+    "spicy": true,
+    "tags": [
+      "下饭",
+      "高蛋白",
+      "冬季暖身"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "羊肉片",
+        "amount": 120,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "孜然粉",
+        "amount": 3,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "小葱",
+        "amount": 10,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "干辣椒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "羊肉片加生抽、料酒、少许玉米淀粉抓匀腌10分钟。",
+      "热锅多放一点油，大火下羊肉片快速滑散至变色。",
+      "下干辣椒段炒香，撒孜然粉和盐翻炒均匀。",
+      "出锅前撒葱段，翻两下立刻装盘。"
+    ],
+    "nutrition": {
+      "kcal": 280,
+      "protein": 23,
+      "fat": 19,
+      "carbs": 4,
+      "calcium": 20,
+      "iron": 2.8
+    },
+    "tip": "全程大火快炒，羊肉片下锅后不要超过2分钟，久了会老。"
+  },
+  {
+    "id": "m82",
+    "name": "肥牛娃娃菜粉丝煲",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "一锅出",
+      "砂锅",
+      "汤鲜"
+    ],
+    "time": 25,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "肥牛卷",
+        "amount": 100,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "娃娃菜",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "龙口粉丝",
+        "amount": 30,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "蒜",
+        "amount": 10,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蚝油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "粉丝温水泡软，娃娃菜切长条铺在砂锅底，粉丝铺在菜上。",
+      "热油爆香蒜末，加生抽、蚝油和半碗热水调成汤汁，倒入砂锅。",
+      "盖盖中火煮8分钟至娃娃菜软塌。",
+      "铺上肥牛卷再盖盖煮2分钟至变色，加盐调味，撒葱花即可。"
+    ],
+    "nutrition": {
+      "kcal": 330,
+      "protein": 18,
+      "fat": 20,
+      "carbs": 24,
+      "calcium": 60,
+      "iron": 2
+    },
+    "tip": "粉丝会吸汤，汤汁可比平时多放一点；肥牛最后放才嫩。"
+  },
+  {
+    "id": "m83",
+    "name": "蒜香煎鸡翅",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "孩子爱吃",
+      "少油版",
+      "快手"
+    ],
+    "time": 25,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸡翅中",
+        "amount": 180,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "蒜",
+        "amount": 15,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "蚝油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鸡翅两面各划两刀，加蒜末、生抽、蚝油、料酒、黑胡椒抓匀腌20分钟以上。",
+      "平底锅刷薄油，小火放入鸡翅，每面煎4-5分钟至金黄。",
+      "倒入剩余腌料汁和两勺清水，盖盖小火焖5分钟。",
+      "开盖大火收汁，让每只鸡翅裹上酱汁即可。"
+    ],
+    "nutrition": {
+      "kcal": 290,
+      "protein": 22,
+      "fat": 20,
+      "carbs": 5,
+      "calcium": 15,
+      "iron": 1.2
+    },
+    "tip": "腌制时间越长越入味，可以头天晚上腌好放冷藏，第二天煎更省事。"
+  },
+  {
+    "id": "m84",
+    "name": "白萝卜炖鸭腿",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "炖汤",
+      "秋冬润燥",
+      "老少皆宜"
+    ],
+    "time": 70,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸭腿",
+        "amount": 200,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "白萝卜",
+        "amount": 200,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "枸杞",
+        "amount": 3,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鸭腿剁块冷水下锅，加姜片、料酒焯水，捞出冲净。",
+      "鸭块放入汤锅，加姜片和足量热水，大火烧开转小火炖40分钟。",
+      "白萝卜切块放入，继续炖20分钟至萝卜透明软烂。",
+      "加盐调味，撒枸杞焖2分钟，出锅点缀葱花。"
+    ],
+    "nutrition": {
+      "kcal": 300,
+      "protein": 24,
+      "fat": 21,
+      "carbs": 7,
+      "calcium": 40,
+      "iron": 2.5
+    },
+    "tip": "鸭肉偏油，炖好后可撇去表面浮油再喝汤，更清爽。"
+  },
+  {
+    "id": "m85",
+    "name": "香煎鳕鱼",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "高蛋白",
+      "低脂",
+      "宝宝也能吃"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鳕鱼",
+        "amount": 150,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "柠檬",
+        "amount": 0.5,
+        "unit": "个",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鳕鱼解冻后用厨房纸彻底吸干水分，两面抹盐和黑胡椒腌10分钟。",
+      "表面薄薄拍一层玉米淀粉，防粘且锁住水分。",
+      "平底锅热油，中小火放入鳕鱼，一面定型金黄后再翻面，各煎约3分钟。",
+      "出锅挤柠檬汁即可食用。"
+    ],
+    "nutrition": {
+      "kcal": 200,
+      "protein": 26,
+      "fat": 8,
+      "carbs": 5,
+      "calcium": 30,
+      "iron": 0.8
+    },
+    "tip": "鳕鱼肉嫩易碎，煎时不要频繁翻动，等底面定型再翻。"
+  },
+  {
+    "id": "m86",
+    "name": "青椒炒鱿鱼",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "快手",
+      "低脂",
+      "下饭"
+    ],
+    "time": 15,
+    "difficulty": "中等",
+    "ingredients": [
+      {
+        "name": "鱿鱼",
+        "amount": 150,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "青椒（菜椒不辣）",
+        "amount": 50,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "蚝油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鱿鱼撕去外膜，内侧打十字花刀后切块。",
+      "水烧开加料酒和姜片，鱿鱼下锅焯10秒卷起立刻捞出。",
+      "热锅热油爆香姜蒜，下青椒块炒至断生。",
+      "倒入鱿鱼，加生抽、蚝油大火翻炒30秒出锅。"
+    ],
+    "nutrition": {
+      "kcal": 185,
+      "protein": 23,
+      "fat": 7,
+      "carbs": 7,
+      "calcium": 45,
+      "iron": 1
+    },
+    "tip": "鱿鱼焯水看到打卷就捞，全程动作要快，炒老了嚼不动。"
+  },
+  {
+    "id": "m87",
+    "name": "丝瓜蛤蜊豆腐汤",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "清淡",
+      "夏季",
+      "补钙"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "蛤蜊",
+        "amount": 300,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "丝瓜",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "嫩豆腐",
+        "amount": 150,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "蛤蜊提前用淡盐水浸泡2小时吐净泥沙，丝瓜去皮切滚刀块，嫩豆腐切块。",
+      "少油煸香姜片，下丝瓜略炒，加两碗热水烧开。",
+      "放入豆腐煮3分钟，再下蛤蜊煮至全部开口。",
+      "加盐调味，滴几滴香油撒葱花即可。"
+    ],
+    "nutrition": {
+      "kcal": 185,
+      "protein": 17,
+      "fat": 8,
+      "carbs": 10,
+      "calcium": 180,
+      "iron": 6
+    },
+    "tip": "蛤蜊本身很鲜且带咸味，盐要最后尝过再加；开口即熟，久煮变硬。"
+  },
+  {
+    "id": "m88",
+    "name": "韭菜炒虾仁",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "快手",
+      "高蛋白",
+      "低脂"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "冷冻虾仁",
+        "amount": 150,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "韭菜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "虾仁解冻吸干水分，加料酒、少许盐和玉米淀粉抓匀腌5分钟。",
+      "韭菜洗净切段，梗和叶分开放。",
+      "热锅热油下姜末和虾仁，大火炒至虾仁变红弯曲。",
+      "先下韭菜梗炒30秒，再下韭菜叶，加盐快速炒匀立即出锅。"
+    ],
+    "nutrition": {
+      "kcal": 200,
+      "protein": 24,
+      "fat": 9,
+      "carbs": 6,
+      "calcium": 90,
+      "iron": 2.2
+    },
+    "tip": "韭菜叶一变深绿就关火，余温会让它刚好断生。"
+  },
+  {
+    "id": "m89",
+    "name": "家常豆腐",
+    "type": "meat",
+    "spicy": true,
+    "tags": [
+      "下饭",
+      "素荤搭配",
+      "经典川味"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "老豆腐",
+        "amount": 250,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "干香菇",
+        "amount": 6,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "青椒（菜椒不辣）",
+        "amount": 40,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "豆瓣酱",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "白糖",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "老豆腐切三角厚片，干香菇泡发切片，青椒切块。",
+      "平底锅多放一点油，豆腐两面煎至金黄盛出。",
+      "锅内余油小火炒香豆瓣酱和蒜片，下香菇炒出香味。",
+      "加半碗泡香菇水、生抽和白糖烧开，放回豆腐烧3分钟，下青椒，用水淀粉勾薄芡即可。"
+    ],
+    "nutrition": {
+      "kcal": 280,
+      "protein": 20,
+      "fat": 17,
+      "carbs": 13,
+      "calcium": 320,
+      "iron": 4.5
+    },
+    "tip": "豆瓣酱本身够咸，一般不用再加盐；豆腐煎过再烧不易碎且更香。"
+  },
+  {
+    "id": "m90",
+    "name": "滑蛋牛肉",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "嫩滑",
+      "快手",
+      "孩子爱吃"
+    ],
+    "time": 15,
+    "difficulty": "中等",
+    "ingredients": [
+      {
+        "name": "牛里脊",
+        "amount": 80,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 3,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "牛里脊逆纹切薄片，加生抽、料酒、玉米淀粉和少许油腌10分钟。",
+      "鸡蛋加盐和一勺清水打散，放入葱花。",
+      "热锅热油滑炒牛肉至八成熟盛出，放入蛋液中拌匀。",
+      "洗锅重新热油，倒入牛肉蛋液，小火用铲子缓慢推动，蛋液半凝固时立即关火装盘。"
+    ],
+    "nutrition": {
+      "kcal": 300,
+      "protein": 27,
+      "fat": 20,
+      "carbs": 4,
+      "calcium": 60,
+      "iron": 3.5
+    },
+    "tip": "关火时机是关键：蛋液看起来还有点稀就要出锅，余温会让它刚好凝固。"
+  },
+  {
+    "id": "m91",
+    "name": "黄瓜炒鸡丁",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "低脂",
+      "减脂餐",
+      "清爽"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸡胸肉",
+        "amount": 120,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鸡胸肉切丁，加料酒、生抽、玉米淀粉抓匀腌10分钟。",
+      "黄瓜、胡萝卜切丁，胡萝卜丁先焯水1分钟。",
+      "热锅热油下鸡丁炒至变白盛出。",
+      "爆香蒜末，下黄瓜和胡萝卜丁翻炒1分钟，倒回鸡丁加盐炒匀即可。"
+    ],
+    "nutrition": {
+      "kcal": 220,
+      "protein": 28,
+      "fat": 8,
+      "carbs": 9,
+      "calcium": 25,
+      "iron": 1
+    },
+    "tip": "鸡胸腌时加半勺水抓到吸收，炒出来不柴。"
+  },
+  {
+    "id": "m92",
+    "name": "香煎黄花鱼",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "外酥里嫩",
+      "家常",
+      "高蛋白"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "黄花鱼",
+        "amount": 250,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "黄花鱼处理干净，两面划刀，用盐、料酒、姜丝腌15分钟。",
+      "用厨房纸吸干鱼身水分，两面薄拍一层玉米淀粉。",
+      "平底锅烧热后倒油，油热放鱼，中小火一面煎4分钟定型金黄再翻面。",
+      "两面金黄酥脆后出锅，撒葱花装盘。"
+    ],
+    "nutrition": {
+      "kcal": 240,
+      "protein": 25,
+      "fat": 13,
+      "carbs": 5,
+      "calcium": 55,
+      "iron": 1.1
+    },
+    "tip": "鱼身擦得越干越不溅油也不粘锅；热锅凉油撒少许盐再放鱼，鱼皮更完整。"
+  },
+  {
+    "id": "br31",
+    "name": "牛肉末菠菜粥+水煮蛋",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "补铁",
+      "暖胃",
+      "老少皆宜"
+    ],
+    "time": 30,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "大米",
+        "amount": 60,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "牛肉末",
+        "amount": 50,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "菠菜",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "大米加6倍水煮粥，同时另起小锅煮鸡蛋8分钟。",
+      "牛肉末加料酒和姜末拌匀去腥，菠菜焯水后切碎。",
+      "粥煮至软糯时下牛肉末，边倒边搅散，煮3分钟。",
+      "加入菠菜碎和盐，滴几滴香油，配水煮蛋食用。"
+    ],
+    "nutrition": {
+      "kcal": 430,
+      "protein": 23,
+      "fat": 13,
+      "carbs": 55,
+      "calcium": 90,
+      "iron": 4.8
+    },
+    "tip": "牛肉末先用料酒姜末抓过再下锅，粥里不会有腥味；菠菜焯水去草酸。"
+  },
+  {
+    "id": "br32",
+    "name": "鸡丝荞麦凉面+豆浆",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "夏季",
+      "低GI",
+      "饱腹"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "荞麦面",
+        "amount": 80,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "鸡胸肉",
+        "amount": 60,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 60,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "豆浆（或黄豆现打）",
+        "amount": 250,
+        "unit": "ml",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "香醋",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "白糖",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鸡胸肉冷水下锅煮12分钟，放温后撕成丝。",
+      "荞麦面煮熟过凉水沥干，拌少许香油防粘。",
+      "黄瓜切丝，用生抽、香醋、蒜末、白糖、香油调成料汁。",
+      "面条、鸡丝、黄瓜丝拌上料汁，配一杯温豆浆。"
+    ],
+    "nutrition": {
+      "kcal": 460,
+      "protein": 30,
+      "fat": 10,
+      "carbs": 62,
+      "calcium": 60,
+      "iron": 3
+    },
+    "tip": "鸡胸煮好焖5分钟再捞更嫩；料汁可以前一晚调好冷藏。"
+  },
+  {
+    "id": "br33",
+    "name": "全麦馒头夹煎蛋+纯牛奶",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "10分钟",
+      "中式汉堡",
+      "补钙"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "全麦馒头",
+        "amount": 1,
+        "unit": "个",
+        "category": "米面粮油"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "奶酪片",
+        "amount": 1,
+        "unit": "片",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "生菜",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "纯牛奶",
+        "amount": 250,
+        "unit": "ml",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "全麦馒头对半剖开，放蒸锅或微波炉加热回软。",
+      "平底锅刷薄油煎一个鸡蛋，撒少许盐。",
+      "馒头夹入奶酪片、热煎蛋和生菜，奶酪被热气微微融化即可。",
+      "配一杯温牛奶食用。"
+    ],
+    "nutrition": {
+      "kcal": 470,
+      "protein": 23,
+      "fat": 18,
+      "carbs": 55,
+      "calcium": 420,
+      "iron": 2.2
+    },
+    "tip": "奶酪片贴着热煎蛋放会自然融化，比冷夹好吃很多。"
+  },
+  {
+    "id": "br34",
+    "name": "黑米红枣粥+奶酪蛋饼",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "粗粮",
+      "补气色",
+      "香甜"
+    ],
+    "time": 35,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "黑米",
+        "amount": 30,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "大米",
+        "amount": 30,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "红枣",
+        "amount": 15,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "面粉",
+        "amount": 25,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "奶酪片",
+        "amount": 1,
+        "unit": "片",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "黑米提前泡一晚，和大米、去核红枣一起加水煮30分钟成粥。",
+      "鸡蛋、面粉、少许盐和适量清水调成稀面糊，加葱花。",
+      "平底锅刷油倒入面糊摊成薄饼，放上奶酪片对折。",
+      "两面煎至微黄、奶酪融化，切块配粥食用。"
+    ],
+    "nutrition": {
+      "kcal": 460,
+      "protein": 17,
+      "fat": 13,
+      "carbs": 68,
+      "calcium": 220,
+      "iron": 2.6
+    },
+    "tip": "黑米不泡很难煮烂，赶时间可用电饭煲预约功能夜里煮好。"
+  },
+  {
+    "id": "br35",
+    "name": "金枪鱼鸡蛋三明治+酸奶",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "高蛋白",
+      "免开火少油",
+      "带着走"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "全麦吐司",
+        "amount": 2,
+        "unit": "片",
+        "category": "米面粮油"
+      },
+      {
+        "name": "金枪鱼罐头",
+        "amount": 60,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 40,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "酸奶",
+        "amount": 100,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "鸡蛋煮8分钟，剥壳后压碎。",
+      "水浸金枪鱼沥干水分，与鸡蛋碎、一勺酸奶、黑胡椒拌成馅。",
+      "黄瓜切薄片铺在吐司上，抹上金枪鱼鸡蛋馅，盖上另一片吐司对切。",
+      "剩余酸奶直接食用。"
+    ],
+    "nutrition": {
+      "kcal": 420,
+      "protein": 29,
+      "fat": 12,
+      "carbs": 46,
+      "calcium": 180,
+      "iron": 2.4
+    },
+    "tip": "用一勺酸奶代替沙拉酱拌馅，热量更低还带微微酸香。"
+  },
+  {
+    "id": "br36",
+    "name": "番茄牛肉面",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "一碗端",
+      "汤面",
+      "开胃"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "挂面",
+        "amount": 80,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "牛里脊",
+        "amount": 60,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "番茄",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "上海青",
+        "amount": 50,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "牛里脊切薄片，加生抽和玉米淀粉抓匀腌5分钟。",
+      "热锅少油把番茄块炒出沙，加两碗热水烧开。",
+      "下挂面煮至八成熟，放入牛肉片滑散煮1分钟。",
+      "加上海青烫熟，用盐调味，撒葱花出锅。"
+    ],
+    "nutrition": {
+      "kcal": 430,
+      "protein": 22,
+      "fat": 8,
+      "carbs": 66,
+      "calcium": 80,
+      "iron": 3.2
+    },
+    "tip": "牛肉片上浆后最后下锅，一变色就关火，嫩得像面馆的。"
+  },
+  {
+    "id": "br37",
+    "name": "手抓饼肥牛卷+豆浆",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "孩子爱吃",
+      "快手",
+      "解馋"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "手抓饼",
+        "amount": 1,
+        "unit": "张",
+        "category": "米面粮油"
+      },
+      {
+        "name": "肥牛卷",
+        "amount": 50,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "生菜",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "豆浆（或黄豆现打）",
+        "amount": 250,
+        "unit": "ml",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "平底锅不放油，直接烙手抓饼至两面金黄起层，盛出。",
+      "用锅内余油把肥牛卷煎至变色，加生抽和黑胡椒调味。",
+      "手抓饼上铺生菜和肥牛，卷起用厨房纸包住下半段。",
+      "配一杯温豆浆食用。"
+    ],
+    "nutrition": {
+      "kcal": 490,
+      "protein": 19,
+      "fat": 24,
+      "carbs": 50,
+      "calcium": 55,
+      "iron": 1.8
+    },
+    "tip": "手抓饼自带油脂，全程不用额外放油；肥牛煎出的油刚好用来提香。"
+  },
+  {
+    "id": "br38",
+    "name": "香菇鸡丝粥+水煮鹌鹑蛋+上海青",
+    "type": "breakfast",
+    "spicy": false,
+    "tags": [
+      "清淡养胃",
+      "广式风味",
+      "均衡"
+    ],
+    "time": 35,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "大米",
+        "amount": 70,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "鸡胸肉",
+        "amount": 60,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "干香菇",
+        "amount": 5,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "鹌鹑蛋",
+        "amount": 4,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "上海青",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "pantry": true,
+        "category": "调味干货"
+      }
+    ],
+    "steps": [
+      "干香菇泡发切丝，大米加泡香菇水和清水煮粥25分钟。",
+      "鸡胸切细丝，用少许盐和玉米淀粉抓匀；鹌鹑蛋煮5分钟剥壳。",
+      "粥浓稠后下香菇丝煮5分钟，再下鸡丝搅散煮2分钟。",
+      "加盐和几滴香油调味；上海青水里烫熟，和鹌鹑蛋一起配粥。"
+    ],
+    "nutrition": {
+      "kcal": 440,
+      "protein": 27,
+      "fat": 10,
+      "carbs": 62,
+      "calcium": 130,
+      "iron": 3.4
+    },
+    "tip": "鸡丝上薄浆再下粥里，口感嫩滑不柴；泡香菇水入粥更鲜。"
+  },
+  {
+    "id": "v51",
+    "name": "芹菜炒香干",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "高钙",
+      "快手",
+      "家常"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "芹菜",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "香干",
+        "amount": 60,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "芹菜去叶洗净斜切成段，香干切薄片，蒜切片",
+      "锅中水烧开，芹菜段焯水30秒捞出沥干",
+      "热锅倒油，下蒜片爆香，放入香干片翻炒1分钟",
+      "加入芹菜段大火快炒1分钟，加少许生抽和盐调味即可出锅"
+    ],
+    "nutrition": {
+      "kcal": 155,
+      "protein": 10,
+      "fat": 9,
+      "carbs": 8,
+      "calcium": 220,
+      "iron": 3
+    },
+    "tip": "芹菜先焯水能保持翠绿脆嫩，香干本身有咸味，盐要少放。"
+  },
+  {
+    "id": "v53",
+    "name": "蒜蓉荷兰豆",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "清爽",
+      "快手"
+    ],
+    "time": 8,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "荷兰豆",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 10,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "荷兰豆撕去两侧老筋洗净，蒜剁成蒜蓉",
+      "锅中水烧开加少许盐和油，荷兰豆焯水1分钟捞出",
+      "热锅倒油，小火爆香蒜蓉",
+      "倒入荷兰豆大火翻炒1分钟，加盐调味即可"
+    ],
+    "nutrition": {
+      "kcal": 110,
+      "protein": 4,
+      "fat": 6,
+      "carbs": 10,
+      "calcium": 55,
+      "iron": 1.2
+    },
+    "tip": "荷兰豆一定要炒熟透再吃，焯水后快炒既安全又保持脆嫩。"
+  },
+  {
+    "id": "v54",
+    "name": "清炒莴笋片",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "清爽",
+      "低脂"
+    ],
+    "time": 8,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "莴笋",
+        "amount": 200,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "莴笋削皮洗净，斜刀切成薄片，蒜切片",
+      "热锅倒油，下蒜片爆香",
+      "倒入莴笋片大火快炒2分钟",
+      "加盐调味翻炒均匀即可出锅"
+    ],
+    "nutrition": {
+      "kcal": 75,
+      "protein": 2,
+      "fat": 5,
+      "carbs": 6,
+      "calcium": 45,
+      "iron": 1
+    },
+    "tip": "莴笋片切薄一点更容易熟，大火快炒口感脆嫩不出水。"
+  },
+  {
+    "id": "v55",
+    "name": "凉拌千张丝",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "凉菜",
+      "高蛋白",
+      "高钙"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "千张",
+        "amount": 50,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 50,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香醋",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "千张切细丝，放入开水中焯1分钟捞出过凉沥干",
+      "黄瓜、胡萝卜洗净切细丝，蒜剁成蒜末",
+      "所有丝放入大碗，加生抽、香醋、盐、蒜末",
+      "淋上香油拌匀，静置5分钟入味即可"
+    ],
+    "nutrition": {
+      "kcal": 175,
+      "protein": 13,
+      "fat": 10,
+      "carbs": 8,
+      "calcium": 180,
+      "iron": 2.5
+    },
+    "tip": "千张焯水能去豆腥味，口感也更软嫩，夏天吃特别清爽开胃。"
+  },
+  {
+    "id": "v56",
+    "name": "蒜蓉粉丝蒸娃娃菜",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "蒸菜",
+      "清淡"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "娃娃菜",
+        "amount": 200,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "龙口粉丝",
+        "amount": 20,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "蒜",
+        "amount": 15,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "蒸鱼豉油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "粉丝用温水泡软，娃娃菜洗净竖切成条铺盘底，粉丝铺在上面",
+      "蒜剁成蒜蓉，热锅少油小火炒出香味，均匀铺在粉丝上",
+      "水开后上锅大火蒸8分钟取出",
+      "淋上蒸鱼豉油，撒葱花，浇一勺热油激香即可"
+    ],
+    "nutrition": {
+      "kcal": 150,
+      "protein": 3,
+      "fat": 6,
+      "carbs": 22,
+      "calcium": 60,
+      "iron": 1
+    },
+    "tip": "粉丝泡软即可不要泡太久，蒸的时候垫在娃娃菜上能吸饱汤汁。"
+  },
+  {
+    "id": "v57",
+    "name": "蒜蓉炒茼蒿",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "绿叶菜",
+      "快手",
+      "低脂"
+    ],
+    "time": 6,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "茼蒿",
+        "amount": 200,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 10,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "茼蒿去老根洗净沥干，切成长段，蒜拍碎切末",
+      "热锅倒油，下蒜末爆香",
+      "倒入茼蒿大火快炒1分钟至断生",
+      "加盐调味翻匀立即出锅"
+    ],
+    "nutrition": {
+      "kcal": 80,
+      "protein": 3,
+      "fat": 5,
+      "carbs": 6,
+      "calcium": 90,
+      "iron": 2
+    },
+    "tip": "茼蒿易熟又易出水，全程大火快炒，断生就出锅香气最浓。"
+  },
+  {
+    "id": "s33",
+    "name": "甜玉米鸡架汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "清甜",
+      "鲜汤",
+      "实惠"
+    ],
+    "time": 60,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸡架",
+        "amount": 150,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "甜玉米",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 50,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "鸡架斩块冷水下锅，加姜片和料酒焯水，撇去浮沫捞出冲净",
+      "甜玉米切段，胡萝卜切滚刀块",
+      "鸡架、玉米、胡萝卜、姜片放入汤锅，加足量清水大火烧开",
+      "转小火炖45分钟，加盐调味，撒葱花即可"
+    ],
+    "nutrition": {
+      "kcal": 130,
+      "protein": 10,
+      "fat": 6,
+      "carbs": 12,
+      "calcium": 30,
+      "iron": 1
+    },
+    "tip": "鸡架便宜又出鲜，焯水去净血沫汤色才清亮，汤头一样鲜甜。"
+  },
+  {
+    "id": "s34",
+    "name": "鲈鱼豆腐汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "高蛋白",
+      "奶白鲜汤"
+    ],
+    "time": 30,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鲈鱼",
+        "amount": 100,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "嫩豆腐",
+        "amount": 100,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "姜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "鲈鱼切段用料酒和姜片腌10分钟，嫩豆腐切块",
+      "热锅倒油，下姜片，放入鱼段两面煎至微黄",
+      "冲入开水大火煮8分钟至汤色奶白",
+      "放入豆腐块再煮5分钟，加盐和少许黑胡椒调味，撒葱花即可"
+    ],
+    "nutrition": {
+      "kcal": 145,
+      "protein": 16,
+      "fat": 8,
+      "carbs": 3,
+      "calcium": 130,
+      "iron": 1.5
+    },
+    "tip": "鱼先煎再冲开水是汤色奶白的关键，全程保持大火滚煮。"
+  },
+  {
+    "id": "s35",
+    "name": "番茄牛腩汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "开胃",
+      "补铁"
+    ],
+    "time": 90,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "牛腩",
+        "amount": 50,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "番茄",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "番茄酱",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "牛腩切小块冷水下锅，加姜片和料酒焯水后捞出冲净",
+      "番茄去皮切块，一半炒软出沙，加一小勺番茄酱增色",
+      "加入牛腩和足量热水，大火烧开转小火炖1小时",
+      "放入剩余番茄块再煮10分钟，加盐调味撒葱花即可"
+    ],
+    "nutrition": {
+      "kcal": 150,
+      "protein": 11,
+      "fat": 8,
+      "carbs": 9,
+      "calcium": 25,
+      "iron": 2.2
+    },
+    "tip": "番茄分两次放，第一次炖出浓汤底，第二次保留果肉口感。"
+  },
+  {
+    "id": "s36",
+    "name": "海带豆腐汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "素汤",
+      "高钙",
+      "低脂"
+    ],
+    "time": 25,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "海带",
+        "amount": 50,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "老豆腐",
+        "amount": 80,
+        "unit": "g",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "海带洗净切菱形片，老豆腐切小块",
+      "锅中加清水和姜片烧开，放入海带煮10分钟",
+      "加入豆腐块再煮8分钟",
+      "加盐调味，滴几滴香油，撒葱花即可"
+    ],
+    "nutrition": {
+      "kcal": 85,
+      "protein": 8,
+      "fat": 4,
+      "carbs": 6,
+      "calcium": 200,
+      "iron": 1.8
+    },
+    "tip": "海带提前泡发洗净表面黏液，汤更清爽，钙含量高很适合孩子。"
+  },
+  {
+    "id": "s37",
+    "name": "白萝卜鸡腿汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "清润",
+      "鲜汤"
+    ],
+    "time": 45,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "鸡腿肉",
+        "amount": 80,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "白萝卜",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "枸杞",
+        "amount": 3,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "鸡腿肉切块冷水下锅，加姜片和料酒焯水后捞出",
+      "白萝卜削皮切滚刀块",
+      "鸡腿肉、白萝卜、姜片入锅加足量清水，大火烧开转小火炖35分钟",
+      "加盐调味，撒入枸杞焖2分钟即可"
+    ],
+    "nutrition": {
+      "kcal": 140,
+      "protein": 13,
+      "fat": 8,
+      "carbs": 6,
+      "calcium": 30,
+      "iron": 1.2
+    },
+    "tip": "萝卜炖到半透明最好喝，不喜欢油可以先把鸡腿去皮。"
+  },
+  {
+    "id": "s38",
+    "name": "苋菜蛋花汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "补铁",
+      "快手",
+      "素汤"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "苋菜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "苋菜择洗干净切段，鸡蛋打散",
+      "热锅少油爆香蒜片，下苋菜略炒",
+      "加清水烧开煮2分钟，汤色微微泛红",
+      "转圈淋入蛋液成蛋花，加盐调味滴香油即可"
+    ],
+    "nutrition": {
+      "kcal": 100,
+      "protein": 8,
+      "fat": 6,
+      "carbs": 4,
+      "calcium": 130,
+      "iron": 3
+    },
+    "tip": "苋菜煮出的红汤是天然色素，铁和钙都丰富，蛋液沿锅边慢慢淋才有漂亮蛋花。"
+  },
+  {
+    "id": "s39",
+    "name": "奶香南瓜浓汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "香甜",
+      "老少皆宜"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "南瓜",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "纯牛奶",
+        "amount": 100,
+        "unit": "ml",
+        "category": "奶品豆制品"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "白糖",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "南瓜去皮去瓤切薄片，上锅蒸12分钟至软烂",
+      "蒸好的南瓜加少量温水，用料理机打成细腻的糊",
+      "南瓜糊倒回锅中小火加热，倒入纯牛奶搅匀",
+      "煮至微微冒泡关火，按口味加一点点盐或白糖即可"
+    ],
+    "nutrition": {
+      "kcal": 110,
+      "protein": 4,
+      "fat": 3.5,
+      "carbs": 16,
+      "calcium": 120,
+      "iron": 0.6
+    },
+    "tip": "牛奶最后放且不要大火久煮，避免结皮，汤更顺滑奶香。"
+  },
+  {
+    "id": "s40",
+    "name": "莲藕甜玉米素汤",
+    "type": "soup",
+    "spicy": false,
+    "tags": [
+      "素汤",
+      "清甜"
+    ],
+    "time": 40,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "莲藕",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "甜玉米",
+        "amount": 60,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "干香菇",
+        "amount": 3,
+        "unit": "g",
+        "category": "调味干货"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "干香菇提前泡发，泡香菇的水留用；莲藕削皮切块，甜玉米切段，胡萝卜切滚刀块",
+      "所有食材放入汤锅，加清水和过滤后的香菇水",
+      "大火烧开转小火炖30分钟",
+      "加盐调味即可，汤清味甜"
+    ],
+    "nutrition": {
+      "kcal": 105,
+      "protein": 3,
+      "fat": 1,
+      "carbs": 22,
+      "calcium": 30,
+      "iron": 1
+    },
+    "tip": "香菇水是素汤的鲜味来源，别倒掉；藕选粉藕炖出来更绵甜。"
+  },
+  {
+    "id": "st16",
+    "name": "紫薯米饭",
+    "type": "staple",
+    "spicy": false,
+    "tags": [
+      "粗粮",
+      "膳食纤维"
+    ],
+    "time": 40,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "大米",
+        "amount": 50,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "紫薯",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      }
+    ],
+    "steps": [
+      "大米淘洗两遍放入电饭煲，加平时煮饭等量的水",
+      "紫薯削皮切成1.5厘米小丁，均匀铺在大米上",
+      "按下煮饭键，跳闸后再焖10分钟",
+      "开盖用饭勺把紫薯和米饭拌匀即可"
+    ],
+    "nutrition": {
+      "kcal": 255,
+      "protein": 4.5,
+      "fat": 0.6,
+      "carbs": 58,
+      "calcium": 20,
+      "iron": 0.8
+    },
+    "tip": "紫薯丁不用额外加水，蒸出的花青素会把米饭染成漂亮的淡紫色。"
+  },
+  {
+    "id": "st17",
+    "name": "南瓜小米粥",
+    "type": "staple",
+    "spicy": false,
+    "tags": [
+      "粗粮",
+      "养胃"
+    ],
+    "time": 35,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "小米",
+        "amount": 65,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "南瓜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      }
+    ],
+    "steps": [
+      "小米淘洗干净，南瓜去皮去瓤切小丁",
+      "锅中加约800毫升清水烧开，倒入小米和南瓜丁",
+      "再次煮开后转小火，盖上盖子留缝熬25分钟",
+      "期间搅拌两三次防粘底，熬至南瓜融化、粥面出米油即可"
+    ],
+    "nutrition": {
+      "kcal": 260,
+      "protein": 6.5,
+      "fat": 2.2,
+      "carbs": 55,
+      "calcium": 25,
+      "iron": 2
+    },
+    "tip": "水开后再下小米不易粘锅，南瓜熬化后粥自带清甜，不用加糖。"
+  },
+  {
+    "id": "v59",
+    "name": "清炒茼蒿",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "绿叶菜",
+      "快手",
+      "时令"
+    ],
+    "time": 8,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "茼蒿",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "茼蒿洗净沥干，切两段。",
+      "热锅热油爆香蒜片。",
+      "下茼蒿最大火快炒 40 秒至刚塌秧。",
+      "加盐翻匀立刻出锅，久炒出水就不香了。"
+    ],
+    "nutrition": {
+      "kcal": 60,
+      "protein": 3,
+      "fat": 4,
+      "carbs": 5,
+      "calcium": 70,
+      "iron": 1.8
+    },
+    "tip": "茼蒿自带清香，钙和胡萝卜素都不低，是火锅之外被低估的绿叶菜。"
+  },
+  {
+    "id": "v60",
+    "name": "凉拌海带丝",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "凉拌",
+      "补碘",
+      "成本超低"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "海带",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果",
+        "note": "选海带丝更省事"
+      },
+      {
+        "name": "蒜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "香醋",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "海带丝洗净，沸水煮 5 分钟捞出过凉水，口感更脆。",
+      "料汁：蒜末 + 香醋 2 勺 + 生抽 1 勺 + 香油几滴。",
+      "海带丝挤干水分，浇料汁拌匀。",
+      "撒葱花，冷藏 10 分钟更入味。"
+    ],
+    "nutrition": {
+      "kcal": 50,
+      "protein": 2,
+      "fat": 3,
+      "carbs": 6,
+      "calcium": 90,
+      "iron": 1
+    },
+    "tip": "海带是碘和可溶性膳食纤维的优质来源，凉拌爽脆开胃，两三块钱一大盘。"
   }
 ];
 
