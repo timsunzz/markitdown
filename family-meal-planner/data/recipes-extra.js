@@ -12998,6 +12998,246 @@ const RECIPES = [
       "iron": 1
     },
     "tip": "海带是碘和可溶性膳食纤维的优质来源，凉拌爽脆开胃，两三块钱一大盘。"
+  },
+  {
+    "id": "m93",
+    "name": "口蘑牛肉",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "补铁",
+      "高蛋白",
+      "快手"
+    ],
+    "time": 20,
+    "difficulty": "中等",
+    "ingredients": [
+      {
+        "name": "牛里脊",
+        "amount": 100,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "口蘑",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "蚝油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "牛里脊逆纹切薄片，加生抽、料酒、淀粉抓匀腌 10 分钟。",
+      "口蘑切厚片，干锅煸 2 分钟逼出水分盛出。",
+      "热锅热油下牛肉大火快炒至变色盛出。",
+      "底油爆香蒜片，倒回口蘑和牛肉，加蚝油、黑胡椒大火翻匀出锅。"
+    ],
+    "nutrition": {
+      "kcal": 240,
+      "protein": 23,
+      "fat": 13,
+      "carbs": 8,
+      "calcium": 25,
+      "iron": 3.2
+    },
+    "tip": "口蘑的鲜味物质与牛肉是天然增鲜组合；牛肉逆纹切、大火快炒是嫩的关键。"
+  },
+  {
+    "id": "st18",
+    "name": "番茄肉酱意面",
+    "type": "staple",
+    "spicy": false,
+    "tags": [
+      "儿童最爱",
+      "西式",
+      "一锅出"
+    ],
+    "time": 25,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "意大利面",
+        "amount": 70,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "牛肉末",
+        "amount": 40,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "番茄",
+        "amount": 120,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "番茄酱",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "黑胡椒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "意面下加了盐的沸水煮 8-10 分钟，捞出拌少许油防粘，留一碗煮面水。",
+      "蒜末炒香，下牛肉末炒散至变色。",
+      "下番茄丁炒出沙，加番茄酱 2 勺和半碗煮面水，中火熬浓。",
+      "倒入意面翻拌裹匀酱汁，撒黑胡椒出锅。"
+    ],
+    "nutrition": {
+      "kcal": 420,
+      "protein": 18,
+      "fat": 10,
+      "carbs": 65,
+      "calcium": 40,
+      "iron": 2.8
+    },
+    "tip": "作为主食出现时热量比米饭高，当天搭配的荤素菜会自动平衡；孩子接受度极高的一餐。"
+  },
+  {
+    "id": "m94",
+    "name": "豆豉鲮鱼茄子",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "广东家常",
+      "下饭神器",
+      "开罐即烹"
+    ],
+    "time": 15,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "豆豉鲮鱼罐头",
+        "amount": 60,
+        "unit": "g",
+        "category": "水产海鲜",
+        "note": "约半罐"
+      },
+      {
+        "name": "茄子",
+        "amount": 150,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "茄子切长条，少油煎至变软微焦（或上锅蒸 8 分钟更省油）。",
+      "豆豉鲮鱼掰成小块，连罐里的豆豉和油一起备用。",
+      "爆香蒜末，下茄子和鲮鱼豆豉翻炒。",
+      "加生抽和两勺水焖 2 分钟收汁，撒葱花出锅，拌饭一绝。"
+    ],
+    "nutrition": {
+      "kcal": 250,
+      "protein": 15,
+      "fat": 16,
+      "carbs": 10,
+      "calcium": 180,
+      "iron": 2
+    },
+    "tip": "鲮鱼罐头连骨可食、钙含量可观；罐头钠偏高，这道菜基本不用再加盐。"
   }
 ];
 
