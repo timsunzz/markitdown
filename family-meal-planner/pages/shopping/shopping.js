@@ -34,7 +34,8 @@ Page({
     groups: [],
     buyableCount: 0,
     copiedCount: 0,
-    totalCost: 0
+    totalCost: 0,
+    canvasH: 400
   },
 
   onShow() {
@@ -132,6 +133,128 @@ Page({
           duration: 2000
         });
       }
+    });
+  },
+
+  /**
+   * 生成购物清单图片：把待购食材画成一张可打勾的清单图，
+   * 全屏预览后长按即可保存到相册或转发给家人（无需相册授权）。
+   */
+  onMakeImage() {
+    const groups = this.data.groups
+      .map((g) => ({
+        category: g.category,
+        items: g.items.filter((it) => !it.pantry && !it.checked)
+      }))
+      .filter((g) => g.items.length);
+    const rows = groups.reduce((n, g) => n + g.items.length, 0);
+    if (!rows) {
+      wx.showToast({ title: '所有食材都已备齐', icon: 'none' });
+      return;
+    }
+
+    const W = 640;
+    const H = 150 + groups.length * 60 + rows * 54 + 100;
+    wx.showLoading({ title: '正在生成…' });
+
+    this.setData({ canvasH: H }, () => {
+      wx.createSelectorQuery()
+        .in(this)
+        .select('#listCanvas')
+        .fields({ node: true })
+        .exec((res) => {
+          if (!res || !res[0] || !res[0].node) {
+            wx.hideLoading();
+            wx.showToast({ title: '生成失败，请重试', icon: 'none' });
+            return;
+          }
+          const canvas = res[0].node;
+          const dpr = 2;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          const ctx = canvas.getContext('2d');
+          ctx.scale(dpr, dpr);
+
+          // 背景与顶部色条
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = '#2e7d5b';
+          ctx.fillRect(0, 0, W, 10);
+
+          // 标题与副标题
+          ctx.fillStyle = '#2b2f2a';
+          ctx.font = 'bold 32px sans-serif';
+          ctx.textAlign = 'left';
+          ctx.fillText(`${this.data.dateLabel} 买菜清单`, 40, 66);
+          ctx.fillStyle = '#8a8f87';
+          ctx.font = '22px sans-serif';
+          ctx.fillText(
+            `${this.data.memberCount} 口人 · 共 ${rows} 样 · 预估 ¥${this.data.totalCost}`,
+            40,
+            102
+          );
+          ctx.strokeStyle = '#eef0ea';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(40, 124);
+          ctx.lineTo(W - 40, 124);
+          ctx.stroke();
+
+          let y = 150;
+          groups.forEach((g) => {
+            // 分类标题
+            ctx.fillStyle = '#2e7d5b';
+            ctx.fillRect(40, y + 6, 6, 24);
+            ctx.font = 'bold 24px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(g.category, 58, y + 26);
+            y += 60;
+            g.items.forEach((it) => {
+              // 可打勾的方框
+              ctx.strokeStyle = '#c9cfc5';
+              ctx.lineWidth = 2.5;
+              ctx.strokeRect(44, y - 2, 26, 26);
+              // 名称
+              ctx.fillStyle = '#2b2f2a';
+              ctx.font = '26px sans-serif';
+              ctx.textAlign = 'left';
+              ctx.fillText(it.name, 88, y + 20);
+              // 数量 + 价格（右对齐）
+              ctx.fillStyle = '#6b7066';
+              ctx.font = '22px sans-serif';
+              ctx.textAlign = 'right';
+              ctx.fillText(
+                `${it.amountText}${it.priceText ? '  ' + it.priceText : ''}`,
+                W - 40,
+                y + 19
+              );
+              y += 54;
+            });
+          });
+
+          // 页脚
+          ctx.fillStyle = '#b0b5ac';
+          ctx.font = '20px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('来自「卡卡菜谱」小程序 · 价格为参考价', W / 2, H - 40);
+
+          wx.canvasToTempFilePath({
+            canvas,
+            success: (r) => {
+              wx.hideLoading();
+              wx.previewImage({ urls: [r.tempFilePath] });
+              wx.showToast({
+                title: '长按图片可保存或发给家人',
+                icon: 'none',
+                duration: 2500
+              });
+            },
+            fail: () => {
+              wx.hideLoading();
+              wx.showToast({ title: '生成失败，请重试', icon: 'none' });
+            }
+          });
+        });
     });
   },
 

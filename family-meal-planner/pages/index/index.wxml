@@ -102,6 +102,7 @@
   <view class="bottom-space"></view>
   <view class="bottom-bar">
     <button class="btn-primary buy-btn" bindtap="onGoShopping">🛒 生成今日购物清单</button>
+    <button class="btn-ghost share-btn" open-type="share">↗️ 分享</button>
   </view>
 
   </block>

@@ -198,6 +198,16 @@
   background: rgba(246, 247, 244, 0.95);
 }
 
+.bottom-bar {
+  display: flex;
+  gap: 14rpx;
+}
+
 .buy-btn {
-  width: 100%;
+  flex: 2.4;
+}
+
+.share-btn {
+  flex: 1;
+  font-size: 28rpx;
 }

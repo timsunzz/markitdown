@@ -140,6 +140,17 @@
   padding: 0 12rpx;
 }
 
+.img-btn {
+  flex: 2.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copy-btn2 {
+  flex: 1;
+}
+
 .next-btn {
   flex: 2.2;
   white-space: nowrap;
