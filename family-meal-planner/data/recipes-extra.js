@@ -10723,7 +10723,7 @@ const RECIPES = [
   {
     "id": "m87",
     "name": "丝瓜蛤蜊豆腐汤",
-    "type": "meat",
+    "type": "soup",
     "spicy": false,
     "tags": [
       "清淡",
