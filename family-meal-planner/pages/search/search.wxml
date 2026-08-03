@@ -1,0 +1,50 @@
+<view class="page">
+  <view class="search-box">
+    <input
+      class="search-input"
+      placeholder="搜菜名、食材、标签，比如：黄瓜"
+      value="{{kw}}"
+      focus="{{true}}"
+      confirm-type="search"
+      bindinput="onInput"
+    />
+  </view>
+
+  <view class="card" wx:if="{{!kw}}">
+    <view class="muted">大家常搜：</view>
+    <view class="hot-wrap">
+      <view class="hot" wx:for="{{hot}}" wx:key="*this" data-kw="{{item}}" bindtap="onHotTap">{{item}}</view>
+    </view>
+    <view class="muted search-tip">💡 支持按食材搜索——比如搜"黄瓜"，能找到所有用到黄瓜的菜。</view>
+  </view>
+
+  <view class="card empty-r" wx:if="{{kw && !results.length}}">
+    <view>没有找到「{{kw}}」相关的菜</view>
+    <view class="muted" style="margin-top:8rpx">想吃这道菜？把菜名发给开发者，几分钟就能加进菜谱库。</view>
+  </view>
+
+  <view class="card" wx:if="{{results.length}}">
+    <view class="muted" style="margin-bottom:8rpx">找到 {{results.length}} 道</view>
+    <view
+      class="dish"
+      wx:for="{{results}}"
+      wx:key="id"
+      wx:for-item="dish"
+      data-id="{{dish.id}}"
+      bindtap="onOpen"
+    >
+      <view class="dish-avatar cover-{{dish.type}}">{{dish.emoji}}</view>
+      <view class="dish-main">
+        <view class="dish-name">{{dish.name}}</view>
+        <view>
+          <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
+        </view>
+      </view>
+      <view class="dish-right">
+        <view class="dish-kcal">人均 {{dish.kcal}} kcal</view>
+        <view class="muted">⏱ {{dish.time}} 分钟</view>
+      </view>
+      <view class="fav-btn" data-id="{{dish.id}}" catchtap="onFav">{{favs[dish.id] ? '❤️' : '🤍'}}</view>
+    </view>
+  </view>
+</view>

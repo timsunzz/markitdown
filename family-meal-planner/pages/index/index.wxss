@@ -27,6 +27,16 @@
   margin-top: 22rpx;
 }
 
+.band-search {
+  margin-top: 20rpx;
+  background: rgba(255, 255, 255, 0.92);
+  color: #8a8f87;
+  font-size: 26rpx;
+  border-radius: 999rpx;
+  padding: 16rpx 30rpx;
+  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.08);
+}
+
 .overlap {
   margin-top: -80rpx;
 }

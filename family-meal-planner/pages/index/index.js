@@ -162,5 +162,9 @@ Page({
 
   onGoFamily() {
     wx.switchTab({ url: '/pages/family/family' });
+  },
+
+  onGoSearch() {
+    wx.navigateTo({ url: '/pages/search/search' });
   }
 });

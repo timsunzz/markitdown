@@ -6,6 +6,7 @@
     <view class="band-chip" wx:if="{{!noMembers}}" bindtap="onGoFamily">
       👨‍👩‍👧 {{summary.count}} 口人 · 每日约 {{summary.kcal}} kcal ›
     </view>
+    <view class="band-search" bindtap="onGoSearch">🔍 搜菜名、食材，比如"黄瓜"</view>
   </view>
 
   <view class="overlap">

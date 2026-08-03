@@ -4,7 +4,8 @@
     "pages/shopping/shopping",
     "pages/family/family",
     "pages/recipe/recipe",
-    "pages/favorites/favorites"
+    "pages/favorites/favorites",
+    "pages/search/search"
   ],
   "window": {
     "navigationBarBackgroundColor": "#2e7d5b",

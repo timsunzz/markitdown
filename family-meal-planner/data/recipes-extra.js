@@ -13238,6 +13238,466 @@ const RECIPES = [
       "iron": 2
     },
     "tip": "鲮鱼罐头连骨可食、钙含量可观；罐头钠偏高，这道菜基本不用再加盐。"
+  },
+  {
+    "id": "m95",
+    "name": "黄瓜鸡蛋炒火腿肠",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "快手",
+      "儿童最爱",
+      "成本超低"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "黄瓜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "火腿肠",
+        "amount": 40,
+        "unit": "g",
+        "category": "肉禽蛋",
+        "note": "约 1 根"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "食盐",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "黄瓜切菱形片，火腿肠切片，鸡蛋加盐打散。",
+      "热锅热油倒蛋液，凝固划散盛出。",
+      "底油爆香蒜片，下火腿肠煎出微焦边。",
+      "下黄瓜大火炒 30 秒，倒回鸡蛋，加盐翻匀出锅。"
+    ],
+    "nutrition": {
+      "kcal": 220,
+      "protein": 12,
+      "fat": 15,
+      "carbs": 9,
+      "calcium": 45,
+      "iron": 1.6
+    },
+    "tip": "十分钟快手菜，色彩讨喜孩子爱吃；火腿肠钠和脂肪偏高，靠鸡蛋和黄瓜平衡，别再多放盐。"
+  },
+  {
+    "id": "v61",
+    "name": "日式清拌黄瓜",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "凉拌",
+      "爽口",
+      "低卡"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "黄瓜",
+        "amount": 130,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香醋",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "白糖",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "黄瓜切薄圆片，加一小勺盐抓匀腌 5 分钟，挤去水分（脆的关键）。",
+      "调汁：生抽 1 勺 + 香醋 1.5 勺 + 白糖半勺 + 香油几滴 + 姜末。",
+      "料汁浇入黄瓜拌匀。",
+      "冷藏 10 分钟风味更清爽，日式小钵装盘更有味道。"
+    ],
+    "nutrition": {
+      "kcal": 45,
+      "protein": 1,
+      "fat": 2,
+      "carbs": 6,
+      "calcium": 25,
+      "iron": 0.4
+    },
+    "tip": "盐腌挤水让黄瓜久放不出水、口感清脆；低卡爽口，适合给油腻的一餐解腻。"
+  },
+  {
+    "id": "v62",
+    "name": "黄瓜拌蟹柳",
+    "type": "veg",
+    "spicy": false,
+    "tags": [
+      "凉拌",
+      "快手",
+      "儿童友好"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "黄瓜",
+        "amount": 100,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蟹柳",
+        "amount": 50,
+        "unit": "g",
+        "category": "水产海鲜"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香醋",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "香油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "蟹柳沸水烫 1 分钟捞出放凉，撕成细丝。",
+      "黄瓜切丝或拍碎切段。",
+      "蒜末 + 生抽 + 香醋 + 香油调成料汁。",
+      "黄瓜与蟹柳丝浇汁拌匀即可，冰镇更好吃。"
+    ],
+    "nutrition": {
+      "kcal": 90,
+      "protein": 7,
+      "fat": 3,
+      "carbs": 9,
+      "calcium": 40,
+      "iron": 0.6
+    },
+    "tip": "蟹柳是鱼糜制品，蛋白质不错但含钠较高，料汁里生抽少放一点即可。"
+  },
+  {
+    "id": "st19",
+    "name": "台式牛肉面",
+    "type": "staple",
+    "spicy": false,
+    "tags": [
+      "硬菜级主食",
+      "周末慢炖",
+      "一碗管饱"
+    ],
+    "time": 100,
+    "difficulty": "中等",
+    "ingredients": [
+      {
+        "name": "挂面",
+        "amount": 80,
+        "unit": "g",
+        "category": "米面粮油",
+        "note": "选宽面更地道"
+      },
+      {
+        "name": "牛腩",
+        "amount": 80,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "番茄",
+        "amount": 80,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "上海青",
+        "amount": 40,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "姜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 8,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "豆瓣酱",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "冰糖",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "八角",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "料酒",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "牛腩切块焯水；热锅少油下姜蒜、半勺豆瓣酱炒出红油。",
+      "下牛腩和番茄块翻炒，加老抽、冰糖、八角和热水没过。",
+      "小火炖 80 分钟（高压锅 30 分钟）至牛腩软烂，汤头浓郁。",
+      "另锅煮面和上海青，捞入碗中，浇上牛肉和汤即成。"
+    ],
+    "nutrition": {
+      "kcal": 480,
+      "protein": 25,
+      "fat": 14,
+      "carbs": 65,
+      "calcium": 50,
+      "iron": 3.5
+    },
+    "tip": "豆瓣酱用量减半就是孩子也能吃的家庭版；汤头咸度足，面里不用再加盐。"
+  },
+  {
+    "id": "m96",
+    "name": "皮蛋炒鸡蛋",
+    "type": "meat",
+    "spicy": false,
+    "tags": [
+      "下饭",
+      "快手",
+      "成本超低"
+    ],
+    "time": 10,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "皮蛋",
+        "amount": 1,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1.5,
+        "unit": "个",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "青椒（菜椒不辣）",
+        "amount": 30,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "蒜",
+        "amount": 5,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "皮蛋蒸 2 分钟定型（溏心不散的窍门），切小瓣。",
+      "鸡蛋打散，热锅热油炒至半凝固盛出。",
+      "底油爆香蒜末和青椒片，下皮蛋煎出焦边。",
+      "倒回鸡蛋，淋生抽大火翻匀出锅。"
+    ],
+    "nutrition": {
+      "kcal": 230,
+      "protein": 14,
+      "fat": 17,
+      "carbs": 4,
+      "calcium": 65,
+      "iron": 3
+    },
+    "tip": "双蛋组合的下饭菜；皮蛋先蒸再切不粘刀不散心。钠偏高，幼儿少量尝味即可。"
+  },
+  {
+    "id": "st20",
+    "name": "雪菜肉丝面",
+    "type": "staple",
+    "spicy": false,
+    "tags": [
+      "江南风味",
+      "开胃",
+      "一碗管饱"
+    ],
+    "time": 20,
+    "difficulty": "简单",
+    "ingredients": [
+      {
+        "name": "挂面",
+        "amount": 80,
+        "unit": "g",
+        "category": "米面粮油"
+      },
+      {
+        "name": "雪菜",
+        "amount": 50,
+        "unit": "g",
+        "category": "蔬菜水果",
+        "note": "袋装雪菜碎"
+      },
+      {
+        "name": "猪里脊肉",
+        "amount": 40,
+        "unit": "g",
+        "category": "肉禽蛋"
+      },
+      {
+        "name": "姜",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "小葱",
+        "amount": 3,
+        "unit": "g",
+        "category": "蔬菜水果"
+      },
+      {
+        "name": "生抽",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "玉米淀粉",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      },
+      {
+        "name": "食用油",
+        "amount": 0,
+        "unit": "适量",
+        "category": "调味干货",
+        "pantry": true
+      }
+    ],
+    "steps": [
+      "肉丝加生抽、淀粉腌 5 分钟；雪菜冲洗一遍挤干（去多余咸味）。",
+      "热锅热油滑散肉丝至变色，下姜丝和雪菜翻炒 1 分钟。",
+      "加两碗热水烧开成汤底。",
+      "另锅煮面捞入碗中，浇上雪菜肉丝和汤，撒葱花。"
+    ],
+    "nutrition": {
+      "kcal": 440,
+      "protein": 19,
+      "fat": 9,
+      "carbs": 70,
+      "calcium": 80,
+      "iron": 2.6
+    },
+    "tip": "江南人的开胃面；雪菜自带咸鲜，冲洗后基本不用加盐，汤也别喝太多。"
   }
 ];
 

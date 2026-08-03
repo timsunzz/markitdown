@@ -1,0 +1,94 @@
+.search-box {
+  padding: 20rpx 24rpx 4rpx;
+}
+
+.search-input {
+  background: #ffffff;
+  border-radius: 999rpx;
+  padding: 18rpx 32rpx;
+  font-size: 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(38, 84, 60, 0.08);
+}
+
+.hot-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin: 18rpx 0;
+}
+
+.hot {
+  font-size: 26rpx;
+  color: #2e7d5b;
+  background: #e8f3ee;
+  border-radius: 999rpx;
+  padding: 10rpx 28rpx;
+}
+
+.search-tip {
+  line-height: 1.6;
+}
+
+.empty-r {
+  text-align: center;
+  padding: 50rpx 28rpx;
+  font-size: 28rpx;
+  color: #6b7066;
+}
+
+.dish {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 0;
+}
+
+.dish + .dish {
+  border-top: 2rpx solid #f6f7f4;
+}
+
+.dish-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.cover-breakfast { background: linear-gradient(135deg, #ffe9c7, #ffd18d); }
+.cover-meat { background: linear-gradient(135deg, #ffdccb, #ffb497); }
+.cover-veg { background: linear-gradient(135deg, #dcf0de, #abddb5); }
+.cover-soup { background: linear-gradient(135deg, #d9edf6, #abd8ea); }
+.cover-staple { background: linear-gradient(135deg, #f3ecda, #e5d5ae); }
+
+.dish-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dish-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.dish-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+
+.dish-kcal {
+  font-size: 24rpx;
+  color: #e08a00;
+  margin-bottom: 6rpx;
+}
+
+.fav-btn {
+  font-size: 40rpx;
+  padding: 10rpx 0 10rpx 20rpx;
+  flex-shrink: 0;
+}
