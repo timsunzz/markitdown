@@ -1,6 +1,6 @@
 <view class="page">
   <view class="card empty" wx:if="{{!hasMenu}}">
-    <view class="empty-icon">🍳</view>
+    
     <view>还没有今日菜单</view>
     <button class="btn-primary empty-btn" bindtap="onGoIndex">去生成今日菜单</button>
   </view>
@@ -14,15 +14,15 @@
       <view class="muted head-note">
         按 {{memberCount}} 口人份量换算 · 还需购买 {{buyableCount}} 样（已复制 {{copiedCount}}）· 点击条目打勾表示"已有/已买"
       </view>
-      <view class="copy-all" bindtap="onCopyList">📋 复制全文清单备忘</view>
+      <view class="copy-all" bindtap="onCopyList">复制全文清单备忘</view>
     </view>
 
-    <view class="card howto">
-      🛒 两种买法：在买菜 App 下单，点每行的<text class="hl">「复制」</text>逐样粘贴搜索（平台搜索框一次只认一样）；去超市或发家人代买，点底部<text class="hl">「生成清单图片」</text>，长按图片保存或转发。
+    <view class="notice">
+      两种买法：在买菜 App 下单，点每行的<text class="hl">「复制」</text>逐样粘贴搜索（平台搜索框一次只认一样）；去超市或发家人代买，点底部<text class="hl">「生成清单图片」</text>，长按图片保存或转发。
     </view>
 
     <view class="card" wx:for="{{groups}}" wx:key="category" wx:for-item="g" wx:for-index="gi">
-      <view class="card-title">{{g.icon}} {{g.category}}</view>
+      <view class="card-title">{{g.category}}</view>
       <view class="divider"></view>
       <view
         class="item {{it.checked ? 'checked' : ''}} {{it.pantry ? 'pantry' : ''}}"
@@ -58,9 +58,9 @@
     <view class="bottom-space"></view>
     <view class="bottom-bar">
       <button class="btn-primary bar-btn img-btn" bindtap="onMakeImage">
-        🖼 生成清单图片（{{buyableCount}} 样 · ¥{{totalCost}}）
+        生成清单图片（{{buyableCount}} 样 · ¥{{totalCost}}）
       </button>
-      <button class="btn-ghost bar-btn copy-btn2" bindtap="onCopySelected">📋 复制</button>
+      <button class="btn-ghost bar-btn copy-btn2" bindtap="onCopySelected">复制</button>
     </view>
 
     <!-- 离屏画布：用于绘制清单图片 -->

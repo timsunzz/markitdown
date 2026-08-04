@@ -100,7 +100,7 @@ function listToText(groups, dateLabel, memberCount) {
     lines.push('');
   });
   lines.push(`预估合计：约 ¥${totalCost(groups)}（盒马/奥乐齐参考价，以门店为准）`);
-  lines.push('—— 由「全家营养餐」小程序生成');
+  lines.push('—— 由「卡卡家常菜谱」小程序生成');
   return lines.join('\n');
 }
 

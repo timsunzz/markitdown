@@ -8,16 +8,16 @@
     "pages/search/search"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#2e7d5b",
-    "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "全家营养餐",
-    "backgroundColor": "#f6f7f4"
+    "navigationBarBackgroundColor": "#faf9f5",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "卡卡家常菜谱",
+    "backgroundColor": "#faf9f5"
   },
   "tabBar": {
-    "color": "#8a8f87",
-    "selectedColor": "#2e7d5b",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
+    "color": "#a9ada8",
+    "selectedColor": "#2f5ea8",
+    "backgroundColor": "#faf9f5",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

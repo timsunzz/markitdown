@@ -1,76 +1,61 @@
 <view class="page" wx:if="{{recipe}}">
-  <image
-    wx:if="{{recipe.image}}"
-    class="hero-photo"
-    src="{{recipe.image}}"
-    mode="aspectFill"
-  ></image>
-  <view wx:else class="hero cover-{{recipe.type}}">
-    <text class="hero-emoji">{{emoji}}</text>
-  </view>
-  <view class="card">
+  <!-- 题头：字印 + 宋体菜名 -->
+  <view class="r-hero">
+    <view class="seal r-seal {{recipe.type}}">{{firstChar}}</view>
     <view class="r-head">
-      <view class="r-name">{{recipe.name}}</view>
-      <view class="fav-chip {{isFav ? 'on' : ''}}" bindtap="onToggleFav">
-        {{isFav ? '❤️ 已收藏' : '🤍 收藏'}}
+      <view class="r-name serif">{{recipe.name}}</view>
+      <view class="muted r-info">约 {{recipe.time}} 分钟 · 难度{{recipe.difficulty}} · 人均 {{recipe.nutrition.kcal}} 千卡</view>
+      <view class="r-tags">
+        <text class="tag" wx:for="{{recipe.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
       </view>
     </view>
-    <view class="r-meta">
-      <text class="tag" wx:for="{{recipe.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
-    </view>
-    <view class="muted r-info">⏱ 约 {{recipe.time}} 分钟 · 难度：{{recipe.difficulty}}</view>
+    <view class="fav-chip {{isFav ? 'on' : ''}}" bindtap="onToggleFav">{{isFav ? '已收藏' : '收藏'}}</view>
   </view>
 
   <view class="card">
-    <view class="card-title">
-      <text>食材（已按全家 {{memberCount}} 口人 · {{factor}} 份换算）</text>
+    <view class="meal-title">
+      <text class="sec-label">食材</text>
+      <text class="muted">已按 {{memberCount}} 口人 · {{factor}} 份换算</text>
     </view>
-    <view class="divider"></view>
     <view class="ing" wx:for="{{ingredientViews}}" wx:key="name" wx:for-item="ing">
       <view class="ing-name">
-        {{ing.name}}
-        <text class="muted" wx:if="{{ing.note}}">（{{ing.note}}）</text>
-        <text class="pantry-tag" wx:if="{{ing.pantry}}">家中常备</text>
+        {{ing.name}}<text class="muted" wx:if="{{ing.note}}">（{{ing.note}}）</text><text class="muted" wx:if="{{ing.pantry}}">（常备）</text>
       </view>
+      <view class="ing-leader"></view>
       <view class="ing-right">
-        <view class="ing-amount">{{ing.amountText}}</view>
-        <view class="ing-price" wx:if="{{ing.priceText}}">{{ing.priceText}}</view>
+        <text class="ing-amount">{{ing.amountText}}</text>
+        <text class="ing-price" wx:if="{{ing.priceText}}"> {{ing.priceText}}</text>
       </view>
     </view>
-    <view class="divider"></view>
     <view class="dish-cost-line">
-      <text>💰 本菜食材预估花费</text>
+      <text class="muted">本菜食材预估（盒马、奥乐齐参考价）</text>
       <text class="dish-cost-num">约 ¥{{dishCost}}</text>
     </view>
-    <view class="muted cost-note">* 盒马/奥乐齐参考价，不含家中常备调味品，以门店实际价格为准。</view>
   </view>
 
   <view class="card">
-    <view class="card-title">做法</view>
-    <view class="divider"></view>
+    <view class="sec-label">做法</view>
     <view class="step" wx:for="{{recipe.steps}}" wx:key="*this" wx:for-item="s" wx:for-index="i">
-      <view class="step-no">{{i + 1}}</view>
+      <view class="step-no serif">{{i + 1}}</view>
       <view class="step-text">{{s}}</view>
     </view>
   </view>
 
   <view class="card">
-    <view class="card-title">营养（全家合计）</view>
-    <view class="divider"></view>
+    <view class="sec-label">营养 · 全家合计</view>
     <view class="nut-grid">
-      <view class="nut-item"><view class="nut-num">{{familyNutrition.kcal}}</view><view class="muted">能量 kcal</view></view>
-      <view class="nut-item"><view class="nut-num">{{familyNutrition.protein}}g</view><view class="muted">蛋白质</view></view>
-      <view class="nut-item"><view class="nut-num">{{familyNutrition.calcium}}mg</view><view class="muted">钙</view></view>
-      <view class="nut-item"><view class="nut-num">{{familyNutrition.iron}}mg</view><view class="muted">铁</view></view>
+      <view class="nut-item"><view class="nut-num serif">{{familyNutrition.kcal}}</view><view class="muted">千卡</view></view>
+      <view class="nut-item"><view class="nut-num serif">{{familyNutrition.protein}}</view><view class="muted">蛋白质 克</view></view>
+      <view class="nut-item"><view class="nut-num serif">{{familyNutrition.calcium}}</view><view class="muted">钙 毫克</view></view>
+      <view class="nut-item"><view class="nut-num serif">{{familyNutrition.iron}}</view><view class="muted">铁 毫克</view></view>
     </view>
-    <view class="divider"></view>
-    <view class="tip">💡 营养师小贴士：{{recipe.tip}}</view>
+    <view class="tip">{{recipe.tip}}</view>
   </view>
 
   <view class="bottom-space"></view>
   <view class="bottom-bar">
-    <button class="btn-primary bar-btn" bindtap="onMakeImage">🖼 生成菜谱图片</button>
-    <button class="btn-ghost bar-btn share-s" open-type="share">↗️ 分享</button>
+    <button class="btn-primary bar-btn" bindtap="onMakeImage">生成菜谱图片</button>
+    <button class="btn-ghost bar-btn share-s" open-type="share">分享</button>
   </view>
 
   <!-- 离屏画布：绘制菜谱图片 -->

@@ -1,166 +1,114 @@
-.hero-band {
-  background: linear-gradient(165deg, #2e7d5b 0%, #276b4e 55%, #1e5940 100%);
-  padding: 34rpx 30rpx 120rpx;
-  color: #ffffff;
+.masthead {
+  padding: 44rpx 32rpx 30rpx;
+  border-bottom: 2rpx solid #e8e5dc;
 }
 
-.band-date {
-  font-size: 42rpx;
-  font-weight: 750;
-  letter-spacing: 1rpx;
+.mast-date {
+  font-size: 72rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  line-height: 1.2;
 }
 
-.band-sub {
+.mast-sub {
+  margin-top: 10rpx;
   font-size: 25rpx;
-  color: rgba(255, 255, 255, 0.75);
-  margin-top: 8rpx;
+  color: #8b9088;
+  display: flex;
+  align-items: baseline;
+  gap: 22rpx;
 }
 
-.band-chip {
-  display: inline-block;
-  font-size: 24rpx;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1rpx solid rgba(255, 255, 255, 0.22);
-  border-radius: 999rpx;
-  padding: 10rpx 24rpx;
-  margin-top: 22rpx;
+.mast-family {
+  color: #2f5ea8;
 }
 
-.band-search {
-  margin-top: 20rpx;
-  background: rgba(255, 255, 255, 0.92);
-  color: #8a8f87;
+.mast-search {
+  margin-top: 26rpx;
+  border: 2rpx solid #d5d2c8;
+  border-radius: 10rpx;
+  padding: 16rpx 24rpx;
+  color: #a9ada8;
   font-size: 26rpx;
-  border-radius: 999rpx;
-  padding: 16rpx 30rpx;
-  box-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.08);
-}
-
-.overlap {
-  margin-top: -80rpx;
+  letter-spacing: 2rpx;
 }
 
 .empty-family {
-  text-align: center;
-  padding: 60rpx 32rpx;
-  font-size: 30rpx;
+  padding: 70rpx 32rpx;
+  border-bottom: none;
 }
 
-.ef-icon {
-  font-size: 72rpx;
-  margin-bottom: 16rpx;
+.ef-title {
+  font-size: 44rpx;
+  font-weight: 600;
+  margin-bottom: 18rpx;
 }
 
 .ef-note {
-  margin-top: 14rpx;
-  line-height: 1.7;
-  text-align: left;
+  line-height: 1.8;
 }
 
 .ef-btn {
-  margin-top: 30rpx;
-  width: 80%;
+  margin-top: 40rpx;
+  width: 100%;
 }
 
-.notice {
-  background: #fff8e6;
-  color: #8a6d1a;
-  font-size: 25rpx;
-  line-height: 1.6;
+/* 三餐 */
+.meal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.meal-title {
+  display: flex;
+  align-items: baseline;
+  gap: 18rpx;
+}
+
+.meal-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  letter-spacing: 6rpx;
 }
 
 .meal-cost {
-  display: inline-block;
-  font-size: 22rpx;
-  font-weight: 600;
-  color: #b96f00;
-  background: #fdf1de;
-  border-radius: 999rpx;
-  padding: 4rpx 16rpx;
-  margin-left: 10rpx;
-  vertical-align: middle;
-}
-
-.cost-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 28rpx;
-}
-
-.cost-num {
-  font-size: 32rpx;
-  font-weight: 700;
-  color: #e08a00;
+  font-size: 23rpx;
+  color: #8b9088;
+  font-variant-numeric: tabular-nums;
 }
 
 .shuffle {
   font-size: 25rpx;
-  color: #2e7d5b;
-  font-weight: 400;
+  color: #2f5ea8;
+  letter-spacing: 2rpx;
 }
 
 .dish {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 18rpx 0;
+  padding: 22rpx 0;
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f6f7f4;
-}
-
-.dish-avatar {
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 18rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48rpx;
-  flex-shrink: 0;
-  margin-right: 20rpx;
-}
-
-.dish-photo {
-  width: 88rpx;
-  height: 88rpx;
-  border-radius: 18rpx;
-  flex-shrink: 0;
-  margin-right: 20rpx;
-}
-
-.cover-breakfast {
-  background: linear-gradient(135deg, #ffe9c7, #ffd18d);
-}
-
-.cover-meat {
-  background: linear-gradient(135deg, #ffdccb, #ffb497);
-}
-
-.cover-veg {
-  background: linear-gradient(135deg, #dcf0de, #abddb5);
-}
-
-.cover-soup {
-  background: linear-gradient(135deg, #d9edf6, #abd8ea);
-}
-
-.cover-staple {
-  background: linear-gradient(135deg, #f3ecda, #e5d5ae);
+  border-top: 2rpx solid #f0eee6;
 }
 
 .dish-main {
   flex: 1;
   min-width: 0;
+  margin-left: 22rpx;
 }
 
 .dish-name {
-  font-size: 30rpx;
+  font-size: 31rpx;
   font-weight: 500;
-  margin-bottom: 8rpx;
+  margin-bottom: 6rpx;
+}
+
+.dish-tags {
+  line-height: 1.4;
 }
 
 .dish-right {
@@ -170,47 +118,48 @@
 }
 
 .dish-kcal {
-  font-size: 24rpx;
-  color: #e08a00;
-  margin-bottom: 6rpx;
+  font-size: 23rpx;
+  color: #6e7378;
+  margin-bottom: 4rpx;
+  font-variant-numeric: tabular-nums;
 }
 
+/* 营养 */
 .nutrient {
   display: flex;
   align-items: center;
-  margin: 18rpx 0;
+  margin: 22rpx 0;
 }
 
 .n-label {
-  width: 110rpx;
-  font-size: 26rpx;
+  width: 104rpx;
+  font-size: 25rpx;
+  letter-spacing: 2rpx;
 }
 
 .bar {
   flex: 1;
-  height: 18rpx;
-  background: #eef1ec;
-  border-radius: 999rpx;
-  overflow: hidden;
-  margin-right: 16rpx;
+  height: 6rpx;
+  background: #e8e5dc;
+  margin-right: 18rpx;
 }
 
 .bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #7fc9a5, #2e7d5b);
-  border-radius: 999rpx;
+  background: #2f5ea8;
 }
 
 .n-val {
   width: 220rpx;
   text-align: right;
-  font-size: 23rpx;
-  color: #6b7066;
+  font-size: 22rpx;
+  color: #8b9088;
+  font-variant-numeric: tabular-nums;
 }
 
 .nut-note {
-  margin-top: 12rpx;
-  line-height: 1.5;
+  margin-top: 18rpx;
+  line-height: 1.7;
 }
 
 .bottom-space {
@@ -222,13 +171,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
-  background: rgba(246, 247, 244, 0.95);
-}
-
-.bottom-bar {
   display: flex;
-  gap: 14rpx;
+  gap: 16rpx;
+  padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(250, 249, 245, 0.96);
+  border-top: 2rpx solid #e8e5dc;
 }
 
 .buy-btn {
@@ -237,5 +184,4 @@
 
 .share-btn {
   flex: 1;
-  font-size: 28rpx;
 }

@@ -31,7 +31,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f6f7f4;
+  border-top: 2rpx solid #f0eee6;
 }
 
 .dish-avatar {
@@ -71,12 +71,14 @@
 
 .dish-kcal {
   font-size: 24rpx;
-  color: #e08a00;
+  color: #6e7378;
   margin-bottom: 6rpx;
 }
 
 .fav-remove {
-  font-size: 40rpx;
-  padding: 10rpx 0 10rpx 20rpx;
+  font-size: 24rpx;
+  color: #b4453c;
+  letter-spacing: 2rpx;
+  padding: 10rpx 0 10rpx 24rpx;
   flex-shrink: 0;
 }

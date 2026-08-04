@@ -15,7 +15,7 @@
     <view class="hot-wrap">
       <view class="hot" wx:for="{{hot}}" wx:key="*this" data-kw="{{item}}" bindtap="onHotTap">{{item}}</view>
     </view>
-    <view class="muted search-tip">💡 支持按食材搜索——比如搜"黄瓜"，能找到所有用到黄瓜的菜。</view>
+    <view class="muted search-tip">支持按食材搜索——比如搜"黄瓜"，能找到所有用到黄瓜的菜。</view>
   </view>
 
   <view class="card empty-r" wx:if="{{kw && !results.length}}">
@@ -33,7 +33,7 @@
       data-id="{{dish.id}}"
       bindtap="onOpen"
     >
-      <view class="dish-avatar cover-{{dish.type}}">{{dish.emoji}}</view>
+      <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
       <view class="dish-main">
         <view class="dish-name">{{dish.name}}</view>
         <view>
@@ -41,10 +41,10 @@
         </view>
       </view>
       <view class="dish-right">
-        <view class="dish-kcal">人均 {{dish.kcal}} kcal</view>
-        <view class="muted">⏱ {{dish.time}} 分钟</view>
+        <view class="dish-kcal">人均 {{dish.kcal}} 千卡</view>
+        <view class="muted">{{dish.time}} 分钟</view>
       </view>
-      <view class="fav-btn" data-id="{{dish.id}}" catchtap="onFav">{{favs[dish.id] ? '❤️' : '🤍'}}</view>
+      <view class="fav-btn" data-id="{{dish.id}}" catchtap="onFav">{{favs[dish.id] ? '已收藏' : '收藏'}}</view>
     </view>
   </view>
 </view>

@@ -24,7 +24,7 @@ Page({
   },
 
   onShareTimeline() {
-    return { title: '全家营养餐：按家里人口自动配每日营养菜单' };
+    return { title: '卡卡家常菜谱：按家里人口自动配每日营养菜单' };
   },
 
   data: {
@@ -178,7 +178,7 @@ Page({
           // 背景与顶部色条
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#2e7d5b';
+          ctx.fillStyle = '#2f5ea8';
           ctx.fillRect(0, 0, W, 10);
 
           // 标题与副标题
@@ -203,7 +203,7 @@ Page({
           let y = 150;
           groups.forEach((g) => {
             // 分类标题
-            ctx.fillStyle = '#2e7d5b';
+            ctx.fillStyle = '#2f5ea8';
             ctx.fillRect(40, y + 6, 6, 24);
             ctx.font = 'bold 24px sans-serif';
             ctx.textAlign = 'left';
@@ -236,7 +236,7 @@ Page({
           ctx.fillStyle = '#b0b5ac';
           ctx.font = '20px sans-serif';
           ctx.textAlign = 'center';
-          ctx.fillText('来自「卡卡菜谱」小程序 · 价格为参考价', W / 2, H - 40);
+          ctx.fillText('卡卡家常菜谱 · 价格为参考价', W / 2, H - 40);
 
           wx.canvasToTempFilePath({
             canvas,

@@ -4,10 +4,10 @@
 
 .search-input {
   background: #ffffff;
-  border-radius: 999rpx;
-  padding: 18rpx 32rpx;
+  border: 2rpx solid #d5d2c8;
+  border-radius: 10rpx;
+  padding: 18rpx 28rpx;
   font-size: 28rpx;
-  box-shadow: 0 4rpx 16rpx rgba(38, 84, 60, 0.08);
 }
 
 .hot-wrap {
@@ -19,8 +19,8 @@
 
 .hot {
   font-size: 26rpx;
-  color: #2e7d5b;
-  background: #e8f3ee;
+  color: #2f5ea8;
+  background: #eef2f8;
   border-radius: 999rpx;
   padding: 10rpx 28rpx;
 }
@@ -43,7 +43,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f6f7f4;
+  border-top: 2rpx solid #f0eee6;
 }
 
 .dish-avatar {
@@ -83,12 +83,14 @@
 
 .dish-kcal {
   font-size: 24rpx;
-  color: #e08a00;
+  color: #6e7378;
   margin-bottom: 6rpx;
 }
 
 .fav-btn {
-  font-size: 40rpx;
-  padding: 10rpx 0 10rpx 20rpx;
+  font-size: 24rpx;
+  color: #2f5ea8;
+  letter-spacing: 2rpx;
+  padding: 10rpx 0 10rpx 24rpx;
   flex-shrink: 0;
 }

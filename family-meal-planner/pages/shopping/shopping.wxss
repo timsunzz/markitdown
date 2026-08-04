@@ -16,7 +16,7 @@
 
 .total-cost {
   font-size: 30rpx;
-  color: #e08a00;
+  color: #6e7378;
   font-weight: 700;
 }
 
@@ -28,18 +28,18 @@
 .copy-all {
   margin-top: 14rpx;
   font-size: 25rpx;
-  color: #2e7d5b;
+  color: #2f5ea8;
 }
 
 .howto {
-  background: #eef7f2;
-  color: #3c5f4e;
+  background: #eef2f8;
+  color: #6e7378;
   font-size: 25rpx;
   line-height: 1.7;
 }
 
 .hl {
-  color: #2e7d5b;
+  color: #2f5ea8;
   font-weight: 700;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .item + .item {
-  border-top: 2rpx solid #f6f7f4;
+  border-top: 2rpx solid #f0eee6;
 }
 
 .checkbox {
@@ -67,8 +67,8 @@
 }
 
 .item.checked .checkbox {
-  background: #2e7d5b;
-  border-color: #2e7d5b;
+  background: #2f5ea8;
+  border-color: #2f5ea8;
 }
 
 .item.checked .item-name,
@@ -93,8 +93,8 @@
 
 .copied-tag {
   font-size: 20rpx;
-  color: #2e7d5b;
-  background: #e8f3ee;
+  color: #2f5ea8;
+  background: #eef2f8;
   border-radius: 6rpx;
   padding: 2rpx 8rpx;
   margin-left: 8rpx;
@@ -102,19 +102,19 @@
 
 .item-sub {
   font-size: 23rpx;
-  color: #8a8f87;
+  color: #8b9088;
   margin-top: 4rpx;
 }
 
 .item-price {
-  color: #e08a00;
+  color: #6e7378;
 }
 
 .copy-btn {
   flex-shrink: 0;
   font-size: 24rpx;
-  color: #2e7d5b;
-  border: 2rpx solid #2e7d5b;
+  color: #2f5ea8;
+  border: 2rpx solid #2f5ea8;
   border-radius: 10rpx;
   padding: 8rpx 22rpx;
   margin-left: 16rpx;

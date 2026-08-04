@@ -9,7 +9,7 @@ Page({
   },
 
   onShareTimeline() {
-    return { title: '全家营养餐：按家里人口自动配每日营养菜单' };
+    return { title: '卡卡家常菜谱：按家里人口自动配每日营养菜单' };
   },
 
   data: {

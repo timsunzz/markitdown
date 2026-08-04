@@ -1,5 +1,4 @@
 const { RECIPES } = require('../../data/recipes');
-const covers = require('../../data/covers');
 
 Page({
   data: {
@@ -50,7 +49,7 @@ Page({
         id: r.id,
         name: r.name,
         type: r.type,
-        emoji: covers.emojiFor(r),
+        firstChar: r.name.charAt(0),
         tags: (r.tags || []).slice(0, 3),
         kcal: r.nutrition.kcal,
         time: r.time

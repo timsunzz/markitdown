@@ -1,6 +1,6 @@
 <view class="page">
   <view class="card empty" wx:if="{{!items.length}}">
-    <view class="empty-icon">🤍</view>
+    
     <view>收藏夹还是空的</view>
     <view class="muted empty-note">在任意菜谱详情页点「收藏」，喜欢的菜就会存到这里，随时翻出来做。</view>
     <button class="btn-primary empty-btn" bindtap="onGoIndex">去看看今日菜单</button>
@@ -8,8 +8,8 @@
 
   <block wx:if="{{items.length}}">
     <view class="card head">
-      <view class="card-title">❤️ 我的收藏（{{items.length}} 道）</view>
-      <view class="muted head-note">点菜品看做法；点右侧 ❤️ 可取消收藏</view>
+      <view class="card-title">我的收藏（{{items.length}} 道）</view>
+      <view class="muted head-note">点菜品看做法；点右侧「移除」可取消收藏</view>
     </view>
 
     <view class="card">
@@ -21,7 +21,7 @@
         data-id="{{dish.id}}"
         bindtap="onOpen"
       >
-        <view class="dish-avatar cover-{{dish.type}}">{{dish.emoji}}</view>
+        <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
         <view class="dish-main">
           <view class="dish-name">{{dish.name}}</view>
           <view>
@@ -29,10 +29,10 @@
           </view>
         </view>
         <view class="dish-right">
-          <view class="dish-kcal">人均 {{dish.kcal}} kcal</view>
-          <view class="muted">⏱ {{dish.time}} 分钟</view>
+          <view class="dish-kcal">人均 {{dish.kcal}} 千卡</view>
+          <view class="muted">{{dish.time}} 分钟</view>
         </view>
-        <view class="fav-remove" data-id="{{dish.id}}" catchtap="onRemove">❤️</view>
+        <view class="fav-remove" data-id="{{dish.id}}" catchtap="onRemove">移除</view>
       </view>
     </view>
   </block>

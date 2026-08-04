@@ -1,12 +1,11 @@
 const { byId } = require('../../data/recipes');
-const covers = require('../../data/covers');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
 
 Page({
   onShareAppMessage() {
     return {
-      title: '我在卡卡菜谱收藏的家常菜，每道都有做法和营养',
+      title: '我在卡卡家常菜谱收藏的家常菜，每道都有做法和营养',
       path: '/pages/index/index'
     };
   },
@@ -32,7 +31,7 @@ Page({
           id: r.id,
           name: r.name,
           type: r.type,
-          emoji: covers.emojiFor(r),
+          firstChar: r.name.charAt(0),
           tags: (r.tags || []).slice(0, 3),
           kcal: r.nutrition.kcal,
           time: r.time,

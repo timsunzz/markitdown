@@ -1,7 +1,6 @@
 const { byId } = require('../../data/recipes');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
-const covers = require('../../data/covers');
 
 function roundAmount(amount, unit) {
   if (unit === 'g' || unit === 'ml') {
@@ -21,7 +20,7 @@ function chunkText(str, size) {
 Page({
   onShareAppMessage() {
     const rec = this.data.recipe;
-    if (!rec) return { title: '全家营养餐', path: '/pages/index/index' };
+    if (!rec) return { title: '卡卡家常菜谱', path: '/pages/index/index' };
     return {
       title: rec.name + '的做法（食材已按人口换算）',
       path: '/pages/recipe/recipe?id=' + rec.id
@@ -30,7 +29,7 @@ Page({
 
   onShareTimeline() {
     const rec = this.data.recipe;
-    return { title: rec ? rec.name + ' · 家常做法与营养' : '全家营养餐' };
+    return { title: rec ? rec.name + ' · 家常做法与营养' : '卡卡家常菜谱' };
   },
 
   data: {
@@ -88,7 +87,7 @@ Page({
 
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#2e7d5b';
+          ctx.fillStyle = '#2f5ea8';
           ctx.fillRect(0, 0, W, 10);
 
           let y = 60;
@@ -112,7 +111,7 @@ Page({
           y += 36 + 20;
 
           const section = (title) => {
-            ctx.fillStyle = '#2e7d5b';
+            ctx.fillStyle = '#2f5ea8';
             ctx.fillRect(40, y - 20, 6, 24);
             ctx.font = 'bold 26px sans-serif';
             ctx.fillText(title, 58, y);
@@ -126,7 +125,7 @@ Page({
             ctx.font = '24px sans-serif';
             ctx.textAlign = 'left';
             ctx.fillText(ing.name + (ing.pantry ? '（常备）' : ''), 44, y);
-            ctx.fillStyle = '#2e7d5b';
+            ctx.fillStyle = '#2f5ea8';
             ctx.textAlign = 'right';
             ctx.fillText(ing.amountText, W - 40, y);
             ctx.textAlign = 'left';
@@ -149,7 +148,7 @@ Page({
 
           // 营养（全家合计）
           const fn = this.data.familyNutrition;
-          ctx.fillStyle = '#b96f00';
+          ctx.fillStyle = '#2f5ea8';
           ctx.font = '22px sans-serif';
           ctx.fillText(
             `全家合计：能量 ${fn.kcal} kcal · 蛋白质 ${fn.protein}g · 钙 ${fn.calcium}mg · 铁 ${fn.iron}mg`,
@@ -170,7 +169,7 @@ Page({
           ctx.fillStyle = '#b0b5ac';
           ctx.font = '20px sans-serif';
           ctx.textAlign = 'center';
-          ctx.fillText('来自「卡卡菜谱」小程序', W / 2, H - 34);
+          ctx.fillText('卡卡家常菜谱', W / 2, H - 34);
 
           wx.canvasToTempFilePath({
             canvas,
@@ -216,7 +215,7 @@ Page({
 
     this.setData({
       recipe,
-      emoji: covers.emojiFor(recipe),
+      firstChar: recipe.name.charAt(0),
       isFav: (wx.getStorageSync('favorites') || []).indexOf(recipe.id) >= 0,
       factor: Math.round(factor * 10) / 10,
       memberCount: members.length,

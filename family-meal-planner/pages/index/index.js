@@ -1,10 +1,9 @@
 const planner = require('../../utils/planner');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
-const covers = require('../../data/covers');
+const { RECIPES } = require('../../data/recipes');
 
 const MEAL_LABELS = { breakfast: '早餐', lunch: '午餐', dinner: '晚餐' };
-const MEAL_EMOJIS = { breakfast: '☀️', lunch: '🍱', dinner: '🌙' };
 
 function todayStr() {
   const d = new Date();
@@ -12,10 +11,10 @@ function todayStr() {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
-function dateLabel(dateStr) {
+function dateParts(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number);
   const week = ['日', '一', '二', '三', '四', '五', '六'][new Date(y, m - 1, d).getDay()];
-  return `${m}月${d}日 星期${week}`;
+  return { day: `${m}月${d}日`, week: `星期${week}` };
 }
 
 Page({
@@ -27,11 +26,13 @@ Page({
   },
 
   onShareTimeline() {
-    return { title: '全家营养餐：按家里人口自动配每日营养菜单' };
+    return { title: '卡卡家常菜谱：按家里人口自动配每日营养菜单' };
   },
 
   data: {
-    dateLabel: '',
+    mastDay: '',
+    mastWeek: '',
+    recipeCount: RECIPES.length,
     noMembers: false,
     noSpicyAll: false,
     noPorkAll: false,
@@ -54,7 +55,8 @@ Page({
     const members = wx.getStorageSync('familyMembers') || [];
     if (!members.length) {
       wx.removeStorageSync('currentMenu');
-      this.setData({ noMembers: true, dateLabel: dateLabel(todayStr()) });
+      const dp0 = dateParts(todayStr());
+      this.setData({ noMembers: true, mastDay: dp0.day, mastWeek: dp0.week });
       return;
     }
     const summary = nutrition.familySummary(members);
@@ -88,11 +90,13 @@ Page({
     const totals = planner.dayNutrition(menu, summary.factor, structure.boost);
     const pct = (v, t) => Math.min(100, Math.round((v / t) * 100));
 
+    const dp = dateParts(date);
     this.setData({
       noMembers: false,
       noSpicyAll,
       noPorkAll,
-      dateLabel: dateLabel(date),
+      mastDay: dp.day,
+      mastWeek: dp.week,
       members,
       summary,
       menu,
@@ -107,9 +111,8 @@ Page({
             id: d.id,
             name: d.name,
             type: d.type,
-            emoji: covers.emojiFor(d),
-            image: d.image || '',
-            tags: d.tags,
+            firstChar: d.name.charAt(0),
+            tags: (d.tags || []).slice(0, 3),
             time: d.time,
             nutrition: d.nutrition,
             costText: cost ? `¥${cost}` : ''
@@ -118,7 +121,6 @@ Page({
         return {
           key: k,
           label: MEAL_LABELS[k],
-          emoji: MEAL_EMOJIS[k],
           dishes,
           costText: `约 ¥${Math.round(mealCost)}`
         };

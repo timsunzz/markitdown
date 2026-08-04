@@ -16,7 +16,7 @@
 
   <view class="card fav-entry" bindtap="onGoFavorites">
     <view class="card-title">
-      <text>❤️ 我的收藏</text>
+      <text>我的收藏</text>
       <text class="fav-count">{{favCount}} 道 ›</text>
     </view>
   </view>
@@ -26,25 +26,25 @@
     <view class="divider"></view>
     <view class="pref-row">
       <view>
-        <view class="pref-name">全家免辣 🌶️🚫</view>
+        <view class="pref-name">全家免辣</view>
         <view class="muted">开启后菜单不再出现任何辣菜；关闭时家有 10 岁以下孩子仍会自动避辣</view>
       </view>
-      <switch checked="{{noSpicy}}" color="#2e7d5b" bindchange="onToggleNoSpicy" />
+      <switch checked="{{noSpicy}}" color="#2f5ea8" bindchange="onToggleNoSpicy" />
     </view>
     <view class="divider"></view>
     <view class="pref-row">
       <view>
-        <view class="pref-name">不吃猪肉 🐷🚫</view>
+        <view class="pref-name">不吃猪肉</view>
         <view class="muted">开启后菜单不出现任何含猪肉食材的菜（含鲜肉包、馄饨、肉松等），也排除含酒精的菜。注：家常做法常用料酒去腥，如需严格清真，烹饪时省略料酒即可</view>
       </view>
-      <switch checked="{{noPork}}" color="#2e7d5b" bindchange="onToggleNoPork" />
+      <switch checked="{{noPork}}" color="#2f5ea8" bindchange="onToggleNoPork" />
     </view>
   </view>
 
   <view class="card">
     <view class="card-title">
       <text>家庭成员</text>
-      <view class="add-link" bindtap="onToggleForm">{{showForm ? '收起' : '＋ 添加成员'}}</view>
+      <view class="add-link" bindtap="onToggleForm">{{showForm ? '收起' : '添加成员'}}</view>
     </view>
     <view class="divider"></view>
 
@@ -83,6 +83,6 @@
   </view>
 
   <view class="card muted about">
-    📖 营养目标依据《中国居民膳食营养素参考摄入量（2023 版）》按轻体力活动水平估算，仅供家庭配餐参考，不能替代医生或临床营养师的个体化建议。孕期、哺乳期及慢病成员请遵医嘱。
+    营养目标依据《中国居民膳食营养素参考摄入量（2023 版）》按轻体力活动水平估算，仅供家庭配餐参考，不能替代医生或临床营养师的个体化建议。孕期、哺乳期及慢病成员请遵医嘱。
   </view>
 </view>
