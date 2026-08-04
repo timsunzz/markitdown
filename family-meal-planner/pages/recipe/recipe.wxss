@@ -2,8 +2,11 @@
   display: flex;
   align-items: flex-start;
   gap: 24rpx;
-  padding: 40rpx 32rpx 32rpx;
-  border-bottom: 2rpx solid #e8e5dc;
+  background: #ffffff;
+  border-radius: 24rpx;
+  margin: 20rpx 28rpx;
+  padding: 30rpx;
+  border-bottom: none;
 }
 
 .r-seal {
@@ -20,9 +23,9 @@
 
 .r-name {
   font-size: 42rpx;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: 2rpx;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
 .r-info {
@@ -38,16 +41,16 @@
   flex-shrink: 0;
   font-size: 24rpx;
   letter-spacing: 2rpx;
-  color: #2f5ea8;
-  border: 2rpx solid #2f5ea8;
+  color: #007aff;
+  border: 2rpx solid #007aff;
   border-radius: 8rpx;
   padding: 8rpx 22rpx;
   margin-top: 6rpx;
 }
 
 .fav-chip.on {
-  background: #2f5ea8;
-  color: #faf9f5;
+  background: #007aff;
+  color: #ffffff;
 }
 
 .meal-title {
@@ -58,9 +61,9 @@
 }
 
 .sec-label {
-  font-size: 28rpx;
-  font-weight: 600;
-  letter-spacing: 6rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .ing {
@@ -70,7 +73,7 @@
 }
 
 .ing + .ing {
-  border-top: 2rpx solid #f0eee6;
+  border-top: 2rpx solid #ececee;
 }
 
 .ing-name {
@@ -80,7 +83,7 @@
 
 .ing-leader {
   flex: 1;
-  border-bottom: 2rpx dotted #d5d2c8;
+  border-bottom: 2rpx dotted #d1d1d6;
   margin: 0 14rpx;
   min-width: 30rpx;
 }
@@ -97,7 +100,7 @@
 
 .ing-price {
   font-size: 22rpx;
-  color: #8b9088;
+  color: #8e8e93;
 }
 
 .dish-cost-line {
@@ -106,7 +109,7 @@
   align-items: baseline;
   margin-top: 22rpx;
   padding-top: 20rpx;
-  border-top: 2rpx solid #e8e5dc;
+  border-top: 2rpx solid #e5e5ea;
 }
 
 .dish-cost-num {
@@ -123,7 +126,7 @@
 
 .step-no {
   font-size: 34rpx;
-  color: #2f5ea8;
+  color: #007aff;
   flex-shrink: 0;
   width: 40rpx;
   text-align: center;
@@ -155,10 +158,10 @@
 .tip {
   margin-top: 24rpx;
   font-size: 25rpx;
-  line-height: 1.8;
-  color: #6e7378;
-  border-left: 6rpx solid #2f5ea8;
-  padding-left: 20rpx;
+  line-height: 1.7;
+  color: #8e8e93;
+  border-left: none;
+  padding-left: 0;
 }
 
 .bottom-space {
@@ -173,8 +176,8 @@
   display: flex;
   gap: 16rpx;
   padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
-  background: rgba(250, 249, 245, 0.96);
-  border-top: 2rpx solid #e8e5dc;
+  background: rgba(242, 242, 247, 0.95);
+  border-top: 2rpx solid #e5e5ea;
 }
 
 .bar-btn {

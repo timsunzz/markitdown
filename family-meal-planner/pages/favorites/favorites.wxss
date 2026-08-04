@@ -31,7 +31,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f0eee6;
+  border-top: 2rpx solid #ececee;
 }
 
 .dish-avatar {
@@ -71,7 +71,7 @@
 
 .dish-kcal {
   font-size: 24rpx;
-  color: #6e7378;
+  color: #6d6d72;
   margin-bottom: 6rpx;
 }
 

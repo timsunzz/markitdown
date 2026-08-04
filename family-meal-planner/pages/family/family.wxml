@@ -29,7 +29,7 @@
         <view class="pref-name">全家免辣</view>
         <view class="muted">开启后菜单不再出现任何辣菜；关闭时家有 10 岁以下孩子仍会自动避辣</view>
       </view>
-      <switch checked="{{noSpicy}}" color="#2f5ea8" bindchange="onToggleNoSpicy" />
+      <switch checked="{{noSpicy}}" color="#007aff" bindchange="onToggleNoSpicy" />
     </view>
     <view class="divider"></view>
     <view class="pref-row">
@@ -37,7 +37,7 @@
         <view class="pref-name">不吃猪肉</view>
         <view class="muted">开启后菜单不出现任何含猪肉食材的菜（含鲜肉包、馄饨、肉松等），也排除含酒精的菜。注：家常做法常用料酒去腥，如需严格清真，烹饪时省略料酒即可</view>
       </view>
-      <switch checked="{{noPork}}" color="#2f5ea8" bindchange="onToggleNoPork" />
+      <switch checked="{{noPork}}" color="#007aff" bindchange="onToggleNoPork" />
     </view>
   </view>
 

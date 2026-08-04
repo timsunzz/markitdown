@@ -1,6 +1,6 @@
 .summary-card {
-  background: #2f5ea8;
-  color: #faf9f5;
+  background: #007aff;
+  color: #ffffff;
   border-bottom: none;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .summary-card .s-num {
-  color: #faf9f5;
-  font-family: "Songti SC", "Noto Serif SC", "SimSun", serif;
+  color: #ffffff;
+  font-family: -apple-system, "PingFang SC", sans-serif;
 }
 
 .summary-line {
@@ -35,7 +35,7 @@
 .s-num {
   font-size: 34rpx;
   font-weight: 700;
-  color: #2f5ea8;
+  color: #007aff;
   margin-bottom: 4rpx;
 }
 
@@ -47,7 +47,7 @@
 .fav-count {
   font-size: 26rpx;
   font-weight: 400;
-  color: #8b9088;
+  color: #8e8e93;
 }
 
 .pref-row {
@@ -70,7 +70,7 @@
 
 .add-link {
   font-size: 26rpx;
-  color: #2f5ea8;
+  color: #007aff;
   font-weight: 400;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .member + .member {
-  border-top: 2rpx solid #f0eee6;
+  border-top: 2rpx solid #ececee;
 }
 
 .member-name {
@@ -110,7 +110,7 @@
 }
 
 .picker-value {
-  color: #2f5ea8;
+  color: #007aff;
   font-size: 28rpx;
 }
 

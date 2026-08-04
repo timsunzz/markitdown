@@ -1,36 +1,37 @@
 .masthead {
-  padding: 44rpx 32rpx 30rpx;
-  border-bottom: 2rpx solid #e8e5dc;
+  padding: 40rpx 32rpx 24rpx;
+  border-bottom: none;
 }
 
 .mast-date {
-  font-size: 72rpx;
-  font-weight: 600;
-  letter-spacing: 4rpx;
-  line-height: 1.2;
+  font-size: 68rpx;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.15;
 }
 
 .mast-sub {
   margin-top: 10rpx;
   font-size: 25rpx;
-  color: #8b9088;
+  color: #8e8e93;
   display: flex;
   align-items: baseline;
   gap: 22rpx;
 }
 
 .mast-family {
-  color: #2f5ea8;
+  color: #007aff;
 }
 
 .mast-search {
-  margin-top: 26rpx;
-  border: 2rpx solid #d5d2c8;
-  border-radius: 10rpx;
-  padding: 16rpx 24rpx;
-  color: #a9ada8;
-  font-size: 26rpx;
-  letter-spacing: 2rpx;
+  margin-top: 24rpx;
+  background: #e4e4e9;
+  border: none;
+  border-radius: 20rpx;
+  padding: 16rpx 26rpx;
+  color: #8e8e93;
+  font-size: 28rpx;
+  letter-spacing: 0;
 }
 
 .empty-family {
@@ -68,20 +69,20 @@
 }
 
 .meal-label {
-  font-size: 28rpx;
-  font-weight: 600;
-  letter-spacing: 6rpx;
+  font-size: 31rpx;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .meal-cost {
   font-size: 23rpx;
-  color: #8b9088;
+  color: #8e8e93;
   font-variant-numeric: tabular-nums;
 }
 
 .shuffle {
   font-size: 25rpx;
-  color: #2f5ea8;
+  color: #007aff;
   letter-spacing: 2rpx;
 }
 
@@ -92,7 +93,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f0eee6;
+  border-top: 2rpx solid #ececee;
 }
 
 .dish-main {
@@ -119,7 +120,7 @@
 
 .dish-kcal {
   font-size: 23rpx;
-  color: #6e7378;
+  color: #6d6d72;
   margin-bottom: 4rpx;
   font-variant-numeric: tabular-nums;
 }
@@ -139,21 +140,24 @@
 
 .bar {
   flex: 1;
-  height: 6rpx;
-  background: #e8e5dc;
+  height: 8rpx;
+  background: #e5e5ea;
+  border-radius: 999rpx;
+  overflow: hidden;
   margin-right: 18rpx;
 }
 
 .bar-fill {
   height: 100%;
-  background: #2f5ea8;
+  background: #007aff;
+  border-radius: 999rpx;
 }
 
 .n-val {
   width: 220rpx;
   text-align: right;
   font-size: 22rpx;
-  color: #8b9088;
+  color: #8e8e93;
   font-variant-numeric: tabular-nums;
 }
 
@@ -173,9 +177,9 @@
   bottom: 0;
   display: flex;
   gap: 16rpx;
-  padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
-  background: rgba(250, 249, 245, 0.96);
-  border-top: 2rpx solid #e8e5dc;
+  padding: 16rpx 28rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(242, 242, 247, 0.95);
+  border-top: 1px solid #e5e5ea;
 }
 
 .buy-btn {

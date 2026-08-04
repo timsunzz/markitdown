@@ -178,7 +178,7 @@ Page({
           // 背景与顶部色条
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#2f5ea8';
+          ctx.fillStyle = '#007aff';
           ctx.fillRect(0, 0, W, 10);
 
           // 标题与副标题
@@ -203,7 +203,7 @@ Page({
           let y = 150;
           groups.forEach((g) => {
             // 分类标题
-            ctx.fillStyle = '#2f5ea8';
+            ctx.fillStyle = '#007aff';
             ctx.fillRect(40, y + 6, 6, 24);
             ctx.font = 'bold 24px sans-serif';
             ctx.textAlign = 'left';

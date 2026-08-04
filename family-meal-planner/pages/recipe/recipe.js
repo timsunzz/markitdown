@@ -87,7 +87,7 @@ Page({
 
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#2f5ea8';
+          ctx.fillStyle = '#007aff';
           ctx.fillRect(0, 0, W, 10);
 
           let y = 60;
@@ -111,7 +111,7 @@ Page({
           y += 36 + 20;
 
           const section = (title) => {
-            ctx.fillStyle = '#2f5ea8';
+            ctx.fillStyle = '#007aff';
             ctx.fillRect(40, y - 20, 6, 24);
             ctx.font = 'bold 26px sans-serif';
             ctx.fillText(title, 58, y);
@@ -125,7 +125,7 @@ Page({
             ctx.font = '24px sans-serif';
             ctx.textAlign = 'left';
             ctx.fillText(ing.name + (ing.pantry ? '（常备）' : ''), 44, y);
-            ctx.fillStyle = '#2f5ea8';
+            ctx.fillStyle = '#007aff';
             ctx.textAlign = 'right';
             ctx.fillText(ing.amountText, W - 40, y);
             ctx.textAlign = 'left';
@@ -148,7 +148,7 @@ Page({
 
           // 营养（全家合计）
           const fn = this.data.familyNutrition;
-          ctx.fillStyle = '#2f5ea8';
+          ctx.fillStyle = '#007aff';
           ctx.font = '22px sans-serif';
           ctx.fillText(
             `全家合计：能量 ${fn.kcal} kcal · 蛋白质 ${fn.protein}g · 钙 ${fn.calcium}mg · 铁 ${fn.iron}mg`,

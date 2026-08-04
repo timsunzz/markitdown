@@ -4,7 +4,7 @@
 
 .search-input {
   background: #ffffff;
-  border: 2rpx solid #d5d2c8;
+  border: 2rpx solid #d1d1d6;
   border-radius: 10rpx;
   padding: 18rpx 28rpx;
   font-size: 28rpx;
@@ -19,8 +19,8 @@
 
 .hot {
   font-size: 26rpx;
-  color: #2f5ea8;
-  background: #eef2f8;
+  color: #007aff;
+  background: #eaf3ff;
   border-radius: 999rpx;
   padding: 10rpx 28rpx;
 }
@@ -43,7 +43,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #f0eee6;
+  border-top: 2rpx solid #ececee;
 }
 
 .dish-avatar {
@@ -83,13 +83,13 @@
 
 .dish-kcal {
   font-size: 24rpx;
-  color: #6e7378;
+  color: #6d6d72;
   margin-bottom: 6rpx;
 }
 
 .fav-btn {
   font-size: 24rpx;
-  color: #2f5ea8;
+  color: #007aff;
   letter-spacing: 2rpx;
   padding: 10rpx 0 10rpx 24rpx;
   flex-shrink: 0;

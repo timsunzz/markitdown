@@ -1,71 +1,73 @@
 /**
  * 卡卡家常菜谱 · 全局样式
  *
- * 设计语言：「一册家常菜谱」
- * 瓷白纸面 + 墨色文字 + 发丝线分隔，青花瓷蓝为唯一强调色，
- * 宋体大字做标题，不用渐变、重投影与装饰性 emoji。
+ * 设计语言：苹果原生（iOS Human Interface）
+ * 系统灰底 + 白色圆角分组 + 发丝分隔线，系统蓝为唯一强调色，
+ * 全部使用系统字体（PingFang），无渐变、无投影、无装饰 emoji。
  */
 
 page {
-  background: #faf9f5;
-  font-size: 28rpx;
-  color: #1f2328;
+  background: #f2f2f7;
+  font-size: 30rpx;
+  color: #1c1c1e;
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
 }
 
-/* 宋体标题字组 */
+/* 兼容旧的 serif 类：统一回系统字体加粗 */
 .serif {
-  font-family: "Songti SC", "Noto Serif SC", "SimSun", serif;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  font-weight: 700;
 }
 
-/* 章节：以留白与发丝线分隔，不再使用阴影卡片 */
+/* iOS 分组卡片 */
 .card {
-  background: transparent;
-  padding: 34rpx 32rpx 30rpx;
-  margin: 0;
-  border-bottom: 2rpx solid #e8e5dc;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 28rpx 30rpx;
+  margin: 20rpx 28rpx;
+  border-bottom: none;
 }
 
 .card-title {
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: 600;
-  letter-spacing: 3rpx;
+  letter-spacing: 0;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
 .divider {
-  height: 2rpx;
-  background: #e8e5dc;
-  margin: 22rpx 0;
+  height: 1px;
+  background: #e5e5ea;
+  margin: 20rpx 0;
 }
 
 .muted {
-  color: #8b9088;
-  font-size: 24rpx;
+  color: #8e8e93;
+  font-size: 25rpx;
 }
 
-/* 标签：不再用色块药丸，改为点隔的小字 */
+/* 标签：点隔的脚注小字 */
 .tag {
   display: inline;
   font-size: 22rpx;
-  color: #a9ada8;
+  color: #aeaeb2;
   margin-right: 0;
 }
 
 .tag + .tag::before {
   content: " · ";
-  color: #d5d2c8;
+  color: #d1d1d6;
 }
 
 .btn-primary {
-  background: #2f5ea8;
-  color: #faf9f5;
-  border-radius: 10rpx;
-  font-size: 29rpx;
-  font-weight: 500;
-  letter-spacing: 4rpx;
+  background: #007aff;
+  color: #ffffff;
+  border-radius: 24rpx;
+  font-size: 31rpx;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .btn-primary::after {
@@ -73,45 +75,50 @@ page {
 }
 
 .btn-ghost {
-  background: transparent;
-  color: #1f2328;
-  border: 2rpx solid #c9c6bb;
-  border-radius: 10rpx;
-  font-size: 28rpx;
-  letter-spacing: 2rpx;
+  background: #ffffff;
+  color: #007aff;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .btn-ghost::after {
   border: none;
 }
 
-/* 青花字印：每道菜取首字，蓝底白字的小方印 */
+/* 菜品首字圆标（iOS 列表图标式的彩色圆） */
 .seal {
   width: 76rpx;
   height: 76rpx;
-  border-radius: 10rpx;
-  background: #2f5ea8;
-  color: #faf9f5;
+  border-radius: 50%;
+  background: #007aff;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40rpx;
-  font-family: "Songti SC", "Noto Serif SC", "SimSun", serif;
+  font-size: 34rpx;
+  font-weight: 600;
+  font-family: -apple-system, "PingFang SC", sans-serif;
   flex-shrink: 0;
 }
 
-.seal.veg { background: #4a7d5f; }
-.seal.soup { background: #7a91b4; }
-.seal.staple { background: #8c7a5b; }
-.seal.breakfast { background: #b0793a; }
+.seal.meat { background: #f0664b; }
+.seal.veg { background: #34c759; }
+.seal.soup { background: #32ade6; }
+.seal.staple { background: #a2845e; }
+.seal.breakfast { background: #f5a623; }
 
-/* 提示行：左侧细竖线，不用彩底 emoji 卡片 */
+/* 提示：白色分组内的脚注文字 */
 .notice {
-  background: transparent;
-  border-bottom: 2rpx solid #e8e5dc;
-  border-left: 6rpx solid #2f5ea8;
-  padding: 22rpx 32rpx 22rpx 26rpx;
-  color: #6e7378;
-  font-size: 24rpx;
-  line-height: 1.7;
+  background: #ffffff;
+  border-radius: 24rpx;
+  margin: 20rpx 28rpx;
+  padding: 24rpx 30rpx;
+  color: #8e8e93;
+  font-size: 25rpx;
+  line-height: 1.65;
+  border-left: none;
+  border-bottom: none;
 }
