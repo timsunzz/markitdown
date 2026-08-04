@@ -10,6 +10,14 @@ function roundAmount(amount, unit) {
   return Math.max(1, Math.ceil(amount * 2) / 2); // 个/根/片允许半个
 }
 
+/** 按固定字数折行（高度预估与绘制使用同一规则，保证不错位） */
+function chunkText(str, size) {
+  const out = [];
+  const s = String(str || '');
+  for (let i = 0; i < s.length; i += size) out.push(s.substr(i, size));
+  return out.length ? out : [''];
+}
+
 Page({
   onShareAppMessage() {
     const rec = this.data.recipe;
@@ -32,7 +40,152 @@ Page({
     ingredientViews: [],
     familyNutrition: null,
     dishCost: 0,
-    isFav: false
+    isFav: false,
+    canvasH: 900
+  },
+
+  /**
+   * 生成菜谱图片：菜名 + 按全家换算的食材 + 做法 + 营养 + 小贴士，
+   * 画成一张竖版长图，全屏预览后长按可保存相册或转发（无需相册授权）。
+   */
+  onMakeImage() {
+    const r = this.data.recipe;
+    if (!r) return;
+    const W = 640;
+    const ings = this.data.ingredientViews;
+    const nameLines = chunkText(r.name, 16);
+    const stepLines = r.steps.map((s, i) => chunkText(`${i + 1}. ${s}`, 21));
+    const tipLines = chunkText('小贴士：' + r.tip, 24);
+
+    // 高度预估（与下方绘制使用相同的行高常数）
+    let H = 60; // 顶部
+    H += nameLines.length * 46 + 8; // 标题
+    H += 36 + 20; // meta 行 + 间距
+    H += 52 + ings.length * 40 + 20; // 食材区
+    H += 52 + stepLines.reduce((n, ls) => n + ls.length * 34 + 12, 0) + 8; // 做法区
+    H += 48; // 营养行
+    H += tipLines.length * 32 + 26; // 小贴士
+    H += 76; // 页脚
+
+    wx.showLoading({ title: '正在生成…' });
+    this.setData({ canvasH: H }, () => {
+      wx.createSelectorQuery()
+        .in(this)
+        .select('#recipeCanvas')
+        .fields({ node: true })
+        .exec((res) => {
+          if (!res || !res[0] || !res[0].node) {
+            wx.hideLoading();
+            wx.showToast({ title: '生成失败，请重试', icon: 'none' });
+            return;
+          }
+          const canvas = res[0].node;
+          const dpr = 2;
+          canvas.width = W * dpr;
+          canvas.height = H * dpr;
+          const ctx = canvas.getContext('2d');
+          ctx.scale(dpr, dpr);
+
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = '#2e7d5b';
+          ctx.fillRect(0, 0, W, 10);
+
+          let y = 60;
+          // 标题
+          ctx.fillStyle = '#2b2f2a';
+          ctx.font = 'bold 34px sans-serif';
+          ctx.textAlign = 'left';
+          nameLines.forEach((ln) => {
+            ctx.fillText(ln, 40, y);
+            y += 46;
+          });
+          y += 8;
+          // meta
+          ctx.fillStyle = '#8a8f87';
+          ctx.font = '22px sans-serif';
+          ctx.fillText(
+            `约 ${r.time} 分钟 · 难度${r.difficulty} · 人均 ${r.nutrition.kcal} kcal · 已按 ${this.data.memberCount} 口人换算`,
+            40,
+            y
+          );
+          y += 36 + 20;
+
+          const section = (title) => {
+            ctx.fillStyle = '#2e7d5b';
+            ctx.fillRect(40, y - 20, 6, 24);
+            ctx.font = 'bold 26px sans-serif';
+            ctx.fillText(title, 58, y);
+            y += 52 - 20;
+          };
+
+          // 食材
+          section('食材');
+          ings.forEach((ing) => {
+            ctx.fillStyle = '#2b2f2a';
+            ctx.font = '24px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(ing.name + (ing.pantry ? '（常备）' : ''), 44, y);
+            ctx.fillStyle = '#2e7d5b';
+            ctx.textAlign = 'right';
+            ctx.fillText(ing.amountText, W - 40, y);
+            ctx.textAlign = 'left';
+            y += 40;
+          });
+          y += 20;
+
+          // 做法
+          section('做法');
+          ctx.fillStyle = '#2b2f2a';
+          ctx.font = '24px sans-serif';
+          stepLines.forEach((ls) => {
+            ls.forEach((ln, i) => {
+              ctx.fillText(ln, i === 0 ? 44 : 74, y);
+              y += 34;
+            });
+            y += 12;
+          });
+          y += 8;
+
+          // 营养（全家合计）
+          const fn = this.data.familyNutrition;
+          ctx.fillStyle = '#b96f00';
+          ctx.font = '22px sans-serif';
+          ctx.fillText(
+            `全家合计：能量 ${fn.kcal} kcal · 蛋白质 ${fn.protein}g · 钙 ${fn.calcium}mg · 铁 ${fn.iron}mg`,
+            40,
+            y
+          );
+          y += 48;
+
+          // 小贴士
+          ctx.fillStyle = '#6b7066';
+          ctx.font = '22px sans-serif';
+          tipLines.forEach((ln) => {
+            ctx.fillText(ln, 40, y);
+            y += 32;
+          });
+
+          // 页脚
+          ctx.fillStyle = '#b0b5ac';
+          ctx.font = '20px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('来自「卡卡菜谱」小程序', W / 2, H - 34);
+
+          wx.canvasToTempFilePath({
+            canvas,
+            success: (out) => {
+              wx.hideLoading();
+              wx.previewImage({ urls: [out.tempFilePath] });
+              wx.showToast({ title: '长按图片可保存或转发', icon: 'none', duration: 2500 });
+            },
+            fail: () => {
+              wx.hideLoading();
+              wx.showToast({ title: '生成失败，请重试', icon: 'none' });
+            }
+          });
+        });
+    });
   },
 
   /** 收藏 / 取消收藏（存本地，无需登录） */

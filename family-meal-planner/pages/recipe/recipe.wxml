@@ -67,5 +67,16 @@
     <view class="tip">💡 营养师小贴士：{{recipe.tip}}</view>
   </view>
 
-  <view style="height: 40rpx"></view>
+  <view class="bottom-space"></view>
+  <view class="bottom-bar">
+    <button class="btn-primary bar-btn" bindtap="onMakeImage">🖼 生成菜谱图片</button>
+    <button class="btn-ghost bar-btn share-s" open-type="share">↗️ 分享</button>
+  </view>
+
+  <!-- 离屏画布：绘制菜谱图片 -->
+  <canvas
+    type="2d"
+    id="recipeCanvas"
+    style="position: fixed; left: 2000px; top: 0; width: 640px; height: {{canvasH}}px;"
+  ></canvas>
 </view>
