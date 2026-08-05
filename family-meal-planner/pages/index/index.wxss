@@ -13,23 +13,23 @@
 .mast-sub {
   margin-top: 10rpx;
   font-size: 25rpx;
-  color: #8e8e93;
+  color: #9c9084;
   display: flex;
   align-items: baseline;
   gap: 22rpx;
 }
 
 .mast-family {
-  color: #007aff;
+  color: #f0592b;
 }
 
 .mast-search {
   margin-top: 24rpx;
-  background: #e4e4e9;
+  background: #f1e7d8;
   border: none;
   border-radius: 20rpx;
   padding: 16rpx 26rpx;
-  color: #8e8e93;
+  color: #9c9084;
   font-size: 28rpx;
   letter-spacing: 0;
 }
@@ -76,13 +76,13 @@
 
 .meal-cost {
   font-size: 23rpx;
-  color: #8e8e93;
+  color: #9c9084;
   font-variant-numeric: tabular-nums;
 }
 
 .shuffle {
   font-size: 25rpx;
-  color: #007aff;
+  color: #f0592b;
   letter-spacing: 2rpx;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #ececee;
+  border-top: 2rpx solid #f1eae0;
 }
 
 .dish-main {
@@ -120,7 +120,7 @@
 
 .dish-kcal {
   font-size: 23rpx;
-  color: #6d6d72;
+  color: #b0642c;
   margin-bottom: 4rpx;
   font-variant-numeric: tabular-nums;
 }
@@ -141,7 +141,7 @@
 .bar {
   flex: 1;
   height: 8rpx;
-  background: #e5e5ea;
+  background: #ece4d8;
   border-radius: 999rpx;
   overflow: hidden;
   margin-right: 18rpx;
@@ -149,7 +149,7 @@
 
 .bar-fill {
   height: 100%;
-  background: #007aff;
+  background: linear-gradient(90deg, #f2a33c 0%, #f0592b 100%);
   border-radius: 999rpx;
 }
 
@@ -157,7 +157,7 @@
   width: 220rpx;
   text-align: right;
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #9c9084;
   font-variant-numeric: tabular-nums;
 }
 
@@ -178,8 +178,8 @@
   display: flex;
   gap: 16rpx;
   padding: 16rpx 28rpx calc(16rpx + env(safe-area-inset-bottom));
-  background: rgba(242, 242, 247, 0.95);
-  border-top: 1px solid #e5e5ea;
+  background: rgba(247, 241, 233, 0.95);
+  border-top: 1px solid #ece4d8;
 }
 
 .buy-btn {

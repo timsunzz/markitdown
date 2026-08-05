@@ -64,7 +64,8 @@ function buildList(menu, familyFactor, portionBoost) {
           // 干净的搜索词：去掉括号说明，直接粘贴到盒马/奥乐齐搜索框
           searchName: it.name.replace(/（[^）]*）/g, ''),
           pantry: it.pantry,
-          checked: false,
+          // 勾选 = 今天要买：生鲜食材默认勾上，常备调味品默认不勾（家里没有时可点选加进清单）
+          checked: !it.pantry,
           price,
           priceText: price ? `约¥${price}` : '',
           amountText: it.unit === '适量' ? '适量（家中常备）' : `${roundAmount(it.amount, it.unit)}${it.unit}`
@@ -78,12 +79,12 @@ function buildList(menu, familyFactor, portionBoost) {
   return groups;
 }
 
-/** 待购食材的预估总花费（元，不含已划掉与常备调味品） */
+/** 已勾选食材的预估总花费（元；常备调味品价格按 0 计） */
 function totalCost(groups) {
   let sum = 0;
   groups.forEach((g) =>
     g.items.forEach((it) => {
-      if (!it.pantry && !it.checked) sum += it.price || 0;
+      if (it.checked) sum += it.price || 0;
     })
   );
   return Math.round(sum);
@@ -91,9 +92,9 @@ function totalCost(groups) {
 
 /** 生成备忘/分享用的清单文本（含预估价，逐样购买请用条目上的"复制"按钮） */
 function listToText(groups, dateLabel, memberCount) {
-  const lines = [`🛒 ${dateLabel} 全家营养餐购物清单（${memberCount} 口人）`, ''];
+  const lines = [`🛒 ${dateLabel} 买菜清单（${memberCount} 口人）`, ''];
   groups.forEach((g) => {
-    const items = g.items.filter((it) => !it.pantry && !it.checked);
+    const items = g.items.filter((it) => it.checked);
     if (!items.length) return;
     lines.push(`${g.icon} ${g.category}`);
     items.forEach((it) => lines.push(`· ${it.name} ${it.amountText}${it.priceText ? '（' + it.priceText + '）' : ''}`));

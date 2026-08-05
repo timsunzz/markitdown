@@ -3,11 +3,11 @@ const shopping = require('../../utils/shopping');
 
 /**
  * 采购交互说明：
+ * 勾选 = 今天要买。生鲜食材默认全部勾上，家里已有的点一下去掉勾；
+ * 常备调味品（料酒、生抽、八角等）默认不勾，需要补货时点一下勾进清单。
+ * 「生成清单图片」和「复制」只输出勾选中的食材。
  * 各买菜平台（盒马、奥乐齐、美团买菜、多点等）的搜索框一次只认一样商品，
- * 所以提供两种复制方式，用户复制后自行粘贴到任意平台搜索购买：
- *  1. 每个条目的「复制」按钮：只复制这一样的干净搜索词（去掉括号备注）
- *  2. 底部「复制所选清单」：把还需购买的食材（未打勾的）整单复制，
- *     适合发给家人代买、或在支持批量的平台/线下超市对着买
+ * 所以每个条目另有「复制」按钮，只复制这一样的干净搜索词（去掉括号备注）。
  */
 
 function dateLabel(dateStr) {
@@ -46,13 +46,15 @@ Page({
     }
     const menu = menuFromIds(current.ids);
     const groups = shopping.buildList(menu, current.factor || 1, current.boost || 1);
-    // 恢复当日已勾选/已复制状态
-    const saved = wx.getStorageSync(`shoppingState:${current.date}`) || {};
+    // 恢复当日勾选/已复制状态（没记录的条目保持默认：生鲜勾上、调味品不勾）
+    const saved = wx.getStorageSync(`shoppingSel:${current.date}`) || {};
     groups.forEach((g) =>
       g.items.forEach((it) => {
-        const s = saved[it.name] || {};
-        it.checked = !!s.checked;
-        it.copied = !!s.copied;
+        const s = saved[it.name];
+        if (s) {
+          it.checked = !!s.checked;
+          it.copied = !!s.copied;
+        }
       })
     );
     this.currentDate = current.date;
@@ -69,34 +71,34 @@ Page({
     const saved = {};
     this.data.groups.forEach((g) =>
       g.items.forEach((it) => {
-        if (it.checked || it.copied) saved[it.name] = { checked: it.checked, copied: it.copied };
+        saved[it.name] = { checked: it.checked, copied: it.copied };
       })
     );
-    wx.setStorageSync(`shoppingState:${this.currentDate}`, saved);
+    wx.setStorageSync(`shoppingSel:${this.currentDate}`, saved);
   },
 
-  /** 待购列表（非常备、未勾掉） */
-  buyables() {
+  /** 勾选中的食材（= 今天要买的） */
+  selectedItems() {
     const list = [];
     this.data.groups.forEach((g) =>
       g.items.forEach((it) => {
-        if (!it.pantry && !it.checked) list.push(it);
+        if (it.checked) list.push(it);
       })
     );
     return list;
   },
 
   recount() {
-    const buyable = this.buyables();
+    const selected = this.selectedItems();
     this.setData({
-      buyableCount: buyable.length,
-      copiedCount: buyable.filter((it) => it.copied).length,
+      buyableCount: selected.length,
+      copiedCount: selected.filter((it) => it.copied).length,
       totalCost: shopping.totalCost(this.data.groups)
     });
     this.saveState();
   },
 
-  /** 点击条目打勾（家里已有 / 已经买了） */
+  /** 点击条目切换勾选（勾上 = 要买；去掉勾 = 家里已有/不买） */
   onToggleItem(e) {
     const { gi, ii } = e.currentTarget.dataset;
     const checked = !this.data.groups[gi].items[ii].checked;
@@ -116,19 +118,19 @@ Page({
     });
   },
 
-  /** 复制所选清单：把还需购买的食材整单复制 */
+  /** 复制勾选清单：把勾选中的食材整单复制 */
   onCopySelected() {
-    const buyable = this.buyables();
-    if (!buyable.length) {
-      wx.showToast({ title: '所有食材都已备齐', icon: 'none' });
+    const selected = this.selectedItems();
+    if (!selected.length) {
+      wx.showToast({ title: '先勾选要买的食材', icon: 'none' });
       return;
     }
-    const text = buyable.map((it) => `${it.searchName} ${it.amountText}`).join('\n');
+    const text = selected.map((it) => `${it.searchName} ${it.amountText}`).join('\n');
     wx.setClipboardData({
       data: text,
       success: () => {
         wx.showToast({
-          title: `已复制 ${buyable.length} 样食材，去买菜平台搜索购买吧`,
+          title: `已复制勾选的 ${selected.length} 样食材`,
           icon: 'none',
           duration: 2000
         });
@@ -137,19 +139,19 @@ Page({
   },
 
   /**
-   * 生成购物清单图片：把待购食材画成一张可打勾的清单图，
+   * 生成购物清单图片：只画勾选中的食材，
    * 全屏预览后长按即可保存到相册或转发给家人（无需相册授权）。
    */
   onMakeImage() {
     const groups = this.data.groups
       .map((g) => ({
         category: g.category,
-        items: g.items.filter((it) => !it.pantry && !it.checked)
+        items: g.items.filter((it) => it.checked)
       }))
       .filter((g) => g.items.length);
     const rows = groups.reduce((n, g) => n + g.items.length, 0);
     if (!rows) {
-      wx.showToast({ title: '所有食材都已备齐', icon: 'none' });
+      wx.showToast({ title: '先勾选要买的食材', icon: 'none' });
       return;
     }
 
@@ -178,22 +180,22 @@ Page({
           // 背景与顶部色条
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#007aff';
+          ctx.fillStyle = '#f0592b';
           ctx.fillRect(0, 0, W, 10);
 
           // 标题与副标题
-          ctx.fillStyle = '#2b2f2a';
+          ctx.fillStyle = '#33281f';
           ctx.font = 'bold 32px sans-serif';
           ctx.textAlign = 'left';
           ctx.fillText(`${this.data.dateLabel} 买菜清单`, 40, 66);
-          ctx.fillStyle = '#8a8f87';
+          ctx.fillStyle = '#9c9084';
           ctx.font = '22px sans-serif';
           ctx.fillText(
             `${this.data.memberCount} 口人 · 共 ${rows} 样 · 预估 ¥${this.data.totalCost}`,
             40,
             102
           );
-          ctx.strokeStyle = '#eef0ea';
+          ctx.strokeStyle = '#f0e8dc';
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.moveTo(40, 124);
@@ -203,7 +205,7 @@ Page({
           let y = 150;
           groups.forEach((g) => {
             // 分类标题
-            ctx.fillStyle = '#007aff';
+            ctx.fillStyle = '#f0592b';
             ctx.fillRect(40, y + 6, 6, 24);
             ctx.font = 'bold 24px sans-serif';
             ctx.textAlign = 'left';
@@ -211,20 +213,20 @@ Page({
             y += 60;
             g.items.forEach((it) => {
               // 可打勾的方框
-              ctx.strokeStyle = '#c9cfc5';
+              ctx.strokeStyle = '#d3c7b8';
               ctx.lineWidth = 2.5;
               ctx.strokeRect(44, y - 2, 26, 26);
               // 名称
-              ctx.fillStyle = '#2b2f2a';
+              ctx.fillStyle = '#33281f';
               ctx.font = '26px sans-serif';
               ctx.textAlign = 'left';
               ctx.fillText(it.name, 88, y + 20);
               // 数量 + 价格（右对齐）
-              ctx.fillStyle = '#6b7066';
+              ctx.fillStyle = '#7d7168';
               ctx.font = '22px sans-serif';
               ctx.textAlign = 'right';
               ctx.fillText(
-                `${it.amountText}${it.priceText ? '  ' + it.priceText : ''}`,
+                `${it.pantry ? '适量' : it.amountText}${it.priceText ? '  ' + it.priceText : ''}`,
                 W - 40,
                 y + 19
               );
@@ -233,7 +235,7 @@ Page({
           });
 
           // 页脚
-          ctx.fillStyle = '#b0b5ac';
+          ctx.fillStyle = '#c2b6a9';
           ctx.font = '20px sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText('卡卡家常菜谱 · 价格为参考价', W / 2, H - 40);

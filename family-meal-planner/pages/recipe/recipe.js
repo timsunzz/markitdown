@@ -87,12 +87,12 @@ Page({
 
           ctx.fillStyle = '#ffffff';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#007aff';
+          ctx.fillStyle = '#f0592b';
           ctx.fillRect(0, 0, W, 10);
 
           let y = 60;
           // 标题
-          ctx.fillStyle = '#2b2f2a';
+          ctx.fillStyle = '#33281f';
           ctx.font = 'bold 34px sans-serif';
           ctx.textAlign = 'left';
           nameLines.forEach((ln) => {
@@ -101,7 +101,7 @@ Page({
           });
           y += 8;
           // meta
-          ctx.fillStyle = '#8a8f87';
+          ctx.fillStyle = '#9c9084';
           ctx.font = '22px sans-serif';
           ctx.fillText(
             `约 ${r.time} 分钟 · 难度${r.difficulty} · 人均 ${r.nutrition.kcal} kcal · 已按 ${this.data.memberCount} 口人换算`,
@@ -111,7 +111,7 @@ Page({
           y += 36 + 20;
 
           const section = (title) => {
-            ctx.fillStyle = '#007aff';
+            ctx.fillStyle = '#f0592b';
             ctx.fillRect(40, y - 20, 6, 24);
             ctx.font = 'bold 26px sans-serif';
             ctx.fillText(title, 58, y);
@@ -121,11 +121,11 @@ Page({
           // 食材
           section('食材');
           ings.forEach((ing) => {
-            ctx.fillStyle = '#2b2f2a';
+            ctx.fillStyle = '#33281f';
             ctx.font = '24px sans-serif';
             ctx.textAlign = 'left';
             ctx.fillText(ing.name + (ing.pantry ? '（常备）' : ''), 44, y);
-            ctx.fillStyle = '#007aff';
+            ctx.fillStyle = '#f0592b';
             ctx.textAlign = 'right';
             ctx.fillText(ing.amountText, W - 40, y);
             ctx.textAlign = 'left';
@@ -135,7 +135,7 @@ Page({
 
           // 做法
           section('做法');
-          ctx.fillStyle = '#2b2f2a';
+          ctx.fillStyle = '#33281f';
           ctx.font = '24px sans-serif';
           stepLines.forEach((ls) => {
             ls.forEach((ln, i) => {
@@ -148,7 +148,7 @@ Page({
 
           // 营养（全家合计）
           const fn = this.data.familyNutrition;
-          ctx.fillStyle = '#007aff';
+          ctx.fillStyle = '#f0592b';
           ctx.font = '22px sans-serif';
           ctx.fillText(
             `全家合计：能量 ${fn.kcal} kcal · 蛋白质 ${fn.protein}g · 钙 ${fn.calcium}mg · 铁 ${fn.iron}mg`,
@@ -158,7 +158,7 @@ Page({
           y += 48;
 
           // 小贴士
-          ctx.fillStyle = '#6b7066';
+          ctx.fillStyle = '#7d7168';
           ctx.font = '22px sans-serif';
           tipLines.forEach((ln) => {
             ctx.fillText(ln, 40, y);
@@ -166,7 +166,7 @@ Page({
           });
 
           // 页脚
-          ctx.fillStyle = '#b0b5ac';
+          ctx.fillStyle = '#c2b6a9';
           ctx.font = '20px sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText('卡卡家常菜谱', W / 2, H - 34);

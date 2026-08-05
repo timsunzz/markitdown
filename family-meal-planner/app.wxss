@@ -1,15 +1,16 @@
 /**
  * 卡卡家常菜谱 · 全局样式
  *
- * 设计语言：苹果原生（iOS Human Interface）
- * 系统灰底 + 白色圆角分组 + 发丝分隔线，系统蓝为唯一强调色，
- * 全部使用系统字体（PingFang），无渐变、无投影、无装饰 emoji。
+ * 设计语言：苹果原生（iOS Human Interface）+ 暖食色
+ * 米白暖底 + 白色圆角分组 + 发丝分隔线，番茄橙为唯一强调色，
+ * 菜品圆标按类别用五种食物色（红烧红 / 油绿 / 汤金 / 麦棕 / 蛋黄橙）。
+ * 全部使用系统字体（PingFang），无装饰 emoji。
  */
 
 page {
-  background: #f2f2f7;
+  background: #f7f1e9;
   font-size: 30rpx;
-  color: #1c1c1e;
+  color: #29211a;
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
 }
 
@@ -21,11 +22,12 @@ page {
 
 /* iOS 分组卡片 */
 .card {
-  background: #ffffff;
+  background: #fffcf8;
   border-radius: 24rpx;
   padding: 28rpx 30rpx;
   margin: 20rpx 28rpx;
   border-bottom: none;
+  box-shadow: 0 2rpx 16rpx rgba(160, 110, 60, 0.06);
 }
 
 .card-title {
@@ -39,12 +41,12 @@ page {
 
 .divider {
   height: 1px;
-  background: #e5e5ea;
+  background: #ece4d8;
   margin: 20rpx 0;
 }
 
 .muted {
-  color: #8e8e93;
+  color: #9c9084;
   font-size: 25rpx;
 }
 
@@ -52,17 +54,17 @@ page {
 .tag {
   display: inline;
   font-size: 22rpx;
-  color: #aeaeb2;
+  color: #b9ac9f;
   margin-right: 0;
 }
 
 .tag + .tag::before {
   content: " · ";
-  color: #d1d1d6;
+  color: #d8ccbe;
 }
 
 .btn-primary {
-  background: #007aff;
+  background: #f0592b;
   color: #ffffff;
   border-radius: 24rpx;
   font-size: 31rpx;
@@ -76,7 +78,7 @@ page {
 
 .btn-ghost {
   background: #ffffff;
-  color: #007aff;
+  color: #f0592b;
   border: none;
   border-radius: 24rpx;
   font-size: 30rpx;
@@ -93,7 +95,7 @@ page {
   width: 76rpx;
   height: 76rpx;
   border-radius: 50%;
-  background: #007aff;
+  background: #f0592b;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -104,19 +106,19 @@ page {
   flex-shrink: 0;
 }
 
-.seal.meat { background: #f0664b; }
-.seal.veg { background: #34c759; }
-.seal.soup { background: #32ade6; }
-.seal.staple { background: #a2845e; }
-.seal.breakfast { background: #f5a623; }
+.seal.meat { background: #d4482a; }      /* 红烧红 */
+.seal.veg { background: #7d9b3f; }       /* 油绿 */
+.seal.soup { background: #dda23c; }      /* 汤金 */
+.seal.staple { background: #a9764a; }    /* 麦棕 */
+.seal.breakfast { background: #ec8a45; } /* 蛋黄橙 */
 
 /* 提示：白色分组内的脚注文字 */
 .notice {
-  background: #ffffff;
+  background: #fdf3e7;
   border-radius: 24rpx;
   margin: 20rpx 28rpx;
   padding: 24rpx 30rpx;
-  color: #8e8e93;
+  color: #8a7256;
   font-size: 25rpx;
   line-height: 1.65;
   border-left: none;

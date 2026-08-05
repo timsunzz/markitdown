@@ -1,7 +1,7 @@
 .empty {
   text-align: center;
   padding: 90rpx 32rpx;
-  color: #6b7066;
+  color: #7d7168;
   font-size: 30rpx;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .dish + .dish {
-  border-top: 2rpx solid #ececee;
+  border-top: 2rpx solid #f1eae0;
 }
 
 .dish-avatar {
@@ -71,7 +71,7 @@
 
 .dish-kcal {
   font-size: 24rpx;
-  color: #6d6d72;
+  color: #7d7168;
   margin-bottom: 6rpx;
 }
 

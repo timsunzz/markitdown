@@ -41,15 +41,15 @@
   flex-shrink: 0;
   font-size: 24rpx;
   letter-spacing: 2rpx;
-  color: #007aff;
-  border: 2rpx solid #007aff;
+  color: #f0592b;
+  border: 2rpx solid #f0592b;
   border-radius: 8rpx;
   padding: 8rpx 22rpx;
   margin-top: 6rpx;
 }
 
 .fav-chip.on {
-  background: #007aff;
+  background: #f0592b;
   color: #ffffff;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .ing + .ing {
-  border-top: 2rpx solid #ececee;
+  border-top: 2rpx solid #f1eae0;
 }
 
 .ing-name {
@@ -83,7 +83,7 @@
 
 .ing-leader {
   flex: 1;
-  border-bottom: 2rpx dotted #d1d1d6;
+  border-bottom: 2rpx dotted #d8ccbe;
   margin: 0 14rpx;
   min-width: 30rpx;
 }
@@ -100,7 +100,7 @@
 
 .ing-price {
   font-size: 22rpx;
-  color: #8e8e93;
+  color: #9c9084;
 }
 
 .dish-cost-line {
@@ -109,7 +109,7 @@
   align-items: baseline;
   margin-top: 22rpx;
   padding-top: 20rpx;
-  border-top: 2rpx solid #e5e5ea;
+  border-top: 2rpx solid #ece4d8;
 }
 
 .dish-cost-num {
@@ -126,7 +126,7 @@
 
 .step-no {
   font-size: 34rpx;
-  color: #007aff;
+  color: #f0592b;
   flex-shrink: 0;
   width: 40rpx;
   text-align: center;
@@ -159,7 +159,7 @@
   margin-top: 24rpx;
   font-size: 25rpx;
   line-height: 1.7;
-  color: #8e8e93;
+  color: #9c9084;
   border-left: none;
   padding-left: 0;
 }
@@ -176,8 +176,8 @@
   display: flex;
   gap: 16rpx;
   padding: 16rpx 32rpx calc(16rpx + env(safe-area-inset-bottom));
-  background: rgba(242, 242, 247, 0.95);
-  border-top: 2rpx solid #e5e5ea;
+  background: rgba(247, 241, 233, 0.95);
+  border-top: 2rpx solid #ece4d8;
 }
 
 .bar-btn {

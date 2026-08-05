@@ -8,14 +8,14 @@
     "pages/search/search"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#f2f2f7",
+    "navigationBarBackgroundColor": "#f7f1e9",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "卡卡家常菜谱",
-    "backgroundColor": "#f2f2f7"
+    "backgroundColor": "#f7f1e9"
   },
   "tabBar": {
-    "color": "#8e8e93",
-    "selectedColor": "#007aff",
+    "color": "#9c9084",
+    "selectedColor": "#f0592b",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [

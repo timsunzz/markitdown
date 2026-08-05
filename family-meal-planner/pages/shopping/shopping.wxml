@@ -12,20 +12,20 @@
         <text class="total-cost">预估 ¥{{totalCost}}</text>
       </view>
       <view class="muted head-note">
-        按 {{memberCount}} 口人份量换算 · 还需购买 {{buyableCount}} 样（已复制 {{copiedCount}}）· 点击条目打勾表示"已有/已买"
+        按 {{memberCount}} 口人份量换算 · 已勾选 {{buyableCount}} 样 · 打勾的才会进清单，家里已有的点一下去掉勾
       </view>
       <view class="copy-all" bindtap="onCopyList">复制全文清单备忘</view>
     </view>
 
     <view class="notice">
-      两种买法：在买菜 App 下单，点每行的<text class="hl">「复制」</text>逐样粘贴搜索（平台搜索框一次只认一样）；去超市或发家人代买，点底部<text class="hl">「生成清单图片」</text>，长按图片保存或转发。
+      勾选中的食材才会进清单：家里已有的点一下去掉勾；料酒、生抽等常备调味品默认不勾，需要补货就点一下勾进来。买菜 App 下单点每行<text class="hl">「复制」</text>逐样搜索；去超市或发家人代买，点底部<text class="hl">「生成清单图片」</text>长按保存转发。
     </view>
 
     <view class="card" wx:for="{{groups}}" wx:key="category" wx:for-item="g" wx:for-index="gi">
       <view class="card-title">{{g.category}}</view>
       <view class="divider"></view>
       <view
-        class="item {{it.checked ? 'checked' : ''}} {{it.pantry ? 'pantry' : ''}}"
+        class="item {{it.checked ? 'checked' : 'unchecked'}} {{it.pantry ? 'pantry' : ''}}"
         wx:for="{{g.items}}"
         wx:key="name"
         wx:for-item="it"
@@ -38,7 +38,7 @@
         <view class="item-main">
           <view class="item-name">
             {{it.name}}
-            <text class="copied-tag" wx:if="{{it.copied && !it.checked}}">已复制</text>
+            <text class="copied-tag" wx:if="{{it.copied}}">已复制</text>
           </view>
           <view class="item-sub">
             <text>{{it.amountText}}</text>
@@ -46,7 +46,6 @@
           </view>
         </view>
         <view
-          wx:if="{{!it.pantry}}"
           class="copy-btn"
           data-gi="{{gi}}"
           data-ii="{{ii}}"
@@ -58,7 +57,7 @@
     <view class="bottom-space"></view>
     <view class="bottom-bar">
       <button class="btn-primary bar-btn img-btn" bindtap="onMakeImage">
-        生成清单图片（{{buyableCount}} 样 · ¥{{totalCost}}）
+        生成清单图片（已选 {{buyableCount}} 样 · ¥{{totalCost}}）
       </button>
       <button class="btn-ghost bar-btn copy-btn2" bindtap="onCopySelected">复制</button>
     </view>
