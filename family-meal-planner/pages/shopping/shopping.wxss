@@ -1,0 +1,169 @@
+.empty {
+  text-align: center;
+  padding: 80rpx 28rpx;
+  color: #7d7168;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-btn {
+  margin-top: 30rpx;
+  width: 70%;
+}
+
+.total-cost {
+  font-size: 30rpx;
+  color: #7d7168;
+  font-weight: 700;
+}
+
+.head-note {
+  margin-top: 10rpx;
+  line-height: 1.5;
+}
+
+.copy-all {
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  color: #f0592b;
+}
+
+.howto {
+  background: #fdeee4;
+  color: #7d7168;
+  font-size: 25rpx;
+  line-height: 1.7;
+}
+
+.hl {
+  color: #f0592b;
+  font-weight: 700;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.item + .item {
+  border-top: 2rpx solid #f1eae0;
+}
+
+.checkbox {
+  width: 40rpx;
+  height: 40rpx;
+  border: 3rpx solid #d3c7b8;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  line-height: 36rpx;
+  color: #fff;
+  font-size: 26rpx;
+  flex-shrink: 0;
+}
+
+.item.checked .checkbox {
+  background: #f0592b;
+  border-color: #f0592b;
+}
+
+/* 勾选 = 要买，正常显示；未勾选 = 不买/已有，整行变淡 */
+.item.unchecked .item-name,
+.item.unchecked .item-sub {
+  color: #c2b6a9;
+}
+
+.item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-name {
+  font-size: 28rpx;
+}
+
+.copied-tag {
+  font-size: 20rpx;
+  color: #f0592b;
+  background: #fdeee4;
+  border-radius: 6rpx;
+  padding: 2rpx 8rpx;
+  margin-left: 8rpx;
+}
+
+.item-sub {
+  font-size: 23rpx;
+  color: #9c9084;
+  margin-top: 4rpx;
+}
+
+.item-price {
+  color: #7d7168;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  font-size: 24rpx;
+  color: #f0592b;
+  border: 2rpx solid #f0592b;
+  border-radius: 10rpx;
+  padding: 8rpx 22rpx;
+  margin-left: 16rpx;
+}
+
+.bottom-space {
+  height: 150rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 12rpx;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(247, 241, 233, 0.95);
+}
+
+.bar-btn {
+  font-size: 26rpx;
+  padding: 0 12rpx;
+}
+
+.img-btn {
+  flex: 2.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copy-btn2 {
+  flex: 1;
+}
+
+.next-btn {
+  flex: 2.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small {
+  flex: 0.9;
+}
+
+.btn-hema {
+  background: #f0592b;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 14rpx;
+}
+
+.btn-hema::after {
+  border: none;
+}

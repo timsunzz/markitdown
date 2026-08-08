@@ -1,0 +1,116 @@
+<view class="page">
+  <!-- 刊头：宋体大字日期，像一册菜谱的扉页 -->
+  <view class="masthead">
+    <view class="mast-date serif">{{mastDay}}</view>
+    <view class="mast-sub">
+      <text>{{mastWeek}}</text>
+      <text wx:if="{{!noMembers}}" class="mast-family" bindtap="onGoFamily">{{summary.count}} 口人 · 人均约 {{kcalPer}} 千卡</text>
+    </view>
+    <view class="mast-search" bindtap="onGoSearch">
+      <view class="search-icon"></view>
+      <text class="search-hint">搜菜名、搜食材 · {{recipeCount}} 道家常菜</text>
+    </view>
+  </view>
+
+  <!-- 没有家庭成员时的引导 -->
+  <view class="card empty-family" wx:if="{{noMembers}}">
+    <view class="ef-title serif">先介绍一下你的家</view>
+    <view class="muted ef-note">按实际情况添加成员——一位老人、两位老人、有孩子……都可以。菜单份量与营养目标会完全按真实成员计算。</view>
+    <button class="btn-primary ef-btn" bindtap="onGoFamily">设置家庭成员</button>
+  </view>
+
+  <block wx:if="{{!noMembers}}">
+
+  <view class="notice" wx:if="{{isDefaultFamily}}" bindtap="onGoFamily">
+    当前按"2 位成人"的默认家庭生成菜单。点这里设置真实的家庭成员，份量和营养会自动调整。
+  </view>
+
+  <view class="notice" wx:if="{{toddlerTip}}">
+    家有 3 岁以下幼儿：给宝宝的部分请单独少盐、食材切小块，整虾整颗坚果等谨防呛噎。
+  </view>
+
+  <view class="notice" wx:if="{{noSpicyAll}}">
+    已开启全家免辣，今天的菜单不含任何辣菜。可在"我的家庭"关闭。
+  </view>
+
+  <view class="notice" wx:if="{{noPorkAll}}">
+    已开启不吃猪肉，今天的菜单不含任何猪肉及含酒精食材的菜。可在"我的家庭"关闭。
+  </view>
+
+  <view class="notice" wx:if="{{structureLabel}}">
+    {{structureLabel}}，购物清单与热量已同步换算。
+  </view>
+
+  <view class="notice" wx:if="{{kcalTip}}">{{kcalTip}}</view>
+  <view class="notice" wx:if="{{budgetTip}}">{{budgetTip}}</view>
+
+  <!-- 三餐 -->
+  <view class="card" wx:for="{{mealList}}" wx:key="key" wx:for-item="meal">
+    <view class="meal-head">
+      <view class="meal-title">
+        <text class="meal-label">{{meal.label}}</text>
+        <text class="meal-cost">{{meal.costText}}</text>
+      </view>
+      <view class="shuffle" data-meal="{{meal.key}}" catchtap="onShuffleMeal">换一换</view>
+    </view>
+    <view
+      class="dish"
+      wx:for="{{meal.dishes}}"
+      wx:key="id"
+      wx:for-item="dish"
+      data-id="{{dish.id}}"
+      bindtap="onOpenRecipe"
+    >
+      <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
+      <view class="dish-main">
+        <view class="dish-name">{{dish.name}}</view>
+        <view class="dish-tags">
+          <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
+        </view>
+      </view>
+      <view class="dish-right">
+        <view class="dish-kcal">人均 {{dish.nutrition.kcal}} 千卡<text wx:if="{{dish.costText}}"> · {{dish.costText}}</text></view>
+        <view class="muted">{{dish.time}} 分钟</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 营养 -->
+  <view class="card" wx:if="{{totals}}">
+    <view class="meal-title">
+      <text class="meal-label">今日营养 · 人均</text>
+      <text class="meal-cost">买菜约 ¥{{dayCost}}</text>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">能量</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.kcal}}%"></view></view>
+      <view class="n-val">{{totalsPer.kcal}}/{{targetPer.kcal}} 千卡</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">蛋白质</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.protein}}%"></view></view>
+      <view class="n-val">{{totalsPer.protein}}/{{targetPer.protein}} 克</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">钙</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.calcium}}%"></view></view>
+      <view class="n-val">{{totalsPer.calcium}}/{{targetPer.calcium}} 毫克</view>
+    </view>
+    <view class="nutrient">
+      <view class="n-label">铁</view>
+      <view class="bar"><view class="bar-fill" style="width: {{percents.iron}}%"></view></view>
+      <view class="n-val">{{totalsPer.iron}}/{{targetPer.iron}} 毫克</view>
+    </view>
+    <view class="muted nut-note">
+      数值为全家平均到每人的量，目标按《中国居民膳食营养素参考摄入量》估算（孩子与老人的个人目标见"我的家庭"）；水果、奶类加餐不在此列，缺口可用它们补足。价格为盒马、奥乐齐参考价。
+    </view>
+  </view>
+
+  <view class="bottom-space"></view>
+  <view class="bottom-bar">
+    <button class="btn-primary buy-btn" bindtap="onGoShopping">生成今日购物清单</button>
+    <button class="btn-ghost share-btn" open-type="share">分享</button>
+  </view>
+
+  </block>
+</view>

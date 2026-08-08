@@ -1,0 +1,220 @@
+.masthead {
+  padding: 40rpx 32rpx 24rpx;
+  border-bottom: none;
+}
+
+.mast-date {
+  font-size: 68rpx;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.mast-sub {
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: #9c9084;
+  display: flex;
+  align-items: baseline;
+  gap: 22rpx;
+}
+
+.mast-family {
+  color: #f0592b;
+}
+
+/* 搜索条：白底圆条 + 手绘放大镜，醒目但不喧宾夺主 */
+.mast-search {
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: #fffcf8;
+  border: 2rpx solid #f0e4d3;
+  border-radius: 999rpx;
+  padding: 18rpx 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(160, 110, 60, 0.08);
+}
+
+.search-icon {
+  width: 26rpx;
+  height: 26rpx;
+  border: 4rpx solid #f0592b;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-icon::after {
+  content: "";
+  position: absolute;
+  width: 4rpx;
+  height: 14rpx;
+  background: #f0592b;
+  border-radius: 4rpx;
+  right: -8rpx;
+  bottom: -10rpx;
+  transform: rotate(-45deg);
+}
+
+.search-hint {
+  color: #9c9084;
+  font-size: 28rpx;
+  letter-spacing: 0;
+}
+
+.empty-family {
+  padding: 70rpx 32rpx;
+  border-bottom: none;
+}
+
+.ef-title {
+  font-size: 44rpx;
+  font-weight: 600;
+  margin-bottom: 18rpx;
+}
+
+.ef-note {
+  line-height: 1.8;
+}
+
+.ef-btn {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+/* 三餐 */
+.meal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.meal-title {
+  display: flex;
+  align-items: baseline;
+  gap: 18rpx;
+}
+
+.meal-label {
+  font-size: 31rpx;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.meal-cost {
+  font-size: 23rpx;
+  color: #9c9084;
+  font-variant-numeric: tabular-nums;
+}
+
+.shuffle {
+  font-size: 25rpx;
+  color: #f0592b;
+  letter-spacing: 2rpx;
+}
+
+.dish {
+  display: flex;
+  align-items: center;
+  padding: 22rpx 0;
+}
+
+.dish + .dish {
+  border-top: 2rpx solid #f1eae0;
+}
+
+.dish-main {
+  flex: 1;
+  min-width: 0;
+  margin-left: 22rpx;
+}
+
+.dish-name {
+  font-size: 31rpx;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.dish-tags {
+  line-height: 1.4;
+}
+
+.dish-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.dish-kcal {
+  font-size: 23rpx;
+  color: #b0642c;
+  margin-bottom: 4rpx;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 营养 */
+.nutrient {
+  display: flex;
+  align-items: center;
+  margin: 22rpx 0;
+}
+
+.n-label {
+  width: 104rpx;
+  font-size: 25rpx;
+  letter-spacing: 2rpx;
+}
+
+.bar {
+  flex: 1;
+  height: 8rpx;
+  background: #ece4d8;
+  border-radius: 999rpx;
+  overflow: hidden;
+  margin-right: 18rpx;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f2a33c 0%, #f0592b 100%);
+  border-radius: 999rpx;
+}
+
+.n-val {
+  width: 220rpx;
+  text-align: right;
+  font-size: 22rpx;
+  color: #9c9084;
+  font-variant-numeric: tabular-nums;
+}
+
+.nut-note {
+  margin-top: 18rpx;
+  line-height: 1.7;
+}
+
+.bottom-space {
+  height: 140rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 16rpx;
+  padding: 16rpx 28rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: rgba(247, 241, 233, 0.95);
+  border-top: 1px solid #ece4d8;
+}
+
+.buy-btn {
+  flex: 2.4;
+}
+
+.share-btn {
+  flex: 1;
+}
