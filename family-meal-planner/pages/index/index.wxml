@@ -4,9 +4,12 @@
     <view class="mast-date serif">{{mastDay}}</view>
     <view class="mast-sub">
       <text>{{mastWeek}}</text>
-      <text wx:if="{{!noMembers}}" class="mast-family" bindtap="onGoFamily">{{summary.count}} 口人 · 每日约 {{summary.kcal}} 千卡</text>
+      <text wx:if="{{!noMembers}}" class="mast-family" bindtap="onGoFamily">{{summary.count}} 口人 · 人均约 {{kcalPer}} 千卡</text>
     </view>
-    <view class="mast-search" bindtap="onGoSearch">搜索 {{recipeCount}} 道家常菜</view>
+    <view class="mast-search" bindtap="onGoSearch">
+      <view class="search-icon"></view>
+      <text class="search-hint">搜菜名、搜食材 · {{recipeCount}} 道家常菜</text>
+    </view>
   </view>
 
   <!-- 没有家庭成员时的引导 -->
@@ -60,7 +63,7 @@
     >
       <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
       <view class="dish-main">
-        <view class="dish-name">{{dish.name}}<text class="badge-heir" wx:if="{{dish.badge}}">{{dish.badge}}</text></view>
+        <view class="dish-name">{{dish.name}}</view>
         <view class="dish-tags">
           <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
         </view>
@@ -75,31 +78,31 @@
   <!-- 营养 -->
   <view class="card" wx:if="{{totals}}">
     <view class="meal-title">
-      <text class="meal-label">今日营养</text>
+      <text class="meal-label">今日营养 · 人均</text>
       <text class="meal-cost">买菜约 ¥{{dayCost}}</text>
     </view>
     <view class="nutrient">
       <view class="n-label">能量</view>
       <view class="bar"><view class="bar-fill" style="width: {{percents.kcal}}%"></view></view>
-      <view class="n-val">{{totals.kcal}}/{{summary.kcal}} 千卡</view>
+      <view class="n-val">{{totalsPer.kcal}}/{{targetPer.kcal}} 千卡</view>
     </view>
     <view class="nutrient">
       <view class="n-label">蛋白质</view>
       <view class="bar"><view class="bar-fill" style="width: {{percents.protein}}%"></view></view>
-      <view class="n-val">{{totals.protein}}/{{summary.protein}} 克</view>
+      <view class="n-val">{{totalsPer.protein}}/{{targetPer.protein}} 克</view>
     </view>
     <view class="nutrient">
       <view class="n-label">钙</view>
       <view class="bar"><view class="bar-fill" style="width: {{percents.calcium}}%"></view></view>
-      <view class="n-val">{{totals.calcium}}/{{summary.calcium}} 毫克</view>
+      <view class="n-val">{{totalsPer.calcium}}/{{targetPer.calcium}} 毫克</view>
     </view>
     <view class="nutrient">
       <view class="n-label">铁</view>
       <view class="bar"><view class="bar-fill" style="width: {{percents.iron}}%"></view></view>
-      <view class="n-val">{{totals.iron}}/{{summary.iron}} 毫克</view>
+      <view class="n-val">{{totalsPer.iron}}/{{targetPer.iron}} 毫克</view>
     </view>
     <view class="muted nut-note">
-      营养按《中国居民膳食营养素参考摄入量》估算；水果、奶类加餐不在此列，缺口可用它们补足。价格为盒马、奥乐齐参考价。
+      数值为全家平均到每人的量，目标按《中国居民膳食营养素参考摄入量》估算（孩子与老人的个人目标见"我的家庭"）；水果、奶类加餐不在此列，缺口可用它们补足。价格为盒马、奥乐齐参考价。
     </view>
   </view>
 

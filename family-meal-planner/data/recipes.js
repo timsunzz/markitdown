@@ -1596,6 +1596,7 @@ const RECIPES = [
     id: 'st21',
     name: '妈妈咖喱饭',
     type: 'staple',
+    solo: true,
     spicy: false,
     badge: '妈妈拿手',
     tags: ['家传菜', '一锅出', '儿童最爱'],

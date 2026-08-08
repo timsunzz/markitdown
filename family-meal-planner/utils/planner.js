@@ -9,7 +9,7 @@
  *  - 同一天菜单按日期确定性生成（第二天自动换新），"换一换"在当日基础上轮换
  */
 
-const { byType, byId } = require('../data/recipes');
+const { byType, byId, RECIPES } = require('../data/recipes');
 
 /** 简单字符串哈希（用于把日期变成随机种子） */
 function hash(str) {
@@ -127,15 +127,16 @@ function mealPlanFor(factor) {
       tier: 'M',
       boost: 1.1,
       lunch: ['meat', 'veg', 'staple'],
-      dinner: ['meat', 'soup', 'staple'],
-      label: '两口人模式：全天两荤一素一汤，份量略有加大'
+      dinner: ['meat', 'veg', 'soup', 'staple'],
+      label: '两口人模式：晚餐两菜一汤，份量略有加大'
     };
   }
+  // 3 口及以上：晚餐三菜一汤（大荤 + 半荤小炒 + 素菜 + 汤 + 主食）
   return {
     tier: 'L',
     boost: 1,
     lunch: ['meat', 'veg', 'staple'],
-    dinner: ['meat', 'veg', 'soup', 'staple'],
+    dinner: ['meat', 'meat', 'veg', 'soup', 'staple'],
     label: ''
   };
 }
@@ -165,14 +166,28 @@ function planDay(dateStr, shuffle, prefs) {
       : { breakfast: shuffle || 0, lunch: shuffle || 0, dinner: shuffle || 0 };
 
   const base = hash(dateStr);
-  const pool = (type, mealShuffle) => {
-    let list = byType(type);
+  const applyFilters = (list) => {
     if (opts.noSpicy) list = list.filter((r) => !r.spicy);
     if (opts.noPork) list = list.filter((r) => !containsPork(r));
+    return list;
+  };
+  const pool = (type, mealShuffle) => {
+    // 一锅端菜（solo）不进常规菜位：牛肉面/咖喱饭不该和一桌荤素菜拼在一起
+    let list = applyFilters(byType(type).filter((r) => !r.solo));
     list = seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
     // 家传菜轮值：带「拿手」徽章的菜每隔几天优先登场一次
     // （只在当天未点"换一换"时生效，点了换一换就正常轮换，不会赖着不走）
     if (!mealShuffle && hash(dateStr + type + 'heir') % 8 === 0) {
+      const heirs = list.filter((r) => r.badge);
+      if (heirs.length) list = heirs.concat(list.filter((r) => !r.badge));
+    }
+    return list;
+  };
+  // 一锅端候选池（咖喱饭、各种面、煲仔饭）：独占一餐，份量按人数放大
+  const soloPool = (mealShuffle) => {
+    let list = applyFilters(RECIPES.filter((r) => r.solo));
+    list = seededShuffle(list, rng(base + hash('solo') + (mealShuffle || 0) * 7919));
+    if (!mealShuffle && hash(dateStr + 'soloheir') % 3 === 0) {
       const heirs = list.filter((r) => r.badge);
       if (heirs.length) list = heirs.concat(list.filter((r) => !r.badge));
     }
@@ -196,10 +211,25 @@ function planDay(dateStr, shuffle, prefs) {
     return r;
   };
 
+  const breakfast = [take('breakfast', shuffles.breakfast)];
+
+  // 一锅端午餐日：每隔几天午餐换成一道独立成餐的一锅端（咖喱饭、面、煲仔饭），
+  // 省时省力。点"换一换"即可回到正常的一桌菜。晚餐永远不一锅端。
+  let lunch;
+  if (!shuffles.lunch && hash(dateStr + 'solo') % 6 === 0) {
+    const solo = pickDiverse(soloPool(shuffles.lunch), usedIngredients, chosenIds);
+    if (solo) {
+      chosenIds[solo.id] = true;
+      mainIngredients(solo).forEach((n) => {
+        usedIngredients[n] = true;
+      });
+      lunch = [solo];
+    }
+  }
+  if (!lunch) lunch = structure.lunch.map((t) => take(t, shuffles.lunch));
+
   // 晚餐的第一个荤菜位必须是大荤硬菜（排骨、整鱼、鸡腿这类，半荤小炒不算）
   let dinnerHeavyUsed = false;
-  const breakfast = [take('breakfast', shuffles.breakfast)];
-  const lunch = structure.lunch.map((t) => take(t, shuffles.lunch));
   const dinner = structure.dinner.map((t) => {
     const heavyOnly = t === 'meat' && !dinnerHeavyUsed;
     if (heavyOnly) dinnerHeavyUsed = true;
@@ -235,10 +265,11 @@ function optimizeMenu(menu, structure, opts, factor, pool, shuffles) {
     return false;
   });
 
+  // 一锅端午餐不参与换菜：它本身就是省时省钱的一餐，调整空间留给晚餐
   const slots = [];
   ['lunch', 'dinner'].forEach((meal) => {
     (menu[meal] || []).forEach((r, idx) => {
-      if (r) slots.push({ meal, idx });
+      if (r && !r.solo) slots.push({ meal, idx });
     });
   });
 

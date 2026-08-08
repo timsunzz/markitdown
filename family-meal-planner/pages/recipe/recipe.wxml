@@ -3,7 +3,7 @@
   <view class="r-hero">
     <view class="seal r-seal {{recipe.type}}">{{firstChar}}</view>
     <view class="r-head">
-      <view class="r-name serif">{{recipe.name}}<text class="badge-heir" wx:if="{{recipe.badge}}">{{recipe.badge}}</text></view>
+      <view class="r-name serif">{{recipe.name}}<text class="badge-heir" wx:if="{{recipe.badge}}"><text class="badge-heart">♥</text> {{recipe.badge}}</text></view>
       <view class="muted r-info">约 {{recipe.time}} 分钟 · 难度{{recipe.difficulty}} · 人均 {{recipe.nutrition.kcal}} 千卡</view>
       <view class="r-tags">
         <text class="tag" wx:for="{{recipe.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>

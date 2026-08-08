@@ -125,7 +125,7 @@ page {
   border-bottom: none;
 }
 
-/* 家传菜徽章：妈妈拿手 / 外婆拿手 */
+/* 家传菜徽章：♥ 妈妈拿手 / ♥ 外婆拿手（只在菜谱详情页出现） */
 .badge-heir {
   display: inline-block;
   margin-left: 12rpx;
@@ -133,8 +133,13 @@ page {
   font-weight: 600;
   color: #8a5a1e;
   background: #fbe9c8;
-  border-radius: 8rpx;
-  padding: 2rpx 12rpx;
+  border-radius: 999rpx;
+  padding: 4rpx 16rpx;
   vertical-align: middle;
   letter-spacing: 1rpx;
+}
+
+.badge-heart {
+  color: #e0523f;
+  margin-right: 2rpx;
 }

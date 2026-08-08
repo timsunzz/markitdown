@@ -23,12 +23,41 @@
   color: #f0592b;
 }
 
+/* 搜索条：白底圆条 + 手绘放大镜，醒目但不喧宾夺主 */
 .mast-search {
   margin-top: 24rpx;
-  background: #f1e7d8;
-  border: none;
-  border-radius: 20rpx;
-  padding: 16rpx 26rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: #fffcf8;
+  border: 2rpx solid #f0e4d3;
+  border-radius: 999rpx;
+  padding: 18rpx 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(160, 110, 60, 0.08);
+}
+
+.search-icon {
+  width: 26rpx;
+  height: 26rpx;
+  border: 4rpx solid #f0592b;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-icon::after {
+  content: "";
+  position: absolute;
+  width: 4rpx;
+  height: 14rpx;
+  background: #f0592b;
+  border-radius: 4rpx;
+  right: -8rpx;
+  bottom: -10rpx;
+  transform: rotate(-45deg);
+}
+
+.search-hint {
   color: #9c9084;
   font-size: 28rpx;
   letter-spacing: 0;

@@ -96,6 +96,9 @@ Page({
     const totals = planner.dayNutrition(menu, summary.factor, structure.boost);
     const pct = (v, t) => Math.min(100, Math.round((v / t) * 100));
     const cost = prices.dayCost(menu, summary.factor, structure.boost);
+    // 热量等营养数值一律按人均展示（总数对用户没有直观意义）
+    const per = (v) => Math.round(v / (summary.count || 1));
+    const perTenth = (v) => Math.round((v / (summary.count || 1)) * 10) / 10;
 
     // 预算与热量控制的状态提示
     let budgetTip = '';
@@ -106,7 +109,7 @@ Page({
           : `今日预算 ¥${prefs.budget}：已自动优选便宜搭配，为保住营养底线（晚餐大荤等）仍需约 ¥${cost}。可点"换一换"再调，或适当上调预算`;
     }
     const kcalTip = kcalLimit
-      ? `热量控制中：今日约 ${totals.kcal} 千卡，目标不超过 ${kcalLimit} 千卡（推荐值的 85%）`
+      ? `热量控制中：今日人均约 ${per(totals.kcal)} 千卡，目标不超过 ${per(kcalLimit)} 千卡（推荐值的 85%）`
       : '';
 
     const dp = dateParts(date);
@@ -140,7 +143,9 @@ Page({
         });
         return {
           key: k,
-          label: MEAL_LABELS[k],
+          label:
+            MEAL_LABELS[k] +
+            (dishes.length === 1 && menu[k][0] && menu[k][0].solo ? ' · 一锅端' : ''),
           dishes,
           costText: `约 ¥${Math.round(mealCost)}`
         };
@@ -149,6 +154,19 @@ Page({
       budgetTip,
       kcalTip,
       totals,
+      kcalPer: per(summary.kcal),
+      totalsPer: {
+        kcal: per(totals.kcal),
+        protein: per(totals.protein),
+        calcium: per(totals.calcium),
+        iron: perTenth(totals.iron)
+      },
+      targetPer: {
+        kcal: per(summary.kcal),
+        protein: per(summary.protein),
+        calcium: per(summary.calcium),
+        iron: perTenth(summary.iron)
+      },
       percents: {
         kcal: pct(totals.kcal, summary.kcal),
         protein: pct(totals.protein, summary.protein),
