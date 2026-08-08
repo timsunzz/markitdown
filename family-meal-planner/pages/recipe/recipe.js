@@ -1,6 +1,7 @@
 const { byId } = require('../../data/recipes');
 const nutrition = require('../../utils/nutrition');
 const prices = require('../../data/prices');
+const { drawWatermark } = require('../../utils/watermark');
 
 function roundAmount(amount, unit) {
   if (unit === 'g' || unit === 'ml') {
@@ -64,7 +65,7 @@ Page({
     H += 52 + stepLines.reduce((n, ls) => n + ls.length * 34 + 12, 0) + 8; // 做法区
     H += 48; // 营养行
     H += tipLines.length * 32 + 26; // 小贴士
-    H += 76; // 页脚
+    H += 100; // 品牌水印页脚
 
     wx.showLoading({ title: '正在生成…' });
     this.setData({ canvasH: H }, () => {
@@ -165,11 +166,8 @@ Page({
             y += 32;
           });
 
-          // 页脚
-          ctx.fillStyle = '#c2b6a9';
-          ctx.font = '20px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText('卡卡家常菜谱', W / 2, H - 34);
+          // 品牌水印
+          drawWatermark(ctx, W, H - 85);
 
           wx.canvasToTempFilePath({
             canvas,

@@ -1,5 +1,6 @@
 const { menuFromIds } = require('../../utils/planner');
 const shopping = require('../../utils/shopping');
+const { drawWatermark } = require('../../utils/watermark');
 
 /**
  * 采购交互说明：
@@ -234,11 +235,8 @@ Page({
             });
           });
 
-          // 页脚
-          ctx.fillStyle = '#c2b6a9';
-          ctx.font = '20px sans-serif';
-          ctx.textAlign = 'center';
-          ctx.fillText('卡卡家常菜谱 · 价格为参考价', W / 2, H - 40);
+          // 品牌水印
+          drawWatermark(ctx, W, H - 85, '价格为参考价');
 
           wx.canvasToTempFilePath({
             canvas,
