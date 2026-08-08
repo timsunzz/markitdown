@@ -147,12 +147,18 @@ function mealPlanFor(factor) {
  *   传 {breakfast, lunch, dinner} 可按餐独立换（换前面的餐可能连带影响后面的餐，
  *   因为后面的餐要避开前面已用的食材）
  * @param {boolean|object} prefs 口味偏好：布尔值兼容旧用法（= noSpicy），
- *   或对象 { noSpicy, noPork, factor }（factor 决定三餐结构，缺省按大家庭）
+ *   或对象 { noSpicy, noPork, factor, kcalLimit, budget }
+ *   - factor    决定三餐结构，缺省按大家庭
+ *   - kcalLimit 全家全天热量上限（千卡）。设置后超出会自动换低热量做法的菜
+ *   - budget    今日买菜预算（元）。设置后超出会自动换便宜的菜，尽量贴近
+ *   约束优先级：营养 > 热量 > 预算。晚餐荤菜位始终从「大荤」硬菜里选，
+ *   预算再紧也不会把大荤换成半荤——营养是底线，钱不够时如实提示。
  * @returns {{breakfast: object[], lunch: object[], dinner: object[]}}
  */
 function planDay(dateStr, shuffle, prefs) {
   const opts = typeof prefs === 'object' && prefs ? prefs : { noSpicy: !!prefs, noPork: false };
-  const structure = mealPlanFor(typeof opts.factor === 'number' ? opts.factor : 3);
+  const factor = typeof opts.factor === 'number' ? opts.factor : 3;
+  const structure = mealPlanFor(factor);
   const shuffles =
     typeof shuffle === 'object' && shuffle
       ? shuffle
@@ -163,13 +169,25 @@ function planDay(dateStr, shuffle, prefs) {
     let list = byType(type);
     if (opts.noSpicy) list = list.filter((r) => !r.spicy);
     if (opts.noPork) list = list.filter((r) => !containsPork(r));
-    return seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
+    list = seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
+    // 家传菜轮值：带「拿手」徽章的菜每隔几天优先登场一次
+    // （只在当天未点"换一换"时生效，点了换一换就正常轮换，不会赖着不走）
+    if (!mealShuffle && hash(dateStr + type + 'heir') % 8 === 0) {
+      const heirs = list.filter((r) => r.badge);
+      if (heirs.length) list = heirs.concat(list.filter((r) => !r.badge));
+    }
+    return list;
   };
 
   const usedIngredients = {};
   const chosenIds = {};
-  const take = (type, mealShuffle) => {
-    const r = pickDiverse(pool(type, mealShuffle), usedIngredients, chosenIds);
+  const take = (type, mealShuffle, heavyOnly) => {
+    let candidates = pool(type, mealShuffle);
+    if (heavyOnly) {
+      const heavies = candidates.filter((r) => r.heavy);
+      if (heavies.length) candidates = heavies;
+    }
+    const r = pickDiverse(candidates, usedIngredients, chosenIds);
     if (!r) return null;
     chosenIds[r.id] = true;
     mainIngredients(r).forEach((n) => {
@@ -178,15 +196,118 @@ function planDay(dateStr, shuffle, prefs) {
     return r;
   };
 
+  // 晚餐的第一个荤菜位必须是大荤硬菜（排骨、整鱼、鸡腿这类，半荤小炒不算）
+  let dinnerHeavyUsed = false;
   const breakfast = [take('breakfast', shuffles.breakfast)];
   const lunch = structure.lunch.map((t) => take(t, shuffles.lunch));
-  const dinner = structure.dinner.map((t) => take(t, shuffles.dinner));
+  const dinner = structure.dinner.map((t) => {
+    const heavyOnly = t === 'meat' && !dinnerHeavyUsed;
+    if (heavyOnly) dinnerHeavyUsed = true;
+    return take(t, shuffles.dinner, heavyOnly);
+  });
 
-  return {
+  const menu = {
     breakfast: breakfast.filter(Boolean),
     lunch: lunch.filter(Boolean),
     dinner: dinner.filter(Boolean)
   };
+
+  // ===== 优化管线：先热量、后预算（营养 > 热量 > 预算）=====
+  if (opts.kcalLimit || opts.budget) {
+    optimizeMenu(menu, structure, opts, factor, pool, shuffles);
+  }
+  return menu;
+}
+
+/**
+ * 贪心换菜优化：每轮找出「换掉后改善最大」的一道菜替换为同类型的更优做法，
+ * 直到达标或换无可换。晚餐大荤位只在大荤池内互换。全程确定性（候选池已按日期洗序）。
+ */
+function optimizeMenu(menu, structure, opts, factor, pool, shuffles) {
+  const { dishCost } = require('../data/prices');
+  const heavyDinnerId = { id: null };
+  // 找出晚餐大荤位（第一道 heavy 荤菜）
+  (menu.dinner || []).some((r) => {
+    if (r && r.type === 'meat' && r.heavy) {
+      heavyDinnerId.id = r.id;
+      return true;
+    }
+    return false;
+  });
+
+  const slots = [];
+  ['lunch', 'dinner'].forEach((meal) => {
+    (menu[meal] || []).forEach((r, idx) => {
+      if (r) slots.push({ meal, idx });
+    });
+  });
+
+  const chosen = () => {
+    const ids = {};
+    ['breakfast', 'lunch', 'dinner'].forEach((m) => (menu[m] || []).forEach((r) => r && (ids[r.id] = true)));
+    return ids;
+  };
+  const dayKcal = () => dayNutrition(menu, factor, structure.boost).kcal;
+  const dayMoney = () => {
+    let sum = 0;
+    ['breakfast', 'lunch', 'dinner'].forEach((m) => {
+      const f = m === 'breakfast' ? factor : factor * structure.boost;
+      (menu[m] || []).forEach((r) => r && (sum += dishCost(r, f)));
+    });
+    return sum;
+  };
+
+  // metric(r) 越小越好；swap 保持大荤位只换大荤，且预算阶段不把热量顶回超标
+  const pass = (limitFn, metric, guardFn, maxIter) => {
+    for (let iter = 0; iter < maxIter; iter++) {
+      if (limitFn() <= 0) return;
+      let best = null;
+      const ids = chosen();
+      slots.forEach((s) => {
+        const cur = menu[s.meal][s.idx];
+        const mustHeavy = cur.id === heavyDinnerId.id;
+        let candidates = pool(cur.type, shuffles[s.meal]);
+        if (mustHeavy) candidates = candidates.filter((r) => r.heavy);
+        for (let i = 0; i < candidates.length; i++) {
+          const cand = candidates[i];
+          if (ids[cand.id]) continue;
+          const gain = metric(cur) - metric(cand);
+          if (gain <= 0) continue;
+          if (guardFn && !guardFn(s, cur, cand)) continue;
+          if (!best || gain > best.gain) best = { slot: s, cand, gain, mustHeavy };
+        }
+      });
+      if (!best) return;
+      const old = menu[best.slot.meal][best.slot.idx];
+      menu[best.slot.meal][best.slot.idx] = best.cand;
+      if (old.id === heavyDinnerId.id) heavyDinnerId.id = best.cand.id;
+    }
+  };
+
+  // 第一轮：热量。超出上限时，把热量最高收益的菜换成同类型低热量做法
+  if (opts.kcalLimit) {
+    pass(
+      () => dayKcal() - opts.kcalLimit,
+      (r) => (r.nutrition && r.nutrition.kcal) || 0,
+      null,
+      8
+    );
+  }
+
+  // 第二轮：预算。超出预算时换便宜的菜；若开了热量控制，换入的菜不能把热量顶回超标
+  if (opts.budget) {
+    pass(
+      () => dayMoney() - opts.budget,
+      (r) => dishCost(r, 1),
+      (s, cur, cand) => {
+        if (!opts.kcalLimit) return true;
+        const f = (s.meal === 'breakfast' ? 1 : structure.boost) * factor;
+        const delta = (((cand.nutrition && cand.nutrition.kcal) || 0) - ((cur.nutrition && cur.nutrition.kcal) || 0)) * f;
+        return dayKcal() + delta <= opts.kcalLimit;
+      },
+      8
+    );
+  }
 }
 
 /**

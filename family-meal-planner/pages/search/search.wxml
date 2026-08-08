@@ -35,7 +35,7 @@
     >
       <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
       <view class="dish-main">
-        <view class="dish-name">{{dish.name}}</view>
+        <view class="dish-name">{{dish.name}}<text class="badge-heir" wx:if="{{dish.badge}}">{{dish.badge}}</text></view>
         <view>
           <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
         </view>

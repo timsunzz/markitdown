@@ -39,6 +39,33 @@
       </view>
       <switch checked="{{noPork}}" color="#f0592b" bindchange="onToggleNoPork" />
     </view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">今日预算</view>
+        <view class="muted">开启后按预算自动优选便宜搭配；晚餐大荤不会被省掉，预算实在紧时会如实提示实际金额</view>
+      </view>
+      <switch checked="{{budgetOn}}" color="#f0592b" bindchange="onToggleBudget" />
+    </view>
+    <view class="budget-input-row" wx:if="{{budgetOn}}">
+      <text class="budget-yuan">¥</text>
+      <input
+        class="budget-input"
+        type="number"
+        value="{{budgetAmount}}"
+        bindblur="onBudgetInput"
+        placeholder="如 60"
+      />
+      <text class="muted">元 / 天（全家买菜钱）</text>
+    </view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">热量控制</view>
+        <view class="muted">轻盈模式：全天总热量自动控制在全家推荐值的 85% 左右，优先换低热量做法，适合想控制体重的家庭</view>
+      </view>
+      <switch checked="{{kcalOn}}" color="#f0592b" bindchange="onToggleKcal" />
+    </view>
   </view>
 
   <view class="card">

@@ -62,11 +62,17 @@ Page({
     const summary = nutrition.familySummary(members);
     const noSpicyAll = !!wx.getStorageSync('noSpicyAll');
     const noPorkAll = !!wx.getStorageSync('noPorkAll');
+    const budgetOn = !!wx.getStorageSync('budgetOn');
+    const budgetAmount = Number(wx.getStorageSync('budgetAmount')) || 0;
+    const kcalOn = !!wx.getStorageSync('kcalOn');
+    const kcalLimit = kcalOn ? Math.round(summary.kcal * 0.85) : 0;
     const structure = planner.mealPlanFor(summary.factor);
     const prefs = {
       noSpicy: noSpicyAll || nutrition.hasYoungChild(members),
       noPork: noPorkAll,
-      factor: summary.factor
+      factor: summary.factor,
+      kcalLimit: kcalLimit || undefined,
+      budget: budgetOn && budgetAmount > 0 ? budgetAmount : undefined
     };
     const date = todayStr();
 
@@ -89,6 +95,19 @@ Page({
 
     const totals = planner.dayNutrition(menu, summary.factor, structure.boost);
     const pct = (v, t) => Math.min(100, Math.round((v / t) * 100));
+    const cost = prices.dayCost(menu, summary.factor, structure.boost);
+
+    // 预算与热量控制的状态提示
+    let budgetTip = '';
+    if (prefs.budget) {
+      budgetTip =
+        cost <= prefs.budget
+          ? `今日预算 ¥${prefs.budget}：当前菜单约 ¥${cost}，在预算内`
+          : `今日预算 ¥${prefs.budget}：已自动优选便宜搭配，为保住营养底线（晚餐大荤等）仍需约 ¥${cost}。可点"换一换"再调，或适当上调预算`;
+    }
+    const kcalTip = kcalLimit
+      ? `热量控制中：今日约 ${totals.kcal} 千卡，目标不超过 ${kcalLimit} 千卡（推荐值的 85%）`
+      : '';
 
     const dp = dateParts(date);
     this.setData({
@@ -111,6 +130,7 @@ Page({
             id: d.id,
             name: d.name,
             type: d.type,
+            badge: d.badge || '',
             firstChar: d.name.charAt(0),
             tags: (d.tags || []).slice(0, 3),
             time: d.time,
@@ -125,7 +145,9 @@ Page({
           costText: `约 ¥${Math.round(mealCost)}`
         };
       }),
-      dayCost: prices.dayCost(menu, summary.factor, structure.boost),
+      dayCost: cost,
+      budgetTip,
+      kcalTip,
       totals,
       percents: {
         kcal: pct(totals.kcal, summary.kcal),

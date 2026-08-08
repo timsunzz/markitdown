@@ -31,6 +31,7 @@ Page({
           id: r.id,
           name: r.name,
           type: r.type,
+          badge: r.badge || '',
           firstChar: r.name.charAt(0),
           tags: (r.tags || []).slice(0, 3),
           kcal: r.nutrition.kcal,

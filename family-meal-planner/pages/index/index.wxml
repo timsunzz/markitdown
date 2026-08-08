@@ -38,6 +38,9 @@
     {{structureLabel}}，购物清单与热量已同步换算。
   </view>
 
+  <view class="notice" wx:if="{{kcalTip}}">{{kcalTip}}</view>
+  <view class="notice" wx:if="{{budgetTip}}">{{budgetTip}}</view>
+
   <!-- 三餐 -->
   <view class="card" wx:for="{{mealList}}" wx:key="key" wx:for-item="meal">
     <view class="meal-head">
@@ -57,7 +60,7 @@
     >
       <view class="seal {{dish.type}}">{{dish.firstChar}}</view>
       <view class="dish-main">
-        <view class="dish-name">{{dish.name}}</view>
+        <view class="dish-name">{{dish.name}}<text class="badge-heir" wx:if="{{dish.badge}}">{{dish.badge}}</text></view>
         <view class="dish-tags">
           <text class="tag" wx:for="{{dish.tags}}" wx:key="*this" wx:for-item="t">{{t}}</text>
         </view>

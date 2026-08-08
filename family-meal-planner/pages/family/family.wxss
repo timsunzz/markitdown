@@ -130,3 +130,25 @@
   line-height: 1.7;
   font-size: 24rpx;
 }
+
+.budget-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 4rpx 0 18rpx;
+}
+
+.budget-yuan {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #f0592b;
+}
+
+.budget-input {
+  border: 2rpx solid #e9e1d5;
+  border-radius: 10rpx;
+  padding: 8rpx 16rpx;
+  width: 160rpx;
+  font-size: 30rpx;
+  font-variant-numeric: tabular-nums;
+}

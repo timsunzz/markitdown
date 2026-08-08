@@ -286,6 +286,7 @@ const RECIPES = [
     id: 'm02',
     name: '清蒸鲈鱼',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['高蛋白', '低脂', 'DHA', '儿童友好'],
     time: 20,
@@ -310,6 +311,7 @@ const RECIPES = [
     id: 'm03',
     name: '香菇蒸鸡',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['低油', '下饭', '适合老人'],
     time: 30,
@@ -336,6 +338,7 @@ const RECIPES = [
     id: 'm04',
     name: '红烧排骨',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['硬菜', '补钙搭档'],
     time: 50,
@@ -411,6 +414,7 @@ const RECIPES = [
     id: 'm07',
     name: '土豆炖牛腩',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['补铁', '硬菜', '适合老人'],
     time: 90,
@@ -464,6 +468,7 @@ const RECIPES = [
     id: 'm09',
     name: '蒜蓉粉丝蒸虾',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['高蛋白', '宴客也拿得出手'],
     time: 25,
@@ -516,6 +521,7 @@ const RECIPES = [
     id: 'm11',
     name: '可乐鸡翅',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['儿童最爱', '零失败'],
     time: 25,
@@ -540,6 +546,7 @@ const RECIPES = [
     id: 'm12',
     name: '糖醋里脊',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['儿童最爱', '酸甜开胃'],
     time: 30,
@@ -613,6 +620,7 @@ const RECIPES = [
     id: 'm15',
     name: '金针菇肥牛卷',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['小红书爆款', '快手', '一锅出'],
     time: 15,
@@ -660,6 +668,7 @@ const RECIPES = [
     id: 'm17',
     name: '红烧带鱼',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['家常经典', '高蛋白'],
     time: 30,
@@ -686,6 +695,7 @@ const RECIPES = [
     id: 'm18',
     name: '宫保鸡丁',
     type: 'meat',
+    heavy: true,
     spicy: true,
     tags: ['川味经典', '下饭'],
     time: 20,
@@ -768,6 +778,7 @@ const RECIPES = [
     id: 'm21',
     name: '电饭煲酱油鸡腿',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['小红书爆款', '懒人零失败', '一锅出'],
     time: 40,
@@ -793,6 +804,7 @@ const RECIPES = [
     id: 'm22',
     name: '香煎龙利鱼',
     type: 'meat',
+    heavy: true,
     spicy: false,
     tags: ['无刺', '低脂高蛋白', '儿童友好'],
     time: 15,
@@ -1502,6 +1514,111 @@ const RECIPES = [
     ],
     nutrition: { kcal: 265, protein: 5, fat: 0.6, carbs: 60, calcium: 15, iron: 0.8 },
     tip: '红薯替掉一部分白米，膳食纤维和胡萝卜素都上来了，孩子还爱吃这口甜。'
+  },
+  {
+    id: 'v63',
+    name: '油焖茭白',
+    type: 'veg',
+    spicy: false,
+    tags: ['江南家常', '下饭', '素菜也过瘾'],
+    time: 15,
+    difficulty: '简单',
+    ingredients: [
+      { name: '茭白', amount: 200, unit: 'g', category: '蔬菜水果' },
+      { name: '小葱', amount: 5, unit: 'g', category: '蔬菜水果' },
+      { name: '生抽', amount: 0, unit: '适量', category: '调味干货', pantry: true },
+      { name: '老抽', amount: 0, unit: '适量', category: '调味干货', pantry: true },
+      { name: '白糖', amount: 0, unit: '适量', category: '调味干货', pantry: true }
+    ],
+    steps: [
+      '茭白剥壳削去老皮，切滚刀块，洗净沥干水分。',
+      '锅烧热，油比平时炒菜略多一点（约 1.5 瓷勺），中火把茭白煎炒 3 分钟，煎到表面微微发黄起皱——煎透了才吸味。',
+      '加生抽 1 瓷勺、老抽小半勺上色、白糖 1 小勺，快速翻匀。',
+      '倒小半碗热水，盖上盖子中小火焖 4 分钟，焖到茭白软糯入味。',
+      '开盖转大火收汁，收到酱汁浓稠裹在茭白上，撒葱花出锅。'
+    ],
+    nutrition: { kcal: 130, protein: 3, fat: 8, carbs: 13, calcium: 10, iron: 0.8 },
+    tip: '茭白吸油也吸味，油煎这一步别省；浓油赤酱的江南做法，素菜也能当硬菜吃。'
+  },
+  {
+    id: 'm98',
+    name: '葱爆醋炒蛋',
+    type: 'meat',
+    spicy: false,
+    tags: ['快手', '下饭', '小红书爆款'],
+    time: 8,
+    difficulty: '简单',
+    ingredients: [
+      { name: '鸡蛋', amount: 2, unit: '个', category: '肉禽蛋' },
+      { name: '小葱', amount: 20, unit: 'g', category: '蔬菜水果' },
+      { name: '香醋', amount: 0, unit: '适量', category: '调味干货', pantry: true },
+      { name: '食盐', amount: 0, unit: '适量', category: '调味干货', pantry: true }
+    ],
+    steps: [
+      '鸡蛋加盐 1 克打散，打到表面起一层细泡，炒出来才蓬松。',
+      '小葱切葱花，分成两份：一半拌进蛋液，一半留着爆锅。',
+      '锅烧热倒油 1.5 瓷勺，油热后下留出的葱花，小火爆出葱香。',
+      '转大火倒入蛋液，先别急着动，等底面定型鼓起，再快速划散成大块。',
+      '沿锅边烹入香醋 1 瓷勺，酸香被热气一激就出来了，翻两下立刻出锅。'
+    ],
+    nutrition: { kcal: 205, protein: 13, fat: 16, carbs: 3, calcium: 62, iron: 2.4 },
+    tip: '醋一定要沿热锅边烹进去而不是直接浇在蛋上，激出来的醋香只留香不留酸，特别开胃下饭。'
+  },
+  {
+    id: 'm97',
+    name: '外婆缸豆牛肉丝',
+    type: 'meat',
+    spicy: false,
+    badge: '外婆拿手',
+    tags: ['家传菜', '下饭', '高蛋白'],
+    time: 25,
+    difficulty: '简单',
+    ingredients: [
+      { name: '牛里脊', amount: 90, unit: 'g', category: '肉禽蛋' },
+      { name: '豇豆（长豆角）', amount: 120, unit: 'g', category: '蔬菜水果' },
+      { name: '蒜', amount: 10, unit: 'g', category: '蔬菜水果' },
+      { name: '生抽', amount: 0, unit: '适量', category: '调味干货', pantry: true },
+      { name: '蚝油', amount: 0, unit: '适量', category: '调味干货', pantry: true },
+      { name: '玉米淀粉', amount: 0, unit: '适量', category: '调味干货', pantry: true }
+    ],
+    steps: [
+      '牛里脊逆着纹路切细丝，加生抽半瓷勺、淀粉 1 小勺和 1 瓷勺清水抓匀，腌 10 分钟锁住水分。',
+      '豇豆撕去两侧的筋，切成小指长的条——记住一定切条，不切丁，这是这道菜口感的关键。',
+      '豇豆条下开水锅焯 2 分钟到翠绿断生，捞出沥干；豆角类必须焯熟，半生的有毒素。',
+      '锅烧到冒烟，倒油下牛肉丝，大火快速滑散，刚一变色就盛出，多炒 10 秒都会老。',
+      '底油下蒜片爆香，倒豇豆条大火炒 1 分钟，加蚝油半瓷勺、生抽半瓷勺翻匀。',
+      '牛肉丝回锅，颠匀立刻出锅，回锅前后不超过 30 秒。'
+    ],
+    nutrition: { kcal: 215, protein: 21, fat: 11, carbs: 8, calcium: 50, iron: 3.0 },
+    tip: '卡卡外婆的做法：豆角切条不切丁、牛肉滑炒不超过 30 秒，是这道菜好吃的两个秘密。'
+  },
+  {
+    id: 'st21',
+    name: '妈妈咖喱饭',
+    type: 'staple',
+    spicy: false,
+    badge: '妈妈拿手',
+    tags: ['家传菜', '一锅出', '儿童最爱'],
+    time: 40,
+    difficulty: '简单',
+    ingredients: [
+      { name: '大米', amount: 70, unit: 'g', category: '米面粮油' },
+      { name: '鸡腿肉', amount: 90, unit: 'g', category: '肉禽蛋' },
+      { name: '土豆', amount: 100, unit: 'g', category: '蔬菜水果' },
+      { name: '胡萝卜', amount: 50, unit: 'g', category: '蔬菜水果' },
+      { name: '洋葱', amount: 60, unit: 'g', category: '蔬菜水果' },
+      { name: '日式咖喱块', amount: 20, unit: 'g', category: '调味干货' }
+    ],
+    steps: [
+      '大米淘洗后正常水量煮饭；鸡腿肉切块，土豆胡萝卜切滚刀块，洋葱切粗丝。',
+      '热锅少油，先下洋葱中火炒 2 分钟，炒到透明发甜——洋葱炒透是咖喱好吃的底子。',
+      '下鸡腿肉炒到表面变白，加土豆和胡萝卜翻炒 1 分钟。',
+      '倒热水刚没过食材，大火烧开撇去浮沫，转中小火盖盖煮 12 分钟，煮到土豆能用筷子扎透。',
+      '关小火，掰入咖喱块搅拌到完全融化，再小火咕嘟 3 分钟到浓稠，期间勤搅动防糊底。',
+      '连汤带料浇在热米饭上，开吃。'
+    ],
+    nutrition: { kcal: 620, protein: 25, fat: 18, carbs: 88, calcium: 45, iron: 2.4 },
+    tip: '卡卡妈妈的拿手饭。咖喱块自带咸度，不用再加盐；给小朋友吃选"甘口"（微甜）咖喱块。'
   }
 ].concat(require('./recipes-extra').RECIPES);
 

@@ -20,6 +20,9 @@ Page({
     roleLabels: nutrition.ROLES.map((r) => r.label),
     noSpicy: false,
     noPork: false,
+    budgetOn: false,
+    budgetAmount: '',
+    kcalOn: false,
     // 新增成员表单
     showForm: false,
     roleIndex: 0,
@@ -45,6 +48,9 @@ Page({
       summary: members.length ? nutrition.familySummary(members) : null,
       noSpicy: !!wx.getStorageSync('noSpicyAll'),
       noPork: !!wx.getStorageSync('noPorkAll'),
+      budgetOn: !!wx.getStorageSync('budgetOn'),
+      budgetAmount: wx.getStorageSync('budgetAmount') || '',
+      kcalOn: !!wx.getStorageSync('kcalOn'),
       favCount: (wx.getStorageSync('favorites') || []).length,
       // 没有成员时自动展开表单，引导添加
       showForm: this.data.showForm || !members.length
@@ -69,6 +75,43 @@ Page({
     this.setData({ noPork: !!e.detail.value });
     wx.showToast({
       title: e.detail.value ? '已开启，菜单不再出现含猪肉的菜' : '已关闭不吃猪肉',
+      icon: 'none'
+    });
+  },
+
+  onToggleBudget(e) {
+    const on = !!e.detail.value;
+    wx.setStorageSync('budgetOn', on);
+    this.setData({ budgetOn: on });
+    if (on && !wx.getStorageSync('budgetAmount')) {
+      // 给个合理的默认值：约每标准份 20 元
+      const summary = this.data.summary;
+      const def = summary ? Math.round(summary.factor * 20) : 60;
+      wx.setStorageSync('budgetAmount', def);
+      this.setData({ budgetAmount: def });
+    }
+    wx.showToast({
+      title: on ? '已开启今日预算，菜单会自动贴近' : '已关闭预算限制',
+      icon: 'none'
+    });
+  },
+
+  onBudgetInput(e) {
+    const v = parseInt(e.detail.value, 10);
+    if (!v || v <= 0) {
+      wx.showToast({ title: '请填写正确的金额', icon: 'none' });
+      return;
+    }
+    wx.setStorageSync('budgetAmount', v);
+    this.setData({ budgetAmount: v });
+  },
+
+  onToggleKcal(e) {
+    const on = !!e.detail.value;
+    wx.setStorageSync('kcalOn', on);
+    this.setData({ kcalOn: on });
+    wx.showToast({
+      title: on ? '已开启热量控制（推荐值的 85%）' : '已关闭热量控制',
       icon: 'none'
     });
   },
