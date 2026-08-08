@@ -11,11 +11,11 @@
  */
 function drawWatermark(ctx, W, footY, sub) {
   var cx = W / 2;
-  var r = 16;
-  var blockW = r * 2 + 8 + 132;
+  var r = 17;
+  var blockW = r * 2 + 10 + 132;
   var blockX = cx - blockW / 2;
   var iconCX = blockX + r;
-  var textX = blockX + r * 2 + 8;
+  var textX = blockX + r * 2 + 10;
   var cy = footY + 38;
 
   // 两侧装饰线
@@ -30,32 +30,42 @@ function drawWatermark(ctx, W, footY, sub) {
   ctx.lineTo(W - 50, cy);
   ctx.stroke();
 
-  // 蒸汽弧线（轻透明）
-  ctx.save();
-  ctx.strokeStyle = '#f0592b';
-  ctx.lineWidth = 1.5;
-  ctx.globalAlpha = 0.25;
-  ctx.beginPath();
-  ctx.moveTo(iconCX - 5, cy - r - 4);
-  ctx.quadraticCurveTo(iconCX - 9, cy - r - 11, iconCX - 4, cy - r - 18);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(iconCX + 4, cy - r - 3);
-  ctx.quadraticCurveTo(iconCX + 8, cy - r - 10, iconCX + 3, cy - r - 17);
-  ctx.stroke();
-  ctx.restore();
-
-  // 番茄橙圆形图标
+  // 番茄橙圆形底色
   ctx.beginPath();
   ctx.arc(iconCX, cy, r, 0, Math.PI * 2);
   ctx.fillStyle = '#f0592b';
   ctx.fill();
 
-  // 圆内「卡」字
+  // 圆内白色碗形图案（U 形弧 + 碗沿）
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 18px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('卡', iconCX, cy + 7);
+  ctx.beginPath();
+  ctx.moveTo(iconCX - 9, cy + 1);
+  ctx.quadraticCurveTo(iconCX - 9, cy + 11, iconCX, cy + 11);
+  ctx.quadraticCurveTo(iconCX + 9, cy + 11, iconCX + 9, cy + 1);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(iconCX - 11, cy + 1);
+  ctx.lineTo(iconCX + 11, cy + 1);
+  ctx.stroke();
+
+  // 碗上方三缕蒸汽
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(iconCX - 4, cy - 2);
+  ctx.quadraticCurveTo(iconCX - 7, cy - 6, iconCX - 3, cy - 10);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(iconCX, cy - 3);
+  ctx.quadraticCurveTo(iconCX + 3, cy - 7, iconCX - 1, cy - 11);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(iconCX + 4, cy - 2);
+  ctx.quadraticCurveTo(iconCX + 7, cy - 6, iconCX + 3, cy - 10);
+  ctx.stroke();
 
   // 品牌名
   ctx.fillStyle = '#9c9084';
