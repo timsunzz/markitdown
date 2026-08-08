@@ -129,13 +129,17 @@ Page({
         const dishes = menu[k].map((d) => {
           const cost = prices.dishCost(d, mealFactor);
           mealCost += cost;
+          // 早餐把蛋白量亮出来（早餐吃够蛋白是营养均衡的关键，也让人一眼看到）
+          const tags =
+            k === 'breakfast'
+              ? [`蛋白 ${d.nutrition.protein} 克`].concat((d.tags || []).slice(0, 2))
+              : (d.tags || []).slice(0, 3);
           return {
             id: d.id,
             name: d.name,
             type: d.type,
-            badge: d.badge || '',
             firstChar: d.name.charAt(0),
-            tags: (d.tags || []).slice(0, 3),
+            tags,
             time: d.time,
             nutrition: d.nutrition,
             costText: cost ? `¥${cost}` : ''

@@ -174,6 +174,12 @@ function planDay(dateStr, shuffle, prefs) {
   const pool = (type, mealShuffle) => {
     // 一锅端菜（solo）不进常规菜位：牛肉面/咖喱饭不该和一桌荤素菜拼在一起
     let list = applyFilters(byType(type).filter((r) => !r.solo));
+    // 早餐蛋白底线：优先选人均蛋白 ≥15g 的早餐（鸡蛋/奶/豆/肉），
+    // 保证绝大多数早晨都有高蛋白食物；池子不足时才放宽
+    if (type === 'breakfast') {
+      const rich = list.filter((r) => (r.nutrition && r.nutrition.protein) >= 15);
+      if (rich.length >= 5) list = rich;
+    }
     list = seededShuffle(list, rng(base + hash(type) + (mealShuffle || 0) * 7919));
     // 家传菜轮值：带「拿手」徽章的菜每隔几天优先登场一次
     // （只在当天未点"换一换"时生效，点了换一换就正常轮换，不会赖着不走）
