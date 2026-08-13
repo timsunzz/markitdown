@@ -1,0 +1,54 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": { "navigationBarTitleText": "今日菜单" }
+    },
+    {
+      "path": "pages/shopping/shopping",
+      "style": { "navigationBarTitleText": "购物清单" }
+    },
+    {
+      "path": "pages/family/family",
+      "style": { "navigationBarTitleText": "我的家庭" }
+    },
+    {
+      "path": "pages/recipe/recipe",
+      "style": { "navigationBarTitleText": "菜谱详情" }
+    },
+    {
+      "path": "pages/favorites/favorites",
+      "style": { "navigationBarTitleText": "我的收藏" }
+    },
+    {
+      "path": "pages/search/search",
+      "style": { "navigationBarTitleText": "搜菜谱" }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarBackgroundColor": "#f7f1e9",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "卡卡家常菜谱",
+    "backgroundColor": "#f7f1e9"
+  },
+  "tabBar": {
+    "color": "#9c9084",
+    "selectedColor": "#f0592b",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日菜单"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "购物清单"
+      },
+      {
+        "pagePath": "pages/family/family",
+        "text": "我的家庭"
+      }
+    ]
+  }
+}

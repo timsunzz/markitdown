@@ -1,0 +1,163 @@
+<script>
+export default {
+  onLaunch() {
+    // 首次启动时给一个默认家庭配置（2 位成人），引导用户去"我的家庭"完善
+    const members = uni.getStorageSync('familyMembers');
+    if (!members || !members.length) {
+      uni.setStorageSync('familyMembers', [
+        { id: 1, role: 'adultFemale', age: 32 },
+        { id: 2, role: 'adultMale', age: 34 }
+      ]);
+      uni.setStorageSync('familyIsDefault', true);
+    }
+  }
+};
+</script>
+
+<style>
+/**
+ * 卡卡家常菜谱 · 全局样式
+ *
+ * 设计语言：苹果原生（iOS Human Interface）+ 暖食色
+ * 米白暖底 + 白色圆角分组 + 发丝分隔线，番茄橙为唯一强调色，
+ * 菜品圆标按类别用五种食物色（红烧红 / 油绿 / 汤金 / 麦棕 / 蛋黄橙）。
+ * 全部使用系统字体（PingFang），无装饰 emoji。
+ */
+
+page {
+  background: #f7f1e9;
+  font-size: 30rpx;
+  color: #29211a;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* 兼容旧的 serif 类：统一回系统字体加粗 */
+.serif {
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  font-weight: 700;
+}
+
+/* iOS 分组卡片 */
+.card {
+  background: #fffcf8;
+  border-radius: 24rpx;
+  padding: 28rpx 30rpx;
+  margin: 20rpx 28rpx;
+  border-bottom: none;
+  box-shadow: 0 2rpx 16rpx rgba(160, 110, 60, 0.06);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  letter-spacing: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.divider {
+  height: 1px;
+  background: #ece4d8;
+  margin: 20rpx 0;
+}
+
+.muted {
+  color: #9c9084;
+  font-size: 25rpx;
+}
+
+/* 标签：点隔的脚注小字 */
+.tag {
+  display: inline;
+  font-size: 22rpx;
+  color: #b9ac9f;
+  margin-right: 0;
+}
+
+.tag + .tag::before {
+  content: " · ";
+  color: #d8ccbe;
+}
+
+.btn-primary {
+  background: #f0592b;
+  color: #ffffff;
+  border-radius: 24rpx;
+  font-size: 31rpx;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.btn-ghost {
+  background: #ffffff;
+  color: #f0592b;
+  border: none;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.btn-ghost::after {
+  border: none;
+}
+
+/* 菜品首字圆标（iOS 列表图标式的彩色圆） */
+.seal {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  background: #f0592b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  flex-shrink: 0;
+}
+
+.seal.meat { background: #d4482a; }      /* 红烧红 */
+.seal.veg { background: #7d9b3f; }       /* 油绿 */
+.seal.soup { background: #dda23c; }      /* 汤金 */
+.seal.staple { background: #a9764a; }    /* 麦棕 */
+.seal.breakfast { background: #ec8a45; } /* 蛋黄橙 */
+
+/* 提示：白色分组内的脚注文字 */
+.notice {
+  background: #fdf3e7;
+  border-radius: 24rpx;
+  margin: 20rpx 28rpx;
+  padding: 24rpx 30rpx;
+  color: #8a7256;
+  font-size: 25rpx;
+  line-height: 1.65;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* 家传菜徽章：♥ 妈妈拿手 / ♥ 外婆拿手（只在菜谱详情页出现） */
+.badge-heir {
+  display: inline-block;
+  margin-left: 12rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #8a5a1e;
+  background: #fbe9c8;
+  border-radius: 999rpx;
+  padding: 4rpx 16rpx;
+  vertical-align: middle;
+  letter-spacing: 1rpx;
+}
+
+.badge-heart {
+  color: #e0523f;
+  margin-right: 2rpx;
+}
+</style>
