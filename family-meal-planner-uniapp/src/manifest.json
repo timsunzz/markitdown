@@ -1,0 +1,83 @@
+{
+  "name": "卡卡家常菜谱",
+  /* DCloud 应用标识：在 HBuilderX 里「manifest.json → 基础配置 → 重新获取」后自动填入，
+     打 iOS / Android 包必填，只影响原生 App，不影响微信小程序 */
+  "appid": "",
+  "description": "按家里人口自动配每日营养菜单，买菜清单一键复制",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+
+  /* 不接入 uni 统计：本项目纯本地运行、不收集任何用户数据，
+     这样 App Store 隐私问卷可以如实勾选"不收集数据" */
+  "uniStatistics": {
+    "enable": false
+  },
+
+  /* 5+App（iOS / Android）特有配置 */
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "distribute": {
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>"
+        ]
+      },
+      "ios": {
+        "dSYMs": false,
+        /* 不使用广告标识符 */
+        "idfa": false,
+        "privacyDescription": {
+          "NSPhotoLibraryAddUsageDescription": "保存生成的菜谱图片和买菜清单到你的相册，方便离线查看或发给家人。"
+        },
+        "urlschemewhitelist": [],
+        "capabilities": {
+          "entitlements": {}
+        }
+      },
+      /* share 留空 = 只打包系统分享（uni.shareWithSystem），
+         不集成微信/QQ 等第三方分享 SDK，避免多余的隐私申报 */
+      "sdkConfigs": {
+        "share": {}
+      },
+      "icons": {},
+      "splashscreen": {}
+    }
+  },
+  "quickapp": {},
+
+  /* 微信小程序特有配置 */
+  "mp-weixin": {
+    "appid": "wx55c5be5bea5fa632",
+    "setting": {
+      "urlCheck": true,
+      "es6": true,
+      "enhance": true,
+      "postcss": true,
+      "minified": true
+    },
+    "usingComponents": true,
+    "lazyCodeLoading": "requiredComponents",
+    "sitemapLocation": "static/sitemap.json",
+    "permission": {},
+    "requiredPrivateInfos": []
+  },
+
+  "h5": {
+    "title": "卡卡家常菜谱",
+    "router": {
+      "mode": "hash",
+      "base": "./"
+    }
+  },
+
+  "vueVersion": "3"
+}
