@@ -2,6 +2,10 @@
 
 把 `data/recipes.js` 里的全部菜谱排成一本手机竖版 PDF（一页一道菜）。
 
+排版按印刷书籍的做法，不是 App 界面：宋体（思源宋体）做标题、数字与页码，
+黑体（思源黑体）做正文；只用发丝细线分区，不用卡片、色块和药丸标签；
+做法步骤用中文数字；不使用任何 emoji；页边距左右不等，留白充足。
+
 - 页面尺寸：430 × 932 px（iPhone 逻辑分辨率，适合手机翻阅与转发）
 - 食材用量：按 **2 人份** 写好（`build.js` 里的 `SERVINGS` 可改）
 - 营养数值：**人均**，不随份数放大
@@ -13,7 +17,7 @@
 
 ```bash
 cd family-meal-planner/tools/cookbook
-npm install @fontsource/noto-sans-sc playwright   # 字体与渲染器
+npm install @fontsource/noto-sans-sc @fontsource/noto-serif-sc playwright
 node build.js     # 生成 out/cookbook.html
 node render.js    # 生成 out/卡卡家常菜谱-354道全收录.pdf
 ```
@@ -23,7 +27,7 @@ node render.js    # 生成 out/卡卡家常菜谱-354道全收录.pdf
 | 变量 | 作用 | 默认 |
 |------|------|------|
 | `OUT_DIR` | 输出目录 | `./out` |
-| `FONT_DIR` | Noto Sans SC woff2 目录 | `./node_modules/@fontsource/noto-sans-sc/files` |
+| `FONT_DIR` | fontsource 字体包根目录 | `./node_modules/@fontsource` |
 | `CHROME_PATH` | Chromium 可执行文件 | Playwright 自带 |
 
 ## 加真实菜品照片
@@ -43,8 +47,8 @@ node render.js    # 生成 out/卡卡家常菜谱-354道全收录.pdf
 ## 排版自适应
 
 `render.js` 渲染前会逐页量一次高度，内容装不下的页面按
-`dense → denser → densest` 三档自动收紧（优先压缩配图高度和间距，
-尽量不动字号），保证每一页都完整放下、不截断。食材超过 9 样的菜
-自动改双栏排列。
+`d1 → d4` 四档自动收紧（优先压缩配图高度和行距，尽量不动字号），
+保证每一页都完整放下、不截断。食材超过 9 样的菜自动改双栏排列。
 
-当前 354 道菜的结果：279 页保持基准版式，62 页轻度收紧，13 页中度收紧，0 页溢出。
+当前 354 道菜的结果：236 页保持基准版式，102 页轻度收紧，16 页中度收紧，0 页溢出。
+成品 372 页，约 1.6 MB。
