@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="card empty" wx:if="{{!hasMenu}}">
+    
+    <view>还没有今日菜单</view>
+    <button class="btn-primary empty-btn" bindtap="onGoIndex">去生成今日菜单</button>
+  </view>
+
+  <block wx:if="{{hasMenu}}">
+    <view class="card head">
+      <view class="card-title">
+        <text>{{dateLabel}} 购物清单</text>
+        <text class="total-cost">预估 ¥{{totalCost}}</text>
+      </view>
+      <view class="muted head-note">
+        按 {{memberCount}} 口人份量换算 · 已勾选 {{buyableCount}} 样 · 打勾的才会进清单，家里已有的点一下去掉勾
+      </view>
+      <view class="copy-all" bindtap="onCopyList">复制全文清单备忘</view>
+    </view>
+
+    <view class="notice">
+      勾选中的食材才会进清单：家里已有的点一下去掉勾；料酒、生抽等常备调味品默认不勾，需要补货就点一下勾进来。买菜 App 下单点每行<text class="hl">「复制」</text>逐样搜索；去超市或发家人代买，点底部<text class="hl">「生成清单图片」</text>长按保存转发。
+    </view>
+
+    <view class="card" wx:for="{{groups}}" wx:key="category" wx:for-item="g" wx:for-index="gi">
+      <view class="card-title">{{g.category}}</view>
+      <view class="divider"></view>
+      <view
+        class="item {{it.checked ? 'checked' : 'unchecked'}} {{it.pantry ? 'pantry' : ''}}"
+        wx:for="{{g.items}}"
+        wx:key="name"
+        wx:for-item="it"
+        wx:for-index="ii"
+        data-gi="{{gi}}"
+        data-ii="{{ii}}"
+        bindtap="onToggleItem"
+      >
+        <view class="checkbox">{{it.checked ? '✓' : ''}}</view>
+        <view class="item-main">
+          <view class="item-name">
+            {{it.name}}
+            <text class="copied-tag" wx:if="{{it.copied}}">已复制</text>
+          </view>
+          <view class="item-sub">
+            <text>{{it.amountText}}</text>
+            <text wx:if="{{it.priceText}}" class="item-price"> · {{it.priceText}}</text>
+          </view>
+        </view>
+        <view
+          class="copy-btn"
+          data-gi="{{gi}}"
+          data-ii="{{ii}}"
+          catchtap="onCopyItem"
+        >复制</view>
+      </view>
+    </view>
+
+    <view class="bottom-space"></view>
+    <view class="bottom-bar">
+      <button class="btn-primary bar-btn img-btn" bindtap="onMakeImage">
+        生成清单图片（已选 {{buyableCount}} 样 · ¥{{totalCost}}）
+      </button>
+      <button class="btn-ghost bar-btn copy-btn2" bindtap="onCopySelected">复制</button>
+    </view>
+
+    <!-- 离屏画布：用于绘制清单图片 -->
+    <canvas
+      type="2d"
+      id="listCanvas"
+      style="position: fixed; left: 2000px; top: 0; width: 640px; height: {{canvasH}}px;"
+    ></canvas>
+  </block>
+</view>

@@ -1,0 +1,154 @@
+.summary-card {
+  background: #f0592b;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.summary-card .divider {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.summary-card .muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.summary-card .s-num {
+  color: #ffffff;
+  font-family: -apple-system, "PingFang SC", sans-serif;
+}
+
+.summary-line {
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
+
+.summary-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.s-item {
+  text-align: center;
+  flex: 1;
+}
+
+.s-num {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #f0592b;
+  margin-bottom: 4rpx;
+}
+
+.factor-note {
+  margin-top: 20rpx;
+  line-height: 1.5;
+}
+
+.fav-count {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #9c9084;
+}
+
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.pref-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.empty-hint {
+  line-height: 1.7;
+  padding: 10rpx 0 16rpx;
+}
+
+.add-link {
+  font-size: 26rpx;
+  color: #f0592b;
+  font-weight: 400;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 0;
+}
+
+.member + .member {
+  border-top: 2rpx solid #f1eae0;
+}
+
+.member-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.remove {
+  color: #c0574f;
+  font-size: 25rpx;
+  padding: 10rpx 0 10rpx 24rpx;
+  flex-shrink: 0;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.form-label {
+  width: 160rpx;
+  font-size: 28rpx;
+}
+
+.picker-value {
+  color: #f0592b;
+  font-size: 28rpx;
+}
+
+.age-input {
+  border: 2rpx solid #e9e1d5;
+  border-radius: 10rpx;
+  padding: 8rpx 16rpx;
+  width: 200rpx;
+  font-size: 28rpx;
+}
+
+.form-btn {
+  margin-top: 16rpx;
+}
+
+.about {
+  line-height: 1.7;
+  font-size: 24rpx;
+}
+
+.budget-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 4rpx 0 18rpx;
+}
+
+.budget-yuan {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #f0592b;
+}
+
+.budget-input {
+  border: 2rpx solid #e9e1d5;
+  border-radius: 10rpx;
+  padding: 8rpx 16rpx;
+  width: 160rpx;
+  font-size: 30rpx;
+  font-variant-numeric: tabular-nums;
+}

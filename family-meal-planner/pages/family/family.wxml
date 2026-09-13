@@ -1,0 +1,115 @@
+<view class="page">
+  <view class="card summary-card" wx:if="{{summary}}">
+    <view class="card-title">我的家庭（{{summary.count}} 口人）</view>
+    <view class="divider"></view>
+    <view class="summary-line">全家每日营养目标：</view>
+    <view class="summary-grid">
+      <view class="s-item"><view class="s-num">{{summary.kcal}}</view><view class="muted">能量 kcal</view></view>
+      <view class="s-item"><view class="s-num">{{summary.protein}}g</view><view class="muted">蛋白质</view></view>
+      <view class="s-item"><view class="s-num">{{summary.calcium}}mg</view><view class="muted">钙</view></view>
+      <view class="s-item"><view class="s-num">{{summary.iron}}mg</view><view class="muted">铁</view></view>
+    </view>
+    <view class="muted factor-note">
+      做菜总份量系数：{{summary.factor}} 标准份（菜谱食材与购物清单按此自动换算）
+    </view>
+  </view>
+
+  <view class="card fav-entry" bindtap="onGoFavorites">
+    <view class="card-title">
+      <text>我的收藏</text>
+      <text class="fav-count">{{favCount}} 道 ›</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">口味偏好</view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">全家免辣</view>
+        <view class="muted">开启后菜单不再出现任何辣菜；关闭时家有 10 岁以下孩子仍会自动避辣</view>
+      </view>
+      <switch checked="{{noSpicy}}" color="#f0592b" bindchange="onToggleNoSpicy" />
+    </view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">不吃猪肉</view>
+        <view class="muted">开启后菜单不出现任何含猪肉食材的菜（含鲜肉包、馄饨、肉松等），也排除含酒精的菜。注：家常做法常用料酒去腥，如需严格清真，烹饪时省略料酒即可</view>
+      </view>
+      <switch checked="{{noPork}}" color="#f0592b" bindchange="onToggleNoPork" />
+    </view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">今日预算</view>
+        <view class="muted">开启后按预算自动优选便宜搭配；晚餐大荤不会被省掉，预算实在紧时会如实提示实际金额</view>
+      </view>
+      <switch checked="{{budgetOn}}" color="#f0592b" bindchange="onToggleBudget" />
+    </view>
+    <view class="budget-input-row" wx:if="{{budgetOn}}">
+      <text class="budget-yuan">¥</text>
+      <input
+        class="budget-input"
+        type="number"
+        value="{{budgetAmount}}"
+        bindblur="onBudgetInput"
+        placeholder="如 60"
+      />
+      <text class="muted">元 / 天（全家买菜钱）</text>
+    </view>
+    <view class="divider"></view>
+    <view class="pref-row">
+      <view>
+        <view class="pref-name">热量控制</view>
+        <view class="muted">轻盈模式：全天总热量自动控制在全家推荐值的 85% 左右，优先换低热量做法，适合想控制体重的家庭</view>
+      </view>
+      <switch checked="{{kcalOn}}" color="#f0592b" bindchange="onToggleKcal" />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">
+      <text>家庭成员</text>
+      <view class="add-link" bindtap="onToggleForm">{{showForm ? '收起' : '添加成员'}}</view>
+    </view>
+    <view class="divider"></view>
+
+    <view class="muted empty-hint" wx:if="{{!members.length}}">
+      还没有家庭成员。请按你家的实际情况添加（比如一位或两位老人的家庭，只添加"老人"即可），份量和营养目标会完全按真实成员计算。
+    </view>
+
+    <view class="member" wx:for="{{memberViews}}" wx:key="id" wx:for-item="m">
+      <view class="member-main">
+        <view class="member-name">{{m.label}}</view>
+        <view class="muted">{{m.desc}}</view>
+      </view>
+      <view class="remove" data-id="{{m.id}}" bindtap="onRemoveMember">删除</view>
+    </view>
+
+    <view class="form" wx:if="{{showForm}}">
+      <view class="divider" wx:if="{{members.length}}"></view>
+      <view class="form-row">
+        <text class="form-label">成员类型</text>
+        <picker range="{{roleLabels}}" value="{{roleIndex}}" bindchange="onRoleChange">
+          <view class="picker-value">{{roleLabels[roleIndex]}} ▾</view>
+        </picker>
+      </view>
+      <view class="form-row" wx:if="{{roles[roleIndex].needAge}}">
+        <text class="form-label">孩子年龄</text>
+        <input
+          class="age-input"
+          type="number"
+          placeholder="1-17 岁"
+          value="{{childAge}}"
+          bindinput="onAgeInput"
+        />
+      </view>
+      <button class="btn-primary form-btn" bindtap="onAddMember">保存成员</button>
+    </view>
+  </view>
+
+  <view class="card muted about">
+    营养目标依据《中国居民膳食营养素参考摄入量（2023 版）》按轻体力活动水平估算，仅供家庭配餐参考，不能替代医生或临床营养师的个体化建议。孕期、哺乳期及慢病成员请遵医嘱。
+  </view>
+</view>

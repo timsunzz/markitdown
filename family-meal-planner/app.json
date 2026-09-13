@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/shopping/shopping",
+    "pages/family/family",
+    "pages/recipe/recipe",
+    "pages/favorites/favorites",
+    "pages/search/search"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#f7f1e9",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "卡卡家常菜谱",
+    "backgroundColor": "#f7f1e9"
+  },
+  "tabBar": {
+    "color": "#9c9084",
+    "selectedColor": "#f0592b",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日菜单"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "购物清单"
+      },
+      {
+        "pagePath": "pages/family/family",
+        "text": "我的家庭"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
